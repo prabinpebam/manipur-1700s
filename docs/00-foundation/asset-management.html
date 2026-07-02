@@ -1,0 +1,141 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Foundation · Operations</p>
+  <h1 class="slate-hero__title">Asset Management</h1>
+  <p class="slate-hero__summary">How images, references, fonts, and audio move from a messy inbox into an
+     organized library, and finally onto the documentation pages that use them.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>Dump anything into <code>_intake/</code> without thinking. When you have a moment, rename it, move it
+     into the right <code>docs/assets/…</code> folder, and reference it from a docs page. Intake stays messy
+     and temporary; the asset library stays clean and is the only place docs point at.</p>
+</aside>
+
+<h2>The flow</h2>
+<ol class="slate-steps slate-steps--timeline">
+  <li class="slate-step">
+    <p class="slate-step__title">1 · Drop into <code>_intake/</code></p>
+    <p>A single repo-root inbox. Any format, any name, subfolders optional. No rules — the point is zero
+       friction so nothing gets lost.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">2 · Curate into <code>docs/assets/…</code></p>
+    <p>Rename to the convention, web-optimize, and move into the matching library folder. One subject per
+       file.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">3 · Reference from a docs page</p>
+    <p>Add an <code>&lt;img&gt;</code> inside a <code>slate-figure</code> with real alt text and a caption.
+       Only ever point at <code>docs/assets/…</code>, never at <code>_intake/</code>.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">4 · Clear the inbox</p>
+    <p>Once a file has moved out, delete it from <code>_intake/</code>. The inbox should trend back toward
+       empty.</p>
+  </li>
+</ol>
+
+<h2>Where everything lives</h2>
+<figure class="slate-figure">
+  <svg viewBox="0 0 920 380" role="img" xmlns="http://www.w3.org/2000/svg"
+       aria-label="Asset flow. The _intake inbox at repo root feeds the organized docs/assets library, which has benchmarking, art-style, fonts, and naming folders. Documentation pages reference only the library.">
+    <!-- connectors -->
+    <g stroke="#9aa0a6" stroke-width="2" fill="none">
+      <line x1="170" y1="96" x2="330" y2="96"/>
+      <line x1="590" y1="96" x2="750" y2="96"/>
+      <line x1="460" y1="140" x2="460" y2="176"/>
+      <line x1="140" y1="176" x2="780" y2="176"/>
+      <line x1="140" y1="176" x2="140" y2="212"/>
+      <line x1="353" y1="176" x2="353" y2="212"/>
+      <line x1="567" y1="176" x2="567" y2="212"/>
+      <line x1="780" y1="176" x2="780" y2="212"/>
+    </g>
+    <!-- inbox -->
+    <g>
+      <rect x="20" y="72" width="150" height="48" rx="8" fill="#4B5563"/>
+      <text x="95" y="93" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#ffffff">_intake/</text>
+      <text x="95" y="110" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#e5e7eb">messy inbox</text>
+    </g>
+    <!-- library -->
+    <g>
+      <rect x="330" y="72" width="260" height="48" rx="8" fill="#5A1720"/>
+      <text x="460" y="93" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#ffffff">docs/assets/  (library)</text>
+      <text x="460" y="110" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#f0dcdf">curated · renamed · optimized</text>
+    </g>
+    <!-- docs -->
+    <g>
+      <rect x="750" y="72" width="150" height="48" rx="8" fill="#7A1F2B"/>
+      <text x="825" y="93" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#ffffff">docs pages</text>
+      <text x="825" y="110" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#f0dcdf">&lt;img&gt; in figures</text>
+    </g>
+    <!-- library subfolders -->
+    <g font-family="Segoe UI, sans-serif" fill="#ffffff" font-size="12" font-weight="700">
+      <rect x="40"  y="212" width="200" height="44" rx="8" fill="#9C3A2E"/>
+      <text x="140" y="239" text-anchor="middle">benchmarking/</text>
+      <rect x="253" y="212" width="200" height="44" rx="8" fill="#9C3A2E"/>
+      <text x="353" y="239" text-anchor="middle">art-style/</text>
+      <rect x="467" y="212" width="200" height="44" rx="8" fill="#9C3A2E"/>
+      <text x="567" y="239" text-anchor="middle">fonts/</text>
+      <rect x="680" y="212" width="200" height="44" rx="8" fill="#9C3A2E"/>
+      <text x="780" y="239" text-anchor="middle">naming/</text>
+    </g>
+    <text x="460" y="300" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#9aa0a6">Docs pages reference the library only — never the inbox.</text>
+  </svg>
+  <figcaption>Assets flow left to right: messy inbox → organized library → referenced on pages.</figcaption>
+</figure>
+
+<h2>Folder map</h2>
+<table>
+  <thead><tr><th>Path</th><th>Holds</th><th>Referenced by</th></tr></thead>
+  <tbody>
+    <tr><td><code>_intake/</code></td><td>Raw, unsorted drops (temporary)</td><td>Nothing — staging only</td></tr>
+    <tr><td><code>docs/assets/benchmarking/stardew-valley/</code></td><td>Stardew reference shots</td><td><a href="../15-benchmarking/stardew-valley.html">Stardew Valley</a></td></tr>
+    <tr><td><code>docs/assets/benchmarking/japanese-rural-life/</code></td><td>Sakuna, Story of Seasons, etc.</td><td><a href="../15-benchmarking/japanese-rural-life.html">Japanese Rural Life</a></td></tr>
+    <tr><td><code>docs/assets/art-style/references/</code></td><td>Real &amp; historical visual refs</td><td><a href="../40-art-audio/art-style.html">Art &amp; Art Style</a></td></tr>
+    <tr><td><code>docs/assets/art-style/moodboards/</code></td><td>Assembled style targets</td><td><a href="../40-art-audio/art-style.html">Art &amp; Art Style</a></td></tr>
+    <tr><td><code>docs/assets/fonts/references/</code></td><td>Meetei Mayek script references</td><td><a href="../40-art-audio/font-design.html">Font Design</a></td></tr>
+    <tr><td><code>docs/assets/fonts/specimens/</code></td><td>Our type specimens</td><td><a href="../40-art-audio/font-design.html">Font Design</a></td></tr>
+    <tr><td><code>docs/assets/naming/</code></td><td>Title treatments &amp; logo tries</td><td><a href="name-brainstorming.html">Name Brainstorming</a></td></tr>
+  </tbody>
+</table>
+
+<h2>Naming convention</h2>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">One predictable pattern</p>
+  <p><code>&lt;area&gt;-&lt;subject&gt;-&lt;short-desc&gt;-&lt;nn&gt;.&lt;ext&gt;</code> — lowercase,
+     hyphenated, two-digit sequence. Areas: <code>sdv</code>, <code>jp</code>, <code>art</code>,
+     <code>font</code>, <code>name</code>.</p>
+</div>
+<table>
+  <thead><tr><th>Example filename</th><th>Lands in</th></tr></thead>
+  <tbody>
+    <tr><td><code>sdv-farm-spring-layout-01.jpg</code></td><td>benchmarking/stardew-valley/</td></tr>
+    <tr><td><code>jp-sakuna-ricefield-ui-02.png</code></td><td>benchmarking/japanese-rural-life/</td></tr>
+    <tr><td><code>art-costume-phanek-innaphi-ref-01.jpg</code></td><td>art-style/references/</td></tr>
+    <tr><td><code>font-meeteimayek-consonants-01.png</code></td><td>fonts/references/</td></tr>
+    <tr><td><code>name-kangleipak-title-try-01.png</code></td><td>naming/</td></tr>
+  </tbody>
+</table>
+
+<h2>How a page points at an asset</h2>
+<p>Paths are relative to the page that includes them. Subfolder pages (like the ones in
+   <code>15-benchmarking/</code> or <code>40-art-audio/</code>) reach the library with <code>../assets/…</code>;
+   top-level pages use <code>assets/…</code>.</p>
+<figure class="slate-figure">
+  <img src="../assets/art-style/moodboards/art-moodboard-village-01.jpg"
+       alt="Placeholder — a village moodboard will render here once added to the asset library.">
+  <figcaption>Example: a <code>slate-figure</code> pointing at
+     <code>../assets/art-style/moodboards/art-moodboard-village-01.jpg</code>. It shows a broken tile until
+     that file exists — which is exactly how you'll know a slot is still waiting for art.</figcaption>
+</figure>
+
+<h2>What not to commit</h2>
+<div class="slate-callout slate-callout--warning" role="note">
+  <p class="slate-callout__title">Keep the repo light</p>
+  <p>Heavy source files (PSD, AI, RAW, uncompressed audio/video) are git-ignored. Export a web-friendly
+     version into <code>docs/assets/…</code> and keep the source elsewhere. Empty library folders are kept
+     alive with a <code>.gitkeep</code> file.</p>
+</div>
+
+<p><a href="README.html">← Back to Project Foundation</a></p>

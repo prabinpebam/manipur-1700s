@@ -11,27 +11,43 @@ The documentation is presented with **Slate**, a zero-build static docs viewer (
 
 ```
 manipur-1700s/
-├─ docs-presentation-skill/   # the Slate docs-presentation skill (the viewer engine) — do not edit
-└─ docs/                      # the live documentation site (content root)
+├─ _intake/                    # messy inbox: drop raw assets here (temporary)
+├─ docs-presentation-skill/    # the Slate docs-presentation skill (the viewer engine) — do not edit
+└─ docs/                       # the live documentation site (content root)
    ├─ index.html              # viewer entry → ../docs-presentation-skill/shell
    ├─ slate.config.json       # branding
    ├─ docs-manifest.json      # the page list / navigation
    ├─ landing.html            # Overview
    ├─ methodology.html        # How We Work (the 9-phase method)
    ├─ backlog.html            # Documentation backlog / "doc debt" tracker
-   ├─ 00-foundation/          # vision, scope, canonical year, glossary
+   ├─ assets/                 # organized asset library (referenced by docs pages)
+   ├─ 00-foundation/          # vision, scope, canonical year, glossary, naming, asset mgmt
    ├─ 10-historical-research/ # the Knowledge Bible + fact database
+   ├─ 15-benchmarking/        # Stardew Valley & Japanese rural-life references
    ├─ 20-game-design/         # systems derived from history
    ├─ 30-narrative/           # story, characters, folklore
-   ├─ 40-art-audio/           # visual & audio direction
+   ├─ 40-art-audio/           # visual & audio direction, art style, font design
    ├─ 50-technical/           # engine, architecture, content pipeline
    ├─ 60-production/          # roadmap, team, risks
    └─ 70-cultural-integrity/  # advisory board, sensitivity, community
 ```
 
-The eight numbered folders are the **documentation domains**. Each has an overview (`README.html`) that
+The nine numbered folders are the **documentation domains**. Each has an overview (`README.html`) that
 lists and tracks the detail documents still to be written — this is how we "slowly detail out every
 aspect." Add new pages into the relevant folder and register them in `docs/docs-manifest.json`.
+
+## Managing assets
+
+Images, references, fonts, and audio follow a simple two-stage flow:
+
+1. **`_intake/`** — a repo-root inbox. Drop anything here, any name, no rules. It's meant to be messy and
+   temporary.
+2. **`docs/assets/…`** — the organized library. Rename, web-optimize, and move files here, then reference
+   them from docs pages with `<img>` (only ever point at the library, never at `_intake/`).
+
+The full workflow, folder map, and naming convention live on the **Asset Management** page
+(`docs/00-foundation/asset-management.html`). Heavy source files (PSD, RAW, uncompressed audio/video) are
+git-ignored — commit a web-friendly export instead.
 
 ## Viewing the docs
 

@@ -15,3 +15,22 @@ node_modules/
 __pycache__/
 *.pyc
 .venv/
+
+# Heavy source assets — export a web version into docs/assets/ instead of committing these
+*.psd
+*.ai
+*.xcf
+*.sketch
+*.fig
+*.tif
+*.tiff
+*.raw
+*.cr2
+*.nef
+*.wav
+*.aif
+*.aiff
+*.mov
+*.mp4
+# ...but keep tracked-but-empty folders alive
+!**/.gitkeep

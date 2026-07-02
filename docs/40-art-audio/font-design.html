@@ -1,0 +1,147 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Art &amp; Audio · Detail</p>
+  <h1 class="slate-hero__title">Font Design</h1>
+  <p class="slate-hero__summary">A custom display typeface that shapes the Latin (English) alphabet to
+     evoke Meetei Mayek — so the title, logo, and UI feel unmistakably Manipuri while staying readable to a
+     global player.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>Design an English display face whose letterforms borrow the visual DNA of Meetei Mayek — its rounded
+     bowls, looping strokes, and distinctive terminals — without becoming illegible or a caricature. It is
+     for titles, headings, and signage, not body text. The real script is used for genuine Meiteilon; this
+     face is the <em>flavour</em> layer on top.</p>
+</aside>
+
+<div class="slate-callout slate-callout--warning" role="note">
+  <p class="slate-callout__title">Evoke, don't counterfeit</p>
+  <p>This is a Latin face <em>inspired by</em> Meetei Mayek — not a replacement for the script and not
+     "fake writing." Actual Meiteilon text must be set in genuine Meetei Mayek (see
+     <a href="../10-historical-research/README.html">Historical Research</a> on language/script). The design
+     must respect the script, never mock it; review with <a href="../70-cultural-integrity/README.html">Cultural
+     Integrity</a>.</p>
+</div>
+
+<h2>Design goals</h2>
+<dl class="slate-defs">
+  <dt>Evocative</dt>
+  <dd>A first glance reads "Manipur / Meetei Mayek," even to someone who can't read the script.</dd>
+  <dt>Legible</dt>
+  <dd>English stays instantly readable — every A is an A. Character, not confusion.</dd>
+  <dt>Display-first</dt>
+  <dd>Tuned for large sizes: title screen, logo, section headers, in-world signage.</dd>
+  <dt>Respectful</dt>
+  <dd>Borrows real structural features of the script, not a parody of them.</dd>
+</dl>
+
+<h2>The idea in one picture</h2>
+<p>Take the skeleton of each Latin letter and reshape it with Meetei Mayek's rounded, looping character —
+   keeping the letter recognisable.</p>
+<figure class="slate-figure">
+  <svg viewBox="0 0 920 240" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Concept: a plain Latin letter A on the left is restyled with rounded, looping Meetei-Mayek-inspired strokes on the right.">
+    <!-- left: plain -->
+    <rect x="40" y="30" width="360" height="180" rx="12" fill="#efe7e8"/>
+    <text x="220" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="120" font-weight="700" fill="#4B5563">A a</text>
+    <text x="220" y="196" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#7a5c60">Plain Latin skeleton</text>
+    <!-- arrow -->
+    <g stroke="#9aa0a6" stroke-width="4" fill="none">
+      <line x1="415" y1="120" x2="500" y2="120"/>
+    </g>
+    <polygon points="500,108 522,120 500,132" fill="#9aa0a6"/>
+    <!-- right: restyled (stylized rounded forms suggesting the concept) -->
+    <rect x="520" y="30" width="360" height="180" rx="12" fill="#5A1720"/>
+    <g fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+      <!-- stylized 'A' with rounded looped apex -->
+      <path d="M600 175 L628 70 a22 22 0 0 1 40 0 L696 175"/>
+      <path d="M612 132 q36 22 72 0"/>
+      <!-- stylized rounded 'a' bowl with tail loop -->
+      <circle cx="770" cy="132" r="34"/>
+      <path d="M804 108 q20 -6 14 30 q-4 30 -30 34"/>
+    </g>
+    <text x="700" y="200" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#f0dcdf">Meetei-Mayek-inspired display form</text>
+  </svg>
+  <figcaption>Concept only: the same letter, reshaped with rounded bowls and looping terminals drawn from
+     Meetei Mayek. Real glyphs will be drawn properly in a type tool.</figcaption>
+</figure>
+
+<h2>Where it's used — and where it isn't</h2>
+<div class="slate-compare">
+  <div class="slate-compare__col">
+    <p class="slate-compare__head">Use it for</p>
+    <p>Game title &amp; logo, chapter/section headers, in-world signage, splash and menu accents.</p>
+  </div>
+  <div class="slate-compare__col">
+    <p class="slate-compare__head">Pair it with</p>
+    <p>A clean, neutral sans for body text and UI, so long strings stay readable and accessible.</p>
+  </div>
+  <div class="slate-compare__col">
+    <p class="slate-compare__head">Don't use it for</p>
+    <p>Paragraphs, subtitles, or anything a player must read quickly — and never to fake real Meiteilon.</p>
+  </div>
+</div>
+
+<h2>Feature checklist</h2>
+<table>
+  <thead><tr><th>Feature</th><th>Target</th></tr></thead>
+  <tbody>
+    <tr><td>Character set</td><td>A–Z, a–z, 0–9, core punctuation (display scope)</td></tr>
+    <tr><td>Signature traits</td><td>Rounded bowls, looping terminals, distinctive Meetei-Mayek-like joints</td></tr>
+    <tr><td>Legibility guardrail</td><td>Every glyph passes an "is this the right English letter?" test</td></tr>
+    <tr><td>Weights</td><td>At least Regular + Bold for title/heading hierarchy</td></tr>
+    <tr><td>Format</td><td>Web font (WOFF2) + source (glyphs/UFO) kept out of the repo if heavy</td></tr>
+    <tr><td>Accessibility</td><td>Display-only; body text uses a paired legible sans</td></tr>
+  </tbody>
+</table>
+
+<h2>Reference: real Meetei Mayek</h2>
+<p>Study the genuine script first. Drop specimen charts into <code>docs/assets/fonts/references/</code> and
+   swap the placeholders below for <code>&lt;img src="../assets/fonts/references/…"&gt;</code>.</p>
+<div class="slate-card-grid" data-cols="2">
+  <figure class="slate-figure">
+    <svg viewBox="0 0 640 380" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder for a Meetei Mayek script chart">
+      <rect x="0" y="0" width="640" height="380" rx="12" fill="#efe7e8" stroke="#c9b7ba" stroke-width="3" stroke-dasharray="10 8"/>
+      <text x="320" y="178" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#7A1F2B">Add reference</text>
+      <text x="320" y="214" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#7a5c60">font-meeteimayek-iyek-ipee-01.png</text>
+    </svg>
+    <figcaption>The Meetei Mayek letter chart (iyek ipee) — the structural source to study.</figcaption>
+  </figure>
+  <figure class="slate-figure">
+    <svg viewBox="0 0 640 380" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder for a Meetei Mayek signage reference">
+      <rect x="0" y="0" width="640" height="380" rx="12" fill="#efe7e8" stroke="#c9b7ba" stroke-width="3" stroke-dasharray="10 8"/>
+      <text x="320" y="178" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#7A1F2B">Add reference</text>
+      <text x="320" y="214" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#7a5c60">font-meeteimayek-signage-01.jpg</text>
+    </svg>
+    <figcaption>Meetei Mayek in the wild — weights, terminals, and real proportions.</figcaption>
+  </figure>
+</div>
+
+<h2>Our specimens</h2>
+<p>As the face develops, export specimens to <code>docs/assets/fonts/specimens/</code> and show them here.</p>
+<div class="slate-card-grid" data-cols="2">
+  <figure class="slate-figure">
+    <svg viewBox="0 0 640 380" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder for our typeface specimen">
+      <rect x="0" y="0" width="640" height="380" rx="12" fill="#efe7e8" stroke="#c9b7ba" stroke-width="3" stroke-dasharray="10 8"/>
+      <text x="320" y="178" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#7A1F2B">Add specimen</text>
+      <text x="320" y="214" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#7a5c60">font-specimen-alphabet-01.png</text>
+    </svg>
+    <figcaption>Full A–Z / a–z specimen of the display face.</figcaption>
+  </figure>
+  <figure class="slate-figure">
+    <svg viewBox="0 0 640 380" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder for a title-treatment specimen">
+      <rect x="0" y="0" width="640" height="380" rx="12" fill="#efe7e8" stroke="#c9b7ba" stroke-width="3" stroke-dasharray="10 8"/>
+      <text x="320" y="178" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#7A1F2B">Add specimen</text>
+      <text x="320" y="214" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#7a5c60">font-specimen-title-01.png</text>
+    </svg>
+    <figcaption>Title treatment — test the face on the shortlisted game names.</figcaption>
+  </figure>
+</div>
+
+<h2>Next steps</h2>
+<ol class="slate-steps slate-steps--timeline">
+  <li class="slate-step"><p class="slate-step__title">Collect script references</p><p>Gather Meetei Mayek charts and signage into the fonts reference folder.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Sketch the alphabet</p><p>Design A–Z / a–z by hand or in a type tool, testing legibility at each step.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Specimen &amp; review</p><p>Export a specimen, test on the <a href="../00-foundation/name-brainstorming.html">shortlisted names</a>, and get Cultural Integrity sign-off.</p></li>
+</ol>
+
+<p><a href="README.html">← Back to Art &amp; Audio Direction</a> · <a href="art-style.html">Art &amp; Art Style →</a></p>
