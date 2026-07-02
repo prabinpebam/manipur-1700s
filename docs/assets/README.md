@@ -9,7 +9,7 @@ arrive from `../../_intake/` after being renamed and web-optimized.
 assets/
   benchmarking/
     stardew-valley/         Reference shots & analysis images for Stardew Valley
-    japanese-rural-life/    Sakuna, Story of Seasons, etc.
+    japanese-rural-life/    Japanese Rural Life Adventure, etc.
   art-style/
     references/             Real-world & historical visual references
     moodboards/             Assembled moodboards / style targets
