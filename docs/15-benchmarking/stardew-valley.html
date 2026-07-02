@@ -1,60 +1,243 @@
 <header class="slate-hero">
-  <p class="slate-hero__eyebrow">Benchmark · Reference Title</p>
+  <p class="slate-hero__eyebrow">Benchmark · Deep Dive</p>
   <h1 class="slate-hero__title">Stardew Valley</h1>
-  <p class="slate-hero__summary">The definitive cozy farming-life sim, and our clearest quality bar for
-     loop, tone, and approachability. This page separates what we emulate from what we rebuild.</p>
+  <p class="slate-hero__summary">The modern gold standard for the cozy farming-life sim. A twelve-dimension
+     teardown of why it works — read through <a href="framework.html">The Benchmark Lens</a> — so we can
+     rebuild the feeling with 1700s-Manipur content.</p>
 </header>
 
 <aside class="slate-tldr">
   <p class="slate-tldr__label">TL;DR</p>
-  <p>Stardew nails the "just one more day" loop, gentle onboarding, and NPCs worth caring about — all of
-     which we want. But its Pelican Town setting, festivals, and folklore are American-pastoral; we keep the
-     <em>structure</em> of those systems and refill every one with Meitei content from the Knowledge Bible.</p>
+  <p>Stardew Valley fuses a low-stakes daily loop, layered progression, and a town full of people worth
+     caring about, all wrapped in an anti-corporate "reclaim a simple life" fantasy. Its power is
+     <em>interlocking systems under gentle scarcity</em>: time and energy make every day a small puzzle, while
+     seasons, relationships, and the Community Center give long horizons. We emulate the loop and motivation
+     model, adapt the calendar/festivals/economy to Meitei life, and reject its Western-pastoral skin and
+     bolt-on combat.</p>
 </aside>
 
-<h2>Why it's our primary benchmark</h2>
-<div class="slate-metrics">
-  <div class="slate-metric"><p class="slate-metric__value">Loop</p><p class="slate-metric__label">Daily rhythm we want to match</p></div>
-  <div class="slate-metric"><p class="slate-metric__value">Cozy</p><p class="slate-metric__label">Low-stress tone, no fail state</p></div>
-  <div class="slate-metric"><p class="slate-metric__value">NPCs</p><p class="slate-metric__label">Relationships that reward attention</p></div>
-  <div class="slate-metric"><p class="slate-metric__value">Onboarding</p><p class="slate-metric__label">Easy to start, deep to master</p></div>
+<div class="slate-callout slate-callout--info" role="note">
+  <p class="slate-callout__title">One-person proof</p>
+  <p>Eric "ConcernedApe" Barone made almost all of it — art, code, music, design — over ~4 years, inspired by
+     <em>Harvest Moon</em> and <em>EarthBound</em>. It is the clearest evidence that a small team can ship a
+     genre-defining life-sim if the systems cohere.</p>
 </div>
 
-<h2>What we take, adapt, and reject</h2>
+<h2>1 · Premise &amp; fantasy</h2>
+<p>You inherit your late grandfather's overgrown farm and escape a soul-deadening corporate job (Joja) for a
+   slower, self-directed rural life. The fantasy is <strong>escape + self-determination + belonging</strong>:
+   trade the cubicle for soil you own, a routine you set, and a town that slowly becomes yours.</p>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Adapt</p>
+  <p>Our fantasy is close but re-rooted: not "escape capitalism" but "belong to a living 18th-century Meitei
+     valley." Keep the reclaim-a-life spine; change the thing being escaped and the world being joined.</p>
+</div>
+
+<h2>2 · Core loop &amp; pacing</h2>
+<p>A day runs 6 AM–2 AM. You <strong>plan</strong> against your energy and goals, <strong>act</strong>
+   (water, harvest, mine, fish, socialise), <strong>earn</strong> (crops, ore, friendship, money), and
+   <strong>reinvest</strong> (tools, seeds, buildings, gifts). Seasons of 28 days gate what's possible;
+   festivals punctuate the rhythm; multi-year goals pull the whole thing forward.</p>
+<figure class="slate-figure">
+  <svg viewBox="0 0 920 200" role="img" xmlns="http://www.w3.org/2000/svg"
+       aria-label="Stardew day loop: plan, act, earn, reinvest, sleep, then repeat, nested inside season and year clocks.">
+    <g font-family="Segoe UI, sans-serif" text-anchor="middle" fill="#ffffff">
+      <rect x="20"  y="70" width="150" height="60" rx="10" fill="#7A1F2B"/><text x="95"  y="105" font-size="14" font-weight="700">Plan</text>
+      <rect x="205" y="70" width="150" height="60" rx="10" fill="#7A1F2B"/><text x="280" y="105" font-size="14" font-weight="700">Act</text>
+      <rect x="390" y="70" width="150" height="60" rx="10" fill="#7A1F2B"/><text x="465" y="105" font-size="14" font-weight="700">Earn</text>
+      <rect x="575" y="70" width="150" height="60" rx="10" fill="#7A1F2B"/><text x="650" y="105" font-size="14" font-weight="700">Reinvest</text>
+      <rect x="760" y="70" width="140" height="60" rx="10" fill="#4B5563"/><text x="830" y="105" font-size="14" font-weight="700">Sleep</text>
+    </g>
+    <g stroke="#9aa0a6" stroke-width="3" fill="none">
+      <line x1="170" y1="100" x2="205" y2="100"/><line x1="355" y1="100" x2="390" y2="100"/>
+      <line x1="540" y1="100" x2="575" y2="100"/><line x1="725" y1="100" x2="760" y2="100"/>
+    </g>
+    <path d="M830 130 q0 45 -370 45 q-370 0 -370 -45" stroke="#9aa0a6" stroke-width="3" fill="none"/>
+    <polygon points="90,168 60,178 92,186" fill="#9aa0a6"/>
+    <text x="460" y="30" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#9aa0a6">Each day ~15–20 minutes · nested in 28-day seasons · nested in years</text>
+  </svg>
+  <figcaption>The daily loop is short enough that "one more day" is a small, safe commitment.</figcaption>
+</figure>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Emulate</p>
+  <p>The short-day, multi-clock structure is the heart of the genre. Keep it; retune the clocks to the Meitei
+     calendar and monsoon paddy cycle.</p>
+</div>
+
+<h2>3 · Systems &amp; mechanics</h2>
+<p>The joy is variety under one roof — five skill tracks and several distinct "games" that feed each other.</p>
+<table>
+  <thead><tr><th>System</th><th>What it is</th><th>Feeds into</th></tr></thead>
+  <tbody>
+    <tr><td>Farming</td><td>Till, plant, water daily, harvest within a season; livestock &amp; artisan goods</td><td>Money, cooking, bundles, gifts</td></tr>
+    <tr><td>Mining &amp; combat</td><td>Descend the mines for ore; light RPG combat vs. monsters; risk/reward</td><td>Tool upgrades, crafting, rings/gear</td></tr>
+    <tr><td>Fishing</td><td>Timing mini-game; varies by location, weather, season</td><td>Income, bundles, recipes</td></tr>
+    <tr><td>Foraging</td><td>Seasonal wild goods across the map</td><td>Cooking, bundles, gifts</td></tr>
+    <tr><td>Crafting &amp; automation</td><td>Sprinklers, kegs, preserves jars, chests</td><td>Removes daily chores, scales output</td></tr>
+    <tr><td>Social</td><td>Talk, gift (twice/week), heart events, marriage</td><td>Relationships, help on farm, story</td></tr>
+  </tbody>
+</table>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Adapt / partly Reject</p>
+  <p>Keep the multi-activity variety and automation curve. Adapt farming to real paddy/terrace methods; adapt
+     "fishing/foraging" to Loktak and forest gathering. The dungeon-crawl combat is likely
+     <strong>rejected</strong> or radically rethought — bolt-on RPG combat would fight our tone and era.</p>
+</div>
+
+<h2>4 · Progression &amp; mastery</h2>
+<p>Progression is multi-vector so it never stalls: <strong>skills</strong> (5 tracks, professions at levels 5
+   &amp; 10) → <strong>tools</strong> (copper→iridium upgrades that water/break more per action) →
+   <strong>automation</strong> (sprinklers free your mornings) → <strong>infrastructure</strong> (barns,
+   greenhouse, sheds) → <strong>completion</strong> (bundles, museum, perfection). Early mastery removes
+   chores; late mastery is optimisation and collection.</p>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Emulate</p>
+  <p>The "each upgrade buys back time" curve is gold. Reproduce it with period-plausible tools and household
+     growth rather than iridium sci-fi metals.</p>
+</div>
+
+<h2>5 · Motivation model — why you keep playing</h2>
+<p>Stardew is a textbook of <strong>Self-Determination Theory</strong> plus soft compulsion.</p>
+<div class="slate-card-grid" data-cols="3">
+  <article class="slate-card"><h3 class="slate-card__title">Autonomy</h3><p class="slate-card__body">You set your own goals and pace; almost nothing is forced. Play it as a farm, a social game, or a completionist puzzle.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Competence</h3><p class="slate-card__body">Constant small wins and visible mastery — a tidier farm, a filled bundle, an optimised day.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Relatedness</h3><p class="slate-card__body">Friendships, romance, and family give belonging; the town reacts to you.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Variable reward</h3><p class="slate-card__body">Weather, geode contents, fish, random events — anticipation without slot-machine cruelty.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Low stakes</h3><p class="slate-card__body">No real fail state; passing out costs little. Safety is what makes it a "comfort game."</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Overlapping goals</h3><p class="slate-card__body">Something always finishes tomorrow — a crop, a heart, a season — so you keep going.</p></article>
+</div>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Emulate</p>
+  <p>This is the transferable core. Autonomy, gentle competence, real relatedness, low stakes, and overlapping
+     timers should be non-negotiable design pillars for our game.</p>
+</div>
+
+<h2>6 · Economy &amp; tension</h2>
+<p>The game is relaxing <em>because</em> it is scarce. <strong>Time</strong> (a finite day),
+   <strong>energy</strong> (finite actions), <strong>seasons</strong> (crops die at season's end), and
+   <strong>money</strong> (everything competes for it) turn each morning into a small optimisation. Remove any
+   one and the daily puzzle collapses.</p>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Emulate</p>
+  <p>Keep the time+energy+season triangle. Tie energy to food (chak, ngari) and the season clock to the
+     monsoon so scarcity feels historically true, not arbitrary.</p>
+</div>
+
+<h2>7 · Characters &amp; relationships</h2>
+<p>Roughly 30+ named villagers, each with a routine, backstory, and <strong>heart events</strong> that unlock
+   as friendship grows — revealing depression (Shane), poverty (Penny/Pam), aspiration (Sebastian), and more.
+   Twelve are marriage candidates; a spouse moves in, helps, and you can have children. Gifting (loved/hated
+   preferences) and festivals are the connective tissue.</p>
+<figure class="slate-figure">
+  <svg viewBox="0 0 920 150" role="img" xmlns="http://www.w3.org/2000/svg"
+       aria-label="Relationship ladder: stranger, acquaintance, friend, close friend, heart events, dating, marriage and family.">
+    <g font-family="Segoe UI, sans-serif" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">
+      <rect x="20"  y="55" width="120" height="44" rx="8" fill="#9aa0a6"/><text x="80"  y="82">Stranger</text>
+      <rect x="150" y="55" width="120" height="44" rx="8" fill="#B8623E"/><text x="210" y="82">Talk daily</text>
+      <rect x="280" y="55" width="120" height="44" rx="8" fill="#9C3A2E"/><text x="340" y="82">Gift</text>
+      <rect x="410" y="55" width="140" height="44" rx="8" fill="#7A1F2B"/><text x="480" y="82">Heart events</text>
+      <rect x="560" y="55" width="120" height="44" rx="8" fill="#7A1F2B"/><text x="620" y="82">Dating</text>
+      <rect x="690" y="55" width="120" height="44" rx="8" fill="#5A1720"/><text x="750" y="82">Marriage</text>
+      <rect x="820" y="55" width="80"  height="44" rx="8" fill="#5A1720"/><text x="860" y="82">Family</text>
+    </g>
+    <g stroke="#9aa0a6" stroke-width="2"><line x1="20" y1="120" x2="900" y2="120"/></g>
+    <text x="460" y="140" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#9aa0a6">Friendship measured in hearts; each stage unlocks story, not just stats.</text>
+  </svg>
+  <figcaption>Relationships are a progression track with narrative payoffs, not a side menu.</figcaption>
+</figure>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Emulate the structure, Adapt the content</p>
+  <p>Keep hearts, heart-events, gifting, and marriage-as-progression. Rebuild every character, custom, and gift
+     from Meitei social reality — courtship, kinship, and etiquette of the era must be correct.</p>
+</div>
+
+<h2>8 · Narrative &amp; content scaling</h2>
+<p>The story is <strong>ambient</strong>: Grandpa's letter frames the fantasy; after two in-game years his
+   spirit <em>evaluates</em> your farm, friendships, and wealth (nothing → golden statue). The spine choice is
+   <strong>Community Center vs. Joja</strong> — restore the town by completing bundles, or pay the corporation
+   to gut it. Content keeps opening: greenhouse, desert, Ginger Island, perfection tracker, multiplayer. There
+   is no forced ending; goals shift to expansion, collection, and relationships.</p>
 <div class="slate-compare">
   <div class="slate-compare__col">
-    <p class="slate-compare__head">Emulate</p>
-    <p>The core day loop; energy/time budget; forgiving pace; friendship hearts; a town that slowly opens up;
-       readable pixel-adjacent clarity.</p>
+    <p class="slate-compare__head">Community Center</p>
+    <p>Cooperative, seasonal bundles restore the town — tradition, effort, togetherness.</p>
   </div>
   <div class="slate-compare__col">
-    <p class="slate-compare__head">Adapt</p>
-    <p>Seasonal festivals → Meitei festivals; crops/tools → paddy, ngari, local implements; the calendar →
-       the Meitei lunar-solar year and Lallup labour duty.</p>
+    <p class="slate-compare__head">Joja route</p>
+    <p>Pay to skip — fast, transactional, and the town's heart becomes a warehouse.</p>
   </div>
   <div class="slate-compare__col">
-    <p class="slate-compare__head">Reject</p>
-    <p>Western pastoral aesthetic; wizard/Junimo fantasy; generic RPG combat mine; anything that implies the
-       wrong economy or religion for the era.</p>
+    <p class="slate-compare__head">The lesson</p>
+    <p>A single value-laden choice makes the whole world feel like it responds to who you are.</p>
   </div>
 </div>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Adapt</p>
+  <p>Keep ambient storytelling, a framing goal, and content that scales without a wall. Replace Joja/Community
+     Center with a period-true value tension (e.g. individual gain vs. Lallup communal duty), grounded in
+     research, never anachronistic corporate satire.</p>
+</div>
 
-<h2>Systems teardown</h2>
+<h2>9 · Art &amp; audio</h2>
+<p>Handcrafted SNES-era pixel art with a unified aesthetic; a palette that shifts by season, weather, and time
+   of day; expressive manga-influenced character portraits; and a clean retro UI that stays out of the way. The
+   music is a chiptune/instrumental hybrid with distinct seasonal themes and rainy/sunny variants that track
+   the world state.</p>
 <table>
-  <thead><tr><th>System</th><th>What Stardew does</th><th>Our takeaway for 1700s Manipur</th></tr></thead>
+  <thead><tr><th>Element</th><th>Choice</th><th>Effect</th></tr></thead>
   <tbody>
-    <tr><td>Daily loop</td><td>Wake, farm, town, sleep; energy caps the day</td><td>Keep the shape; energy tied to food (chak) and season</td></tr>
-    <tr><td>Seasons</td><td>4 seasons × 28 days, crops gated by season</td><td>Replace with the Meitei calendar &amp; monsoon paddy cycle</td></tr>
-    <tr><td>Festivals</td><td>One signature event per season</td><td>Real festivals (e.g. Lai Haraoba, Yaoshang) rebuilt from research</td></tr>
-    <tr><td>Relationships</td><td>Hearts, gifts, cutscenes, marriage</td><td>Keep; gifts &amp; customs must be period- and culture-correct</td></tr>
-    <tr><td>Progression</td><td>Tool upgrades, skills, community centre</td><td>Keep gentle mastery; frame around household &amp; village standing</td></tr>
-    <tr><td>Combat/mines</td><td>Optional dungeon crawl</td><td>Likely reject or heavily rethink; avoid bolt-on RPG combat</td></tr>
+    <tr><td>Palette</td><td>Season-shifting; pastel spring → warm autumn → cool winter</td><td>The screen tells you the time of year at a glance</td></tr>
+    <tr><td>Portraits</td><td>Large, expressive, consistent with sprites</td><td>NPCs read as individuals with feelings</td></tr>
+    <tr><td>UI</td><td>Retro pixel boxes, colour-coded, minimal</td><td>Readable, unobtrusive, nostalgic</td></tr>
+    <tr><td>Music</td><td>Seasonal themes + weather/day variants</td><td>Mood and immersion without fatigue</td></tr>
+  </tbody>
+</table>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Adapt</p>
+  <p>Emulate the <em>discipline</em> — a unified style, season-driven palette, expressive portraits, mood-led
+     music. The specific look must be ours (see <a href="../40-art-audio/art-style.html">Art &amp; Art Style</a>);
+     pixel-art is optional, not required.</p>
+</div>
+
+<h2>10 · Onboarding &amp; accessibility</h2>
+<p>A short intro, a helpful early letter drip, and systems introduced gradually rather than up front. It is
+   forgiving (soft failure), pausable, and playable in short sessions — which is a big part of its broad reach.</p>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Emulate</p>
+  <p>Teach by drip, fail softly, respect short sessions. Accessibility is what let Stardew reach millions.</p>
+</div>
+
+<h2>11 · Emotional design</h2>
+<p>Players call it a "comfort game" and "a hug in video-game form." The emotional promise is
+   <strong>safety, gentle progress, and belonging</strong> — a beautiful, kind world where effort is always
+   rewarded and nothing punishes you for living slowly.</p>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Verdict · Emulate</p>
+  <p>Protect the cozy contract. Authenticity and difficulty must never turn our game stressful or punishing;
+     reverence for Meitei life can be the source of warmth, not friction.</p>
+</div>
+
+<h2>12 · Scorecard &amp; verdict for us</h2>
+<table>
+  <thead><tr><th>Dimension</th><th>Strength</th><th>Verdict for our game</th></tr></thead>
+  <tbody>
+    <tr><td>Premise &amp; fantasy</td><td>Very high</td><td>Adapt — belong to the valley, don't escape a job</td></tr>
+    <tr><td>Core loop &amp; pacing</td><td>Very high</td><td>Emulate — retune clocks to Meitei calendar</td></tr>
+    <tr><td>Systems &amp; mechanics</td><td>High</td><td>Adapt farming; likely reject dungeon combat</td></tr>
+    <tr><td>Progression</td><td>Very high</td><td>Emulate — "upgrades buy back time"</td></tr>
+    <tr><td>Motivation model</td><td>Very high</td><td>Emulate — the SDT core is our pillar set</td></tr>
+    <tr><td>Economy &amp; tension</td><td>High</td><td>Emulate time+energy+season triangle</td></tr>
+    <tr><td>Characters</td><td>Very high</td><td>Emulate structure, rebuild all content</td></tr>
+    <tr><td>Narrative &amp; scaling</td><td>High</td><td>Adapt — period-true value tension</td></tr>
+    <tr><td>Art &amp; audio</td><td>High</td><td>Adapt discipline; look is ours</td></tr>
+    <tr><td>Onboarding</td><td>High</td><td>Emulate drip-teaching &amp; soft failure</td></tr>
+    <tr><td>Emotional design</td><td>Very high</td><td>Emulate the cozy contract</td></tr>
   </tbody>
 </table>
 
 <h2>Reference gallery</h2>
 <p>Drop Stardew reference shots into <code>docs/assets/benchmarking/stardew-valley/</code> (raw files start in
-   <code>_intake/</code>). Replace each placeholder below with an
+   <code>_intake/</code>). Replace each placeholder with an
    <code>&lt;img src="../assets/benchmarking/stardew-valley/…"&gt;</code>. See
    <a href="../00-foundation/asset-management.html">Asset Management</a>.</p>
 <div class="slate-card-grid" data-cols="3">
@@ -65,6 +248,22 @@
       <text x="320" y="224" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#7a5c60">sdv-farm-layout-01.jpg</text>
     </svg>
     <figcaption>Farm layout &amp; readability — how space and paths guide the daily loop.</figcaption>
+  </figure>
+  <figure class="slate-figure">
+    <svg viewBox="0 0 640 400" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder for a Stardew heart-event reference image">
+      <rect x="0" y="0" width="640" height="400" rx="12" fill="#efe7e8" stroke="#c9b7ba" stroke-width="3" stroke-dasharray="10 8"/>
+      <text x="320" y="188" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#7A1F2B">Add image</text>
+      <text x="320" y="224" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#7a5c60">sdv-heart-event-01.jpg</text>
+    </svg>
+    <figcaption>A heart event &amp; portrait — how character depth is delivered.</figcaption>
+  </figure>
+  <figure class="slate-figure">
+    <svg viewBox="0 0 640 400" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder for a Stardew Community Center bundle UI reference image">
+      <rect x="0" y="0" width="640" height="400" rx="12" fill="#efe7e8" stroke="#c9b7ba" stroke-width="3" stroke-dasharray="10 8"/>
+      <text x="320" y="188" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#7A1F2B">Add image</text>
+      <text x="320" y="224" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#7a5c60">sdv-community-center-01.jpg</text>
+    </svg>
+    <figcaption>Community Center bundles — the value-laden spine choice &amp; UI.</figcaption>
   </figure>
   <figure class="slate-figure">
     <svg viewBox="0 0 640 400" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder for a Stardew festival reference image">
@@ -82,12 +281,21 @@
     </svg>
     <figcaption>HUD &amp; menus — clarity, energy/time display, inventory density.</figcaption>
   </figure>
+  <figure class="slate-figure">
+    <svg viewBox="0 0 640 400" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder for a Stardew seasonal palette reference image">
+      <rect x="0" y="0" width="640" height="400" rx="12" fill="#efe7e8" stroke="#c9b7ba" stroke-width="3" stroke-dasharray="10 8"/>
+      <text x="320" y="188" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#7A1F2B">Add image</text>
+      <text x="320" y="224" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#7a5c60">sdv-season-palette-01.jpg</text>
+    </svg>
+    <figcaption>The same view across seasons — palette as a time signal.</figcaption>
+  </figure>
 </div>
 
-<div class="slate-callout slate-callout--tip" role="note">
+<div class="slate-callout slate-callout--warning" role="note">
   <p class="slate-callout__title">The one lesson</p>
-  <p>Stardew is beloved because the loop respects your time and the town rewards your curiosity. Match that
-     feeling first; the 1700s-Manipur specificity is what makes it ours.</p>
+  <p>Stardew is beloved because interlocking systems under gentle scarcity make each short day a satisfying,
+     safe choice — and the town rewards your curiosity. Match that machine first; 1700s-Manipur specificity is
+     what makes it <em>ours</em>.</p>
 </div>
 
-<p><a href="README.html">← Back to Benchmarking</a></p>
+<p><a href="framework.html">The Benchmark Lens</a> · <a href="japanese-rural-life.html">Japanese Rural Life →</a> · <a href="README.html">Back to Benchmarking</a></p>
