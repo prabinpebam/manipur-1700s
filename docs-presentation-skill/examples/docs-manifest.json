@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "config": {
+    "projectName": "Snipping Tool Docs",
+    "brandColor": "#0F6CBD",
+    "defaultTheme": "auto",
+    "landing": "after.html"
+  },
+  "entries": [
+    {
+      "path": "after.html",
+      "title": "Snipping Tool — the Click to Do Bet",
+      "order": 0,
+      "group": "Strategy",
+      "icon": "flag",
+      "badge": "new",
+      "type": "page"
+    },
+    {
+      "path": "before.md",
+      "title": "Click to Do Bet (raw notes)",
+      "order": 1,
+      "group": "Source",
+      "hidden": true,
+      "type": "page"
+    }
+  ]
+}

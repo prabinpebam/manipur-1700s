@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://slate.dev/schema/manifest.schema.json",
+  "title": "Slate documentation manifest",
+  "description": "Contract between Content and Shell. Accepts a v1 array of entries or a v2 object with version, optional config, and entries.",
+  "oneOf": [
+    {
+      "type": "array",
+      "title": "Manifest v1 (array of entries)",
+      "items": { "$ref": "#/$defs/entry" }
+    },
+    {
+      "type": "object",
+      "title": "Manifest v2 (object)",
+      "required": ["entries"],
+      "properties": {
+        "version": { "type": "integer", "const": 2 },
+        "config": { "$ref": "#/$defs/config" },
+        "entries": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/entry" }
+        }
+      },
+      "additionalProperties": true
+    }
+  ],
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Relative path to a .md or .html content file, or an absolute URL when type is 'external'.",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "description": "Nav and tab title. Derived from the first H1 when omitted."
+        },
+        "order": {
+          "type": "number",
+          "description": "Ascending sort within the entry's group or folder."
+        },
+        "group": {
+          "type": "string",
+          "description": "Explicit nav section label; overrides folder-derived grouping."
+        },
+        "icon": {
+          "type": "string",
+          "description": "Material Symbol name (e.g. 'home', 'flag') rendered via the Material Symbols font; overrides the default nav file icon."
+        },
+        "badge": {
+          "type": "string",
+          "description": "Short nav badge, e.g. 'new' or 'beta'."
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Omit from nav but keep searchable and deep-linkable.",
+          "default": false
+        },
+        "type": {
+          "type": "string",
+          "enum": ["page", "divider", "external"],
+          "default": "page"
+        }
+      },
+      "additionalProperties": true
+    },
+    "config": {
+      "$ref": "config.schema.json"
+    }
+  }
+}

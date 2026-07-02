@@ -1,0 +1,69 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Documentation-Presentation</p>
+  <h1 class="slate-hero__title">Slate</h1>
+  <p class="slate-hero__summary">A portable, zero-configuration viewer that turns Markdown and HTML
+     content into a beautiful, navigable documentation site.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>This demo is a working content root. It renders HTML and Markdown pages through one pipeline,
+     styles them with a token-driven design system, and adds navigation, search, a table of contents,
+     theming, and deep links — with no build step.</p>
+</aside>
+
+<h2>Explore</h2>
+<div class="slate-card-grid" data-cols="2">
+  <article class="slate-card slate-card--interactive">
+    <a href="click-to-do.html">
+      <h3 class="slate-card__title">The Click to Do Bet</h3>
+      <p class="slate-card__body">A rich HTML page: hero, metrics, steps, comparison, badges.</p>
+    </a>
+  </article>
+  <article class="slate-card slate-card--interactive">
+    <a href="components.html">
+      <h3 class="slate-card__title">Component gallery</h3>
+      <p class="slate-card__body">Every v1 component rendered from HTML.</p>
+    </a>
+  </article>
+  <article class="slate-card slate-card--interactive">
+    <a href="markdown-parity.md">
+      <h3 class="slate-card__title">Markdown parity</h3>
+      <p class="slate-card__body">A Markdown page with callout mapping, tables, and code.</p>
+    </a>
+  </article>
+  <article class="slate-card slate-card--interactive">
+    <a href="sanitizer.html">
+      <h3 class="slate-card__title">Sanitizer test</h3>
+      <p class="slate-card__body">Injected scripts and handlers are stripped safely.</p>
+    </a>
+  </article>
+</div>
+
+<h2>How it works</h2>
+<div class="slate-compare">
+  <div class="slate-compare__col">
+    <p class="slate-compare__head">You provide</p>
+    <ul>
+      <li>Content pages (<code>.html</code> or <code>.md</code>)</li>
+      <li>A <code>docs-manifest.json</code></li>
+      <li>Optional <code>slate.config.json</code> for branding</li>
+    </ul>
+  </div>
+  <div class="slate-compare__col">
+    <p class="slate-compare__head">Slate provides</p>
+    <ul>
+      <li>Design system + components</li>
+      <li>Navigation, search, TOC, deep links</li>
+      <li>Theming, sanitization, responsiveness</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Try it</h2>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Tip</p>
+  <p>Toggle the theme (top right), press <strong>Ctrl/Cmd-K</strong> to search, and edit
+     <code>slate.config.json</code>'s <code>brandColor</code> to rebrand the whole site with no code
+     change.</p>
+</div>

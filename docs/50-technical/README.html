@@ -1,0 +1,34 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Domain 50</p>
+  <h1 class="slate-hero__title">Technical Design</h1>
+  <p class="slate-hero__summary">The engine, architecture, and — most importantly — the pipeline that turns
+     the fact database into shippable game content.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>The technical heart is a <strong>content data pipeline</strong>: the structured Historical Database
+     is the upstream source, and gameplay data (crops, NPCs, items, events) is generated or validated
+     against it. Engine, tools, save system and platform targets support that spine.</p>
+</aside>
+
+<h2>Purpose</h2>
+<dl class="slate-defs">
+  <dt>Owns</dt>
+  <dd>Engine choice, architecture, the fact-to-content pipeline, tooling, save system, and platforms.</dd>
+  <dt>Consumes</dt>
+  <dd><a href="../10-historical-research/README.html">Historical Research</a> (the fact database schema) and <a href="../20-game-design/README.html">Game Design</a> (systems to implement).</dd>
+  <dt>Priority</dt>
+  <dd><span class="slate-badge">P2</span></dd>
+</dl>
+
+<h2>Detail documents</h2>
+<div class="slate-card-grid" data-cols="2">
+  <article class="slate-card"><h3 class="slate-card__title">Engine &amp; Platform</h3><p class="slate-card__body">Engine selection criteria and target platforms (PC first, mobile in mind).</p><p><span class="slate-badge">Planned</span> <span class="slate-badge">P2</span></p></article>
+  <article class="slate-card"><h3 class="slate-card__title">System Architecture</h3><p class="slate-card__body">High-level modules: world sim, time/calendar, economy, relationships, save.</p><p><span class="slate-badge">Planned</span></p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Content Data Pipeline</h3><p class="slate-card__body">How the Historical Database becomes validated game data — the project's "world engine."</p><p><span class="slate-badge">Planned</span> <span class="slate-badge slate-badge--warning">P1</span></p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Tools &amp; Editors</h3><p class="slate-card__body">Authoring tools for facts, dialogue, quests and map data (incl. this docs site).</p><p><span class="slate-badge">Planned</span></p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Save &amp; Progression Tech</h3><p class="slate-card__body">Persistence for household, relationships, seasons and long-arc progression.</p><p><span class="slate-badge">Planned</span></p></article>
+</div>
+
+<p><a href="../backlog.html">← Back to the Documentation Backlog</a></p>

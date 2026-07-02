@@ -1,0 +1,17 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.vscode/
+.idea/
+
+# Local static-server / temp
+*.log
+.cache/
+node_modules/
+
+# Python (if used for local serving/tools)
+__pycache__/
+*.pyc
+.venv/

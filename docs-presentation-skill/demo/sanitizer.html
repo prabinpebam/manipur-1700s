@@ -1,0 +1,38 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Reference</p>
+  <h1 class="slate-hero__title">Sanitizer test</h1>
+  <p class="slate-hero__summary">This page intentionally contains malicious markup. If sanitization
+     works, none of it executes and the dangerous nodes are stripped.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>You should see this page render cleanly with no alert dialog. The examples below are neutralized
+     by the pipeline's sanitize step before they reach the DOM.</p>
+</aside>
+
+<h2>Expected result</h2>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Pass criteria</p>
+  <p>No JavaScript dialog appears; the injected image shows no <code>onerror</code> effect; layout is
+     unaffected by the injected style; external links are hardened.</p>
+</div>
+
+<h2>Injected script (should be stripped)</h2>
+<p>Below this paragraph a script tag tries to run:</p>
+<script>alert('XSS via script tag');</script>
+
+<h2>Event handler on an image (should be stripped)</h2>
+<img src="does-not-exist.png" alt="broken image with onerror" onerror="alert('XSS via onerror')">
+
+<h2>Inline style injection (should be stripped)</h2>
+<div style="position:fixed;inset:0;background:red;z-index:9999">If you can read the rest of the page normally, the inline style was stripped.</div>
+
+<h2>javascript: link (should be neutralized)</h2>
+<p><a href="javascript:alert('XSS via href')">This link should not execute JavaScript.</a></p>
+
+<h2>SVG onload (should be stripped)</h2>
+<svg onload="alert('XSS via svg')" width="10" height="10"></svg>
+
+<h2>A legitimate external link (should be hardened)</h2>
+<p><a href="https://example.com">example.com</a> — opens in a new tab with rel="noopener noreferrer".</p>

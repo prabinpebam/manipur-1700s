@@ -1,0 +1,144 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Domain 10</p>
+  <h1 class="slate-hero__title">Historical Research</h1>
+  <p class="slate-hero__summary">The Knowledge Bible — the single source of truth about life in
+     18th-century Manipur, from which every mechanic, character, and asset is derived.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>Research is organised into ten thematic branches plus two meta-documents (method and database
+     schema). Nothing enters the game unless it can be traced to a rated entry here. This is where the
+     project earns the word "accurate."</p>
+</aside>
+
+<h2>Purpose</h2>
+<dl class="slate-defs">
+  <dt>Owns</dt>
+  <dd>The Knowledge Bible, the structured fact database, the source list, and the confidence model.</dd>
+  <dt>Feeds</dt>
+  <dd>Game Design (mechanics), Narrative (characters &amp; folklore), Art &amp; Audio (reconstruction).</dd>
+  <dt>Priority</dt>
+  <dd><span class="slate-badge slate-badge--danger">P0</span> — the spine of the whole project.</dd>
+</dl>
+
+<h2>The Knowledge Bible at a glance</h2>
+<figure class="slate-figure">
+  <svg viewBox="0 0 920 386" role="img" xmlns="http://www.w3.org/2000/svg"
+       aria-label="Mind map. A central Knowledge Bible node branches to ten themes: World and Geography, Society and Culture, Economy and Livelihoods, Government and Lallup, Architecture and Settlements, Daily Life, Nature and Environment, Language and Names, Religion and Belief, and Historical Timeline.">
+    <!-- connectors (drawn first, hidden behind boxes) -->
+    <g stroke="#9aa0a6" stroke-width="2" fill="none">
+      <line x1="200" y1="193" x2="250" y2="38"/>
+      <line x1="200" y1="193" x2="250" y2="118"/>
+      <line x1="200" y1="193" x2="250" y2="198"/>
+      <line x1="200" y1="193" x2="250" y2="278"/>
+      <line x1="200" y1="193" x2="250" y2="358"/>
+      <line x1="200" y1="193" x2="590" y2="38"/>
+      <line x1="200" y1="193" x2="590" y2="118"/>
+      <line x1="200" y1="193" x2="590" y2="198"/>
+      <line x1="200" y1="193" x2="590" y2="278"/>
+      <line x1="200" y1="193" x2="590" y2="358"/>
+    </g>
+    <!-- central node -->
+    <rect x="20" y="165" width="180" height="56" rx="8" fill="#7A1F2B"/>
+    <text x="110" y="190" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Knowledge</text>
+    <text x="110" y="208" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Bible</text>
+    <!-- leaves -->
+    <g font-family="Segoe UI, sans-serif" font-size="13" fill="#ffffff">
+      <rect x="250" y="10"  width="300" height="56" rx="8" fill="#9C3A2E"/><text x="400" y="43" text-anchor="middle">World &amp; Geography</text>
+      <rect x="250" y="90"  width="300" height="56" rx="8" fill="#9C3A2E"/><text x="400" y="123" text-anchor="middle">Society &amp; Culture</text>
+      <rect x="250" y="170" width="300" height="56" rx="8" fill="#9C3A2E"/><text x="400" y="203" text-anchor="middle">Economy &amp; Livelihoods</text>
+      <rect x="250" y="250" width="300" height="56" rx="8" fill="#9C3A2E"/><text x="400" y="283" text-anchor="middle">Government &amp; Lallup</text>
+      <rect x="250" y="330" width="300" height="56" rx="8" fill="#9C3A2E"/><text x="400" y="363" text-anchor="middle">Architecture &amp; Settlements</text>
+      <rect x="590" y="10"  width="310" height="56" rx="8" fill="#9C3A2E"/><text x="745" y="43" text-anchor="middle">Daily Life</text>
+      <rect x="590" y="90"  width="310" height="56" rx="8" fill="#9C3A2E"/><text x="745" y="123" text-anchor="middle">Nature &amp; Environment</text>
+      <rect x="590" y="170" width="310" height="56" rx="8" fill="#9C3A2E"/><text x="745" y="203" text-anchor="middle">Language &amp; Names</text>
+      <rect x="590" y="250" width="310" height="56" rx="8" fill="#9C3A2E"/><text x="745" y="283" text-anchor="middle">Religion &amp; Belief</text>
+      <rect x="590" y="330" width="310" height="56" rx="8" fill="#9C3A2E"/><text x="745" y="363" text-anchor="middle">Historical Timeline</text>
+    </g>
+  </svg>
+  <figcaption>Ten research branches radiate from one source of truth. Two meta-documents — research
+     method and the fact-database schema — govern how each branch is filled.</figcaption>
+</figure>
+
+<h2>What we already know (seed facts)</h2>
+<p>From initial research, a commoner's world in the early-to-mid 1700s looked roughly like this. Each
+   claim below becomes a rated entry in the fact database.</p>
+<table>
+  <thead><tr><th>Theme</th><th>Seed fact</th><th>Confidence</th></tr></thead>
+  <tbody>
+    <tr><td>Settlements</td><td>Bamboo-timber-thatch houses raised off damp ground; pigs, poultry, cattle kept nearby.</td><td><span class="slate-badge slate-badge--success">High</span></td></tr>
+    <tr><td>Economy</td><td>Rice farming dominates; women weave clothing, manage finances, and run markets (roots of Ima Keithel).</td><td><span class="slate-badge slate-badge--success">High</span></td></tr>
+    <tr><td>Food</td><td>Rice, river fish, fermented fish (ngari), bamboo shoots, yams, herbs; milder spicing than mainland India.</td><td><span class="slate-badge slate-badge--success">High</span></td></tr>
+    <tr><td>Clothing</td><td>Men: cotton wrap (pheijom) + shawl. Women: phanek + innaphi. Natural dyes common.</td><td><span class="slate-badge slate-badge--success">High</span></td></tr>
+    <tr><td>Government</td><td>Lallup: adult men periodically owe labour/military service to the state instead of only cash.</td><td><span class="slate-badge slate-badge--success">High</span></td></tr>
+    <tr><td>Religion</td><td>Shift under Garib Niwaz (Pamheiba) toward Vaishnavism; older Meitei beliefs persist alongside.</td><td><span class="slate-badge slate-badge--warning">Medium</span></td></tr>
+    <tr><td>Recreation</td><td>Sagol Kangjei (precursor to polo), wrestling, boat races, music, festivals, storytelling.</td><td><span class="slate-badge slate-badge--warning">Medium</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Detail documents</h2>
+<div class="slate-card-grid" data-cols="2">
+  <article class="slate-card">
+    <h3 class="slate-card__title">Research Methodology &amp; Sources</h3>
+    <p class="slate-card__body">The five source categories, cross-referencing rules, and the advisory-circle workflow.</p>
+    <p><span class="slate-badge">Planned</span> <span class="slate-badge slate-badge--danger">P0</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Fact Database Schema</h3>
+    <p class="slate-card__body">The record shape (fact, year range, confidence, sources, downstream ideas) shared with Technical.</p>
+    <p><span class="slate-badge">Planned</span> <span class="slate-badge slate-badge--danger">P0</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">World &amp; Geography</h3>
+    <p class="slate-card__body">Imphal Valley, rivers, Loktak Lake, forests, hills, roads, climate and seasonal cycle.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Society &amp; Culture</h3>
+    <p class="slate-card__body">Family, marriage, children, education, clan structure, social hierarchy and mobility.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Economy &amp; Livelihoods</h3>
+    <p class="slate-card__body">Rice, fishing, weaving, salt, pottery, blacksmithing, barter and the market system.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Government &amp; Lallup</h3>
+    <p class="slate-card__body">King, nobility, the Lallup labour obligation, taxation, law and military mobilisation.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Architecture &amp; Settlements</h3>
+    <p class="slate-card__body">Houses, granaries, bridges, forts (Kangla), temples and markets — period-correct construction.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Daily Life</h3>
+    <p class="slate-card__body">The hour-by-hour rhythm: morning chores, meals, work, recreation, evening by the hearth.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Nature &amp; Environment</h3>
+    <p class="slate-card__body">Animals, birds, fish, trees, flowers and crops of the valley — the living backdrop.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Language &amp; Names</h3>
+    <p class="slate-card__body">Greetings, personal names, proverbs, songs, and the script question (Meitei Mayek vs Bengali).</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Religion &amp; Belief</h3>
+    <p class="slate-card__body">Indigenous Meitei practice, the Vaishnavite transition, festivals, ritual and folklore.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+  <article class="slate-card">
+    <h3 class="slate-card__title">Historical Timeline</h3>
+    <p class="slate-card__body">Reign dates, wars, droughts, floods and royal decrees — anchored by the Cheitharol Kumbaba.</p>
+    <p><span class="slate-badge">Planned</span></p>
+  </article>
+</div>
+
+<p><a href="../backlog.html">← Back to the Documentation Backlog</a></p>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "entries": [
+    { "path": "landing.html", "title": "Overview", "order": 0 },
+    { "path": "click-to-do.html", "title": "The Click to Do Bet", "order": 1, "group": "Strategy", "badge": "new" },
+    { "path": "components.html", "title": "Component gallery", "order": 2, "group": "Reference" },
+    { "path": "markdown-parity.md", "title": "Markdown parity", "order": 3, "group": "Reference" },
+    { "path": "sanitizer.html", "title": "Sanitizer test", "order": 4, "group": "Reference" }
+  ]
+}

@@ -1,0 +1,129 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Process</p>
+  <h1 class="slate-hero__title">How We Work</h1>
+  <p class="slate-hero__summary">A nine-phase method for turning history into a game without inventing
+     it. This is the operating system behind every document on this site.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>Pick one specific year, set a strict 98/2 reality-to-convenience ratio, build a Knowledge Bible,
+     research like an anthropologist, capture every fact in a structured database with a confidence
+     rating, and derive game mechanics <em>from</em> history rather than reskinning Stardew.</p>
+</aside>
+
+<h2>The nine phases</h2>
+<ol class="slate-steps slate-steps--timeline">
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 1 — Define the historical snapshot</p>
+    <p>Don't make "the 1700s." Make <strong>one specific year</strong> (e.g. 1715, 1728, or 1742). Each
+       year fixes the religion, the wars, the festivals, the script, the crops, and the roads — which
+       collapses ambiguity everywhere else.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 2 — Decide the fantasy level</p>
+    <p><strong>98% historical reality, 2% gameplay convenience.</strong> No magic, no monsters. Folklore,
+       dreams, festivals and beliefs exist exactly as people believed them — a player may hear a ghost
+       story without ever proving ghosts are real.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 3 — Build the Knowledge Bible</p>
+    <p>One structured source of truth spanning World, Society, Economy, Government, Architecture, Daily
+       Life, Nature, Language, and the Historical Timeline. Everything eventually plugs into gameplay.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 4 — Research like an anthropologist</p>
+    <p>Kings are ~1% of the game. Study how people actually swept floors, preserved fish, carried water,
+       stored rice, proposed marriage, mourned the dead, and repaired roofs. The tiny details create
+       immersion.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 5 — Gather five kinds of sources</p>
+    <p>Primary historical accounts, indigenous sources (incl. the royal chronicle <em>Cheitharol
+       Kumbaba</em>), anthropology, archaeology, and living traditions. Cross-reference before trusting.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 6 — Build a Historical Database</p>
+    <p>Every fact becomes a structured object — description, year range, confidence, sources, evidence,
+       and downstream gameplay / art / dialogue ideas. Over time this becomes the "world engine."</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 7 — Design mechanics from history</p>
+    <p>Ask "what activities actually filled people's days?" The answer <em>is</em> the systems list:
+       rice cultivation, weaving, fishing, Lallup service, festivals, markets, marriage negotiations.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 8 — Design the emotional arc</p>
+    <p>The reward is <strong>belonging and legacy</strong>, not accumulation: a respected household,
+       children who inherit it, a community irrigation system, or a name kept in village oral tradition.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Phase 9 — Build an advisory circle</p>
+    <p>Bring historians, archaeologists, linguists, craftspeople, and elders in from the <em>start</em>,
+       not as end-stage fact-checkers. Let them challenge assumptions early.</p>
+  </li>
+</ol>
+
+<h2>The 98 / 2 rule, concretely</h2>
+<div class="slate-compare">
+  <div class="slate-compare__col">
+    <p class="slate-compare__head">Allowed (historical reality)</p>
+    <ul>
+      <li>Folklore, dreams, festivals, and beliefs as <em>believed</em></li>
+      <li>Real crops, tools, foods (ngari), clothing (phanek, pheijom)</li>
+      <li>Real institutions — Lallup service, women-run markets, the king's court</li>
+      <li>Period-accurate architecture, language, and script</li>
+    </ul>
+  </div>
+  <div class="slate-compare__col">
+    <p class="slate-compare__head">Forbidden / convenience-only</p>
+    <ul>
+      <li>No magic, no fantasy creatures, no mythical monsters as real</li>
+      <li>Minor time compression for a fun daily loop (the 2%)</li>
+      <li>Gentle UI affordances that never contradict the record</li>
+      <li>No anachronistic crops, tools, or customs "because they're fun"</li>
+    </ul>
+  </div>
+</div>
+
+<h2>The fact record (Phase 6 schema)</h2>
+<p>Every entry in the Historical Database carries these fields. This schema is the contract that
+   <a href="10-historical-research/README.html">Historical Research</a> and
+   <a href="50-technical/README.html">Technical Design</a> share.</p>
+<table>
+  <thead>
+    <tr><th>Field</th><th>Purpose</th><th>Example</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Fact</td><td>The claim, stated plainly</td><td>"Women sold fish at market."</td></tr>
+    <tr><td>Description</td><td>Context and nuance</td><td>Women held a prominent market role; roots of Ima Keithel.</td></tr>
+    <tr><td>Year range</td><td>When it held true</td><td>1700–1750</td></tr>
+    <tr><td>Confidence</td><td>How sure we are</td><td>High</td></tr>
+    <tr><td>Primary / secondary source</td><td>Where it comes from</td><td>British travel diary; anthropology paper</td></tr>
+    <tr><td>Evidence</td><td>What backs the confidence</td><td>Diary + paper + surviving tradition</td></tr>
+    <tr><td>Gameplay / art / dialogue ideas</td><td>Downstream uses</td><td>Morning fish market; NPC occupation; economy balancing</td></tr>
+    <tr><td>Related facts</td><td>Links across the graph</td><td>Ngari production · river fishing</td></tr>
+  </tbody>
+</table>
+
+<h2>Confidence model</h2>
+<p>A fact's confidence governs how prominently it may drive gameplay. Low-confidence facts can flavour
+   a background, but must never be a load-bearing mechanic.</p>
+<p>
+  <span class="slate-badge slate-badge--success">High</span>
+  Multiple independent sources agree — safe as a core mechanic.
+</p>
+<p>
+  <span class="slate-badge slate-badge--warning">Medium</span>
+  One solid source or strong inference — usable, flagged for review.
+</p>
+<p>
+  <span class="slate-badge slate-badge--danger">Low / Speculative</span>
+  Single weak source or extrapolation — background flavour only, never a core system.
+</p>
+
+<div class="slate-callout slate-callout--info" role="note">
+  <p class="slate-callout__title">The test that matters</p>
+  <p>If players finish the game feeling they have <em>lived</em> in 18th-century Manipur — not merely
+     visited a picturesque version of it — the method worked.</p>
+</div>

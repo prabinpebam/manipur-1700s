@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://slate.dev/schema/config.schema.json",
+  "title": "Slate configuration",
+  "description": "Optional declarative white-labeling for the Slate viewer. All fields are optional; the same shape may be embedded as the 'config' header of a v2 manifest.",
+  "type": "object",
+  "properties": {
+    "projectName": {
+      "type": "string",
+      "description": "Header logo text and document-title suffix. Defaults to the root README H1."
+    },
+    "logo": {
+      "type": "string",
+      "description": "Path or URL to a logo image. Falls back to a generated monogram."
+    },
+    "brandColor": {
+      "type": "string",
+      "description": "Hex color that drives the --color-brand-* token family.",
+      "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+    },
+    "defaultTheme": {
+      "type": "string",
+      "enum": ["light", "dark", "auto"],
+      "default": "auto",
+      "description": "Initial theme before any user override. 'auto' follows prefers-color-scheme."
+    },
+    "density": {
+      "type": "string",
+      "enum": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Sets the [data-density] attribute, scaling the spacing tokens."
+    },
+    "landing": {
+      "type": "string",
+      "description": "Content path opened at the root route and on logo click. Defaults to README.md."
+    },
+    "contentRoot": {
+      "type": "string",
+      "description": "Optional base path prepended to manifest, page, and asset fetches only. Hash routes remain the raw path. Defaults to empty (shell colocated with content)."
+    }
+  },
+  "additionalProperties": true
+}

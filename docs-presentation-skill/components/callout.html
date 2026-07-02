@@ -1,0 +1,30 @@
+<!-- Callout / Admonition
+     Purpose: highlighted aside (info, tip, warning, danger, note).
+     Variants: --info --tip --warning --danger --note
+     A11y: role="note"; use role="alert" only for time-sensitive danger/warning.
+     Markdown mapping: a blockquote beginning with [!INFO] / [!TIP] / [!WARNING] /
+       [!DANGER] / [!NOTE] renders as the matching variant. -->
+
+<div class="slate-callout slate-callout--info" role="note">
+  <p class="slate-callout__title">Good to know</p>
+  <p>Callouts draw attention to a single idea. Keep them to a sentence or two.</p>
+</div>
+
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Tip</p>
+  <p>Use a tip callout for optional, helpful guidance.</p>
+</div>
+
+<div class="slate-callout slate-callout--warning" role="note">
+  <p class="slate-callout__title">Heads up</p>
+  <p>Use a warning for things that can cause confusion or minor problems.</p>
+</div>
+
+<div class="slate-callout slate-callout--danger" role="note">
+  <p class="slate-callout__title">Careful</p>
+  <p>Use danger for actions that are hard to reverse or that lose data.</p>
+</div>
+
+<div class="slate-callout slate-callout--note" role="note">
+  <p>A note callout needs no title — it's a neutral aside.</p>
+</div>

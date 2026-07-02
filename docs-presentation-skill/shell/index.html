@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+  Slate — Viewer Shell
+  ----------------------------------------------------------------
+  Portable documentation viewer. Drop this file (with slate.css, slate.js,
+  and optionally vendor/) at your content root, add a docs-manifest.json and
+  content pages, and serve over HTTP. Content pages are body fragments; this
+  shell owns <head>, theme, and layout (D-CONTENT-1).
+
+  Dependencies load from a CDN below. To run fully offline (D-PERF-1),
+  vendor them under ./vendor/ and swap the URLs (see vendor/README.md).
+
+  Recommended CSP (REQ-SEC-07), tighten per deployment:
+    default-src 'self'; script-src 'self' https://cdn.jsdelivr.net;
+    style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';
+    img-src 'self' data:; connect-src 'self'; object-src 'none';
+    frame-ancestors 'none'; base-uri 'self';
+  Spec: ../../specs/02-architecture.md, ../../specs/06-ux-framework.md
+-->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Docs</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F6CBD'/><text x='16' y='23' text-anchor='middle' font-family='Segoe UI,sans-serif' font-weight='700' font-size='20' fill='white'>S</text></svg>">
+
+  <!-- Code highlighting themes -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" id="hljs-light">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" id="hljs-dark" disabled>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="slate.css">
+
+  <!-- Runtime dependencies (vendor these under ./vendor for offline use) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@14/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+      </button>
+      <a href="#" class="logo">
+        <img id="logo-mark" class="logo-mark" alt="" style="display:none">
+        <span class="logo-text" id="logo-text">Docs</span>
+        <span class="logo-badge">Slate</span>
+      </a>
+      <div class="header-spacer"></div>
+      <div class="search-container">
+        <div class="search-box">
+          <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+          <input type="text" class="search-input" placeholder="Search documentation…" aria-label="Search documentation">
+          <kbd class="search-kbd">Ctrl K</kbd>
+        </div>
+        <div class="search-results" role="listbox"></div>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle color theme">
+        <span class="material-symbols-outlined" aria-hidden="true">brightness_auto</span>
+      </button>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-toolbar">
+        <button class="sidebar-tool-btn" id="expand-all-btn" title="Expand all sections" aria-label="Expand all sections">
+          <span class="material-symbols-outlined" aria-hidden="true">unfold_more</span>
+          <span>Expand all</span>
+        </button>
+        <button class="sidebar-tool-btn" id="collapse-all-btn" title="Collapse all sections" aria-label="Collapse all sections">
+          <span class="material-symbols-outlined" aria-hidden="true">unfold_less</span>
+          <span>Collapse all</span>
+        </button>
+      </div>
+      <nav class="nav-tree" aria-label="Documentation navigation"></nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content" id="content" role="main" tabindex="-1">
+      <article class="document" id="document">
+        <div class="loading"><div class="loading-spinner"></div><span>Loading…</span></div>
+      </article>
+    </main>
+
+    <!-- Table of contents -->
+    <aside class="toc hidden" id="toc">
+      <div class="toc-header">On this page</div>
+      <nav class="toc-nav" aria-label="Table of contents"></nav>
+    </aside>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <script src="slate.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+chart-visualization-skills-en
+=============================
+
+This product is a derivative work: an English translation of the "skills" directory
+from the chart-visualization-skills project by the AntV Visualization Team.
+
+Original work:
+  Name:      chart-visualization-skills
+  Source:    https://github.com/antvis/chart-visualization-skills
+  Copyright: (c) 2025 AntV Visualization Team
+  License:   MIT License (see LICENSE)
+
+Modifications in this repository:
+  - The documentation under skills/ has been translated from Chinese to English.
+  - Code samples, API/identifier names, file paths, links, frontmatter keys, and
+    markdown structure were preserved unchanged.
+  - New files added by this derivative work: README.md and this NOTICE file.
+
+The MIT License and original copyright notice are retained in the LICENSE file, in
+accordance with the terms of that license.

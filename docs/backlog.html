@@ -1,0 +1,150 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Tracker</p>
+  <h1 class="slate-hero__title">Documentation Backlog</h1>
+  <p class="slate-hero__summary">The master "doc debt" ledger — every document this project needs, and
+     how far each domain has been detailed out. This page is the burndown target.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>Eight domain overviews are drafted; <strong>53 detail documents</strong> are scoped but still empty
+     stubs. Nothing is "Complete" yet. We burn this down by filling one detail document at a time,
+     highest-priority domains first — Foundation and Historical Research lead.</p>
+</aside>
+
+<h2>Where we stand</h2>
+<div class="slate-metrics">
+  <div class="slate-metric">
+    <p class="slate-metric__value">61</p>
+    <p class="slate-metric__label">Total documents planned</p>
+  </div>
+  <div class="slate-metric">
+    <p class="slate-metric__value">8</p>
+    <p class="slate-metric__label">Domain overviews drafted</p>
+  </div>
+  <div class="slate-metric">
+    <p class="slate-metric__value">53</p>
+    <p class="slate-metric__label">Detail documents still open</p>
+  </div>
+  <div class="slate-metric">
+    <p class="slate-metric__value">0</p>
+    <p class="slate-metric__label">Documents marked complete</p>
+  </div>
+</div>
+
+<h2>Progress by state</h2>
+<figure class="slate-figure">
+  <svg viewBox="0 0 920 130" role="img" xmlns="http://www.w3.org/2000/svg"
+       aria-label="Status bar. Of 61 total documents, 53 are Planned stubs, 8 are Drafting, and 0 are Complete.">
+    <rect x="20"  y="20" width="765" height="40" rx="4" fill="#9aa0a6"/>
+    <rect x="787" y="20" width="113" height="40" rx="4" fill="#7A1F2B"/>
+    <text x="402" y="45" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Planned · 53</text>
+    <text x="843" y="45" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" fill="#ffffff">Draft · 8</text>
+    <!-- legend -->
+    <g font-family="Segoe UI, sans-serif" font-size="12">
+      <rect x="20"  y="86" width="14" height="14" rx="3" fill="#9aa0a6"/>
+      <text x="42"  y="98" fill="#9aa0a6">Planned (empty stub)</text>
+      <rect x="230" y="86" width="14" height="14" rx="3" fill="#7A1F2B"/>
+      <text x="252" y="98" fill="#7A1F2B">Drafting (overview written)</text>
+      <rect x="470" y="86" width="14" height="14" rx="3" fill="#2E7D32"/>
+      <text x="492" y="98" fill="#2E7D32">Complete (0 so far)</text>
+    </g>
+  </svg>
+  <figcaption>Documentation burndown by state. The maroon slice is what exists today; the grey slice is
+     the work ahead.</figcaption>
+</figure>
+<details class="slate-figure-data">
+  <summary>Data</summary>
+  <table>
+    <thead><tr><th>State</th><th>Count</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><td>Planned (stub)</td><td>53</td><td>87%</td></tr>
+      <tr><td>Drafting (overview only)</td><td>8</td><td>13%</td></tr>
+      <tr><td>Complete</td><td>0</td><td>0%</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<h2>Backlog by domain</h2>
+<p>Each domain's overview page lists and links its detail documents. Priority reflects dependency
+   order: research and foundation unblock everything downstream.</p>
+<table>
+  <thead>
+    <tr><th>Domain</th><th>Detail docs</th><th>Overview</th><th>Priority</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="00-foundation/README.html">00 · Project Foundation</a></td>
+      <td>5</td>
+      <td><span class="slate-badge slate-badge--info">Drafting</span></td>
+      <td><span class="slate-badge slate-badge--danger">P0</span></td>
+    </tr>
+    <tr>
+      <td><a href="10-historical-research/README.html">10 · Historical Research</a></td>
+      <td>12</td>
+      <td><span class="slate-badge slate-badge--info">Drafting</span></td>
+      <td><span class="slate-badge slate-badge--danger">P0</span></td>
+    </tr>
+    <tr>
+      <td><a href="20-game-design/README.html">20 · Game Design</a></td>
+      <td>10</td>
+      <td><span class="slate-badge slate-badge--info">Drafting</span></td>
+      <td><span class="slate-badge slate-badge--warning">P1</span></td>
+    </tr>
+    <tr>
+      <td><a href="30-narrative/README.html">30 · Narrative &amp; Characters</a></td>
+      <td>5</td>
+      <td><span class="slate-badge slate-badge--info">Drafting</span></td>
+      <td><span class="slate-badge slate-badge--warning">P1</span></td>
+    </tr>
+    <tr>
+      <td><a href="40-art-audio/README.html">40 · Art &amp; Audio Direction</a></td>
+      <td>7</td>
+      <td><span class="slate-badge slate-badge--info">Drafting</span></td>
+      <td><span class="slate-badge">P2</span></td>
+    </tr>
+    <tr>
+      <td><a href="50-technical/README.html">50 · Technical Design</a></td>
+      <td>5</td>
+      <td><span class="slate-badge slate-badge--info">Drafting</span></td>
+      <td><span class="slate-badge">P2</span></td>
+    </tr>
+    <tr>
+      <td><a href="60-production/README.html">60 · Production &amp; Roadmap</a></td>
+      <td>4</td>
+      <td><span class="slate-badge slate-badge--info">Drafting</span></td>
+      <td><span class="slate-badge slate-badge--warning">P1</span></td>
+    </tr>
+    <tr>
+      <td><a href="70-cultural-integrity/README.html">70 · Cultural Integrity</a></td>
+      <td>5</td>
+      <td><span class="slate-badge slate-badge--info">Drafting</span></td>
+      <td><span class="slate-badge slate-badge--danger">P0</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>How to burn it down</h2>
+<ol class="slate-steps">
+  <li class="slate-step">
+    <p class="slate-step__title">Pick a detail document</p>
+    <p>Open the owning domain overview and choose a "Planned" card, respecting priority order.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Author it as a Slate page</p>
+    <p>Add a new <code>.html</code>/<code>.md</code> file in the domain folder, lead with a TL;DR, and
+       visualise any data. Register it in <code>docs-manifest.json</code>.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Update status</p>
+    <p>Flip the card and this tracker from <span class="slate-badge slate-badge--info">Drafting</span>
+       toward <span class="slate-badge slate-badge--success">Complete</span> as review passes.</p>
+  </li>
+</ol>
+
+<div class="slate-callout slate-callout--warning" role="note">
+  <p class="slate-callout__title">Definition of done</p>
+  <p>A detail document is "Complete" only when every load-bearing claim traces to a
+     <span class="slate-badge slate-badge--success">High</span>-confidence entry in the Historical
+     Database. See <a href="methodology.html">How We Work</a>.</p>
+</div>

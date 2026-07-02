@@ -1,0 +1,30 @@
+<!-- templates/landing.html
+     An overview / landing page (body fragment): a hero, a TL;DR, and a card grid
+     linking to the top sections of the site.
+     RULES: same as page.html — fragment only, one H1, TL;DR first, catalog components only.
+-->
+
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow"><!-- Project category --></p>
+  <h1 class="slate-hero__title"><!-- Project / site name (the only H1) --></h1>
+  <p class="slate-hero__summary"><!-- What this documentation covers --></p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p><!-- One-line orientation to the whole site --></p>
+</aside>
+
+<h2>Explore</h2>
+<div class="slate-card-grid" data-cols="3">
+
+  <article class="slate-card slate-card--interactive">
+    <a href="<!-- section/README.md -->">
+      <h3 class="slate-card__title"><!-- Section name --></h3>
+      <p class="slate-card__body"><!-- One line about the section --></p>
+    </a>
+  </article>
+
+  <!-- Repeat one card per top-level section. -->
+
+</div>
