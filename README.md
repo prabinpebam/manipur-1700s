@@ -11,6 +11,8 @@ The documentation is presented with **Slate**, a zero-build static docs viewer (
 
 ```
 manipur-1700s/
+├─ index.html                 # root redirect → docs/ (for the bare GitHub Pages URL)
+├─ .nojekyll                  # serve the site as raw static files (bypass Jekyll)
 ├─ _intake/                    # messy inbox: drop raw assets here (temporary)
 ├─ docs-presentation-skill/    # the Slate docs-presentation skill (the viewer engine) — do not edit
 └─ docs/                       # the live documentation site (content root)
@@ -18,6 +20,7 @@ manipur-1700s/
    ├─ slate.config.json       # branding
    ├─ docs-manifest.json      # the page list / navigation
    ├─ landing.html            # Overview
+   ├─ why.html                # Why This Game — the pitch (for players & contributors)
    ├─ methodology.html        # How We Work (the 9-phase method)
    ├─ backlog.html            # Documentation backlog / "doc debt" tracker
    ├─ assets/                 # organized asset library (referenced by docs pages)
@@ -49,7 +52,17 @@ The full workflow, folder map, and naming convention live on the **Asset Managem
 (`docs/00-foundation/asset-management.html`). Heavy source files (PSD, RAW, uncompressed audio/video) are
 git-ignored — commit a web-friendly export instead.
 
-## Viewing the docs
+## Live site (GitHub Pages)
+
+The site is published with GitHub Pages from the **`master`** branch at the **repository root**
+(`Settings → Pages → Source: Deploy from a branch → master / root`). Root — not `/docs` — is required
+because `docs/index.html` loads the viewer engine from `../docs-presentation-skill/`, a path that sits
+*above* the `docs/` folder. A root `index.html` redirect and a `.nojekyll` marker make the site work from
+the bare URL and serve as raw static files.
+
+> **Live at:** https://prabinpebam.github.io/manipur-1700s/ (redirects to `…/docs/`)
+
+## Viewing the docs locally
 
 The viewer loads content with `fetch()`, so it needs an HTTP server (it will not run from `file://`).
 
@@ -58,10 +71,6 @@ The viewer loads content with `fetch()`, so it needs an HTTP server (it will not
 python -m http.server 8080
 # then open http://localhost:8080/docs/
 ```
-
-If GitHub Pages is enabled (source: `main` / root), the site is live at:
-
-> https://prabinpebam.github.io/manipur-1700s/docs/
 
 ## Authoring new documentation
 
