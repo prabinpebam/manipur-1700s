@@ -1,0 +1,104 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Domain 50 · Technical</p>
+  <h1 class="slate-hero__title">Cross-Platform Strategy</h1>
+  <p class="slate-hero__summary">How we plan to ship on PC, smartphone, and console as one coherent product — a
+     first-class constraint on both design and technical execution, decided now so it never becomes rework.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>We treat cross-platform as a <strong>P1 constraint from foundation</strong>, learning directly from
+     <a href="../15-benchmarking/cross-platform.html">our benchmarks</a>. Four commitments drive everything: a fixed
+     platform matrix; an <strong>input-agnostic, mobile-first UI</strong> (every action works with touch, gamepad,
+     and keyboard/mouse); <strong>resolution independence</strong> with true fullscreen; and a portable, cloud-backed,
+     versioned save system. This page splits into design commitments and technical execution so both disciplines own
+     their half.</p>
+</aside>
+
+<div class="slate-callout slate-callout--warning" role="note">
+  <p class="slate-callout__title">A constraint, not a phase</p>
+  <p>Stardew's mobile lag and Japanese Rural Life Adventure's rough PC port both came from porting after the fact.
+     Cross-platform is not a milestone near launch; it is a rule that shapes the engine choice, the UI, the input
+     model, and the save format from the first prototype.</p>
+</div>
+
+<h2>Target platform matrix</h2>
+<p>Proposed tiers. Specifics marked <span class="slate-badge slate-badge--warning">Decision needed</span> must be
+   ratified at <a href="../00-foundation/README.html">Foundation</a> before the vertical slice.</p>
+<table>
+  <thead>
+    <tr><th>Tier</th><th>Platforms</th><th>Role</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Tier 1 — launch</td><td>PC (Windows via Steam) + one smartphone OS</td><td>Primary revenue and the two hardest input extremes to satisfy together</td><td><span class="slate-badge slate-badge--warning">Decision needed</span> lead mobile OS (iOS or Android)</td></tr>
+    <tr><td>Tier 2 — fast-follow</td><td>The second smartphone OS; Nintendo Switch (and successors)</td><td>Widen reach once the core is proven on the extremes</td><td>Planned</td></tr>
+    <tr><td>Tier 3 — later</td><td>PlayStation, Xbox, Mac, Linux</td><td>Opportunistic, once porting cost is understood</td><td>Backlog</td></tr>
+  </tbody>
+</table>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">Why PC plus mobile at launch</p>
+  <p>They are the two hardest input models to reconcile — precise mouse and imprecise touch. If the game feels right
+     on both from day one, controller and console are comparatively easy. Designing for the extremes first is the
+     cheapest path to all platforms.</p>
+</div>
+
+<h2>Part A — Design commitments</h2>
+<p>These are obligations on <a href="../20-game-design/README.html">Game Design</a>, derived from the benchmarks.</p>
+<ol class="slate-steps slate-steps--timeline">
+  <li class="slate-step"><p class="slate-step__title">Input-agnostic interaction</p><p>Every action is expressible with touch, gamepad, and keyboard/mouse. No hover-only tooltips, no right-click-only actions, no drag chains that a thumb cannot perform, no tiny targets.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Mobile-first, one-handed core</p><p>The daily loop is playable one-handed on a phone. Menus are reachable in the thumb zone; the most frequent actions cost the fewest taps.</p></li>
+  <li class="slate-step"><p class="slate-step__title">No precision-twitch requirements</p><p>Fishing, minigames, and any combat must be forgiving and optional, never demanding pixel timing that dies on touch — the exact Stardew mobile complaint.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Session shape for every device</p><p>Support a two-minute phone session (open, do one meaningful thing, save-anywhere, close) and a long desktop session equally well.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Readable at phone size</p><p>Type scale, contrast, and safe-area margins are validated on a small handset first, then allowed to breathe on larger screens.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Full feature parity</p><p>No platform-exclusive core system. What a player can do is identical everywhere; only input and presentation adapt.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Multiplayer scope decided now</p><p>Proposed: single-player at launch, with co-op treated as an explicit, netcode-shaping decision rather than a later bolt-on. <span class="slate-badge slate-badge--warning">Decision needed</span></p></li>
+</ol>
+<div class="slate-callout slate-callout--info" role="note">
+  <p class="slate-callout__title">Cozy and cross-platform pull the same way</p>
+  <p>Simplifying interactions so a thumb can perform them also removes friction — which is our core cozy goal. The
+     platform constraint and the design pillar reinforce each other; we are not trading one for the other.</p>
+</div>
+
+<h2>Part B — Technical execution</h2>
+<p>These are obligations on the engine, architecture, and pipeline.</p>
+<div class="slate-card-grid" data-cols="2">
+  <article class="slate-card"><h3 class="slate-card__title">Engine selection criteria</h3><p class="slate-card__body">First-class export to PC, iOS, Android, and Switch; a strong 2D/pixel pipeline; and built-in input abstraction. Candidates to evaluate include Godot and Unity, weighed against console-porting realities. <span class="slate-badge slate-badge--warning">Decision needed</span></p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Input abstraction layer</h3><p class="slate-card__body">Bind game actions, not devices. Touch, gamepad, and keyboard/mouse all map onto one action set, with per-device UI hints swapped at runtime.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Resolution independence</h3><p class="slate-card__body">A virtual canvas with dynamic UI scaling, safe-area handling, and true fullscreen across aspect ratios — engineered to avoid Japanese Rural Life Adventure's scaling and letterboxing complaints.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Performance budget</h3><p class="slate-card__body">The lowest-end target phone sets the performance ceiling. We profile on a modest handset continuously, not only on a dev PC.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Portable save system</h3><p class="slate-card__body">An engine-neutral, serialized, versioned save with migration paths and cloud backup — and a cross-save design decided early rather than retrofitted.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Parity release pipeline</h3><p class="slate-card__body">CI builds every target from one source so features land together, preventing the mobile-lag resentment Stardew still carries.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Console realities</h3><p class="slate-card__body">Certification, devkits, memory limits, and controller requirements are planned early — likely with a porting partner — not discovered near launch.</p></article>
+  <article class="slate-card"><h3 class="slate-card__title">Per-platform plumbing</h3><p class="slate-card__body">Achievements, cloud saves, and store integration abstracted behind one interface so each storefront is a thin adapter.</p></article>
+</div>
+
+<h2>Sequencing and risk</h2>
+<ol class="slate-steps slate-steps--timeline">
+  <li class="slate-step"><p class="slate-step__title">Decide the matrix and engine at Foundation</p><p>Platform tiers, lead mobile OS, and engine are ratified before the vertical slice. Everything downstream depends on them.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Prototype input first</p><p>Before any content, prove the daily loop feels right on a phone, a gamepad, and keyboard/mouse using the same UI. If it does not, fix it before scaling.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Test on a low-end phone throughout</p><p>Continuous handset testing keeps the performance and readability budgets honest.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Keep parity via CI</p><p>All targets build from one branch from the start, so no platform silently drifts behind.</p></li>
+</ol>
+
+<h2>Open decisions</h2>
+<table>
+  <thead>
+    <tr><th>Decision</th><th>Proposed default</th><th>Owner</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Lead mobile OS at launch</td><td>Decide by target audience and store economics</td><td>Production + Technical</td></tr>
+    <tr><td>Engine</td><td>Evaluate Godot vs Unity against export and porting needs</td><td>Technical</td></tr>
+    <tr><td>Multiplayer / co-op scope</td><td>Single-player at launch; co-op as explicit later scope</td><td>Game Design</td></tr>
+    <tr><td>Cross-save promise</td><td>Design the save format to allow it; decide the promise early</td><td>Technical</td></tr>
+    <tr><td>Console porting partner</td><td>Assess once engine and Tier-2 timing are set</td><td>Production</td></tr>
+  </tbody>
+</table>
+
+<div class="slate-callout slate-callout--info" role="note">
+  <p class="slate-callout__title">Upstream and downstream</p>
+  <p>Driven by <a href="../15-benchmarking/cross-platform.html">Benchmarking: Cross-Platform Lessons</a>; constrains
+     <a href="../20-game-design/README.html">Game Design</a> (input model, UI, minigame scope) and the rest of
+     <a href="README.html">Technical Design</a> (engine, save, pipeline).</p>
+</div>
+
+<p><a href="README.html">← Back to Technical Design</a></p>

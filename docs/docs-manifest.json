@@ -11,11 +11,13 @@
     { "path": "15-benchmarking/framework.html", "title": "The Benchmark Lens", "order": 26, "group": "Documentation Domains", "icon": "center_focus_strong" },
     { "path": "15-benchmarking/stardew-valley.html", "title": "Stardew Valley — deep dive", "order": 27, "group": "Documentation Domains", "icon": "agriculture" },
     { "path": "15-benchmarking/japanese-rural-life.html", "title": "Japanese Rural Life — deep dive", "order": 28, "group": "Documentation Domains", "icon": "rice_bowl" },
-    { "path": "15-benchmarking/lessons-for-us.html", "title": "Lessons for Our Game", "order": 29, "group": "Documentation Domains", "icon": "lightbulb" },
+    { "path": "15-benchmarking/cross-platform.html", "title": "Cross-Platform Lessons", "order": 29, "group": "Documentation Domains", "icon": "devices" },
+    { "path": "15-benchmarking/lessons-for-us.html", "title": "Lessons for Our Game", "order": 30, "group": "Documentation Domains", "icon": "lightbulb" },
     { "path": "20-game-design/README.html", "title": "20 · Game Design", "order": 30, "group": "Documentation Domains", "icon": "stadia_controller" },
     { "path": "30-narrative/README.html", "title": "30 · Narrative & Characters", "order": 40, "group": "Documentation Domains", "icon": "menu_book" },
     { "path": "40-art-audio/README.html", "title": "40 · Art & Audio Direction", "order": 50, "group": "Documentation Domains", "icon": "palette" },
     { "path": "50-technical/README.html", "title": "50 · Technical Design", "order": 60, "group": "Documentation Domains", "icon": "memory" },
+    { "path": "50-technical/cross-platform-strategy.html", "title": "Cross-Platform Strategy", "order": 61, "group": "Documentation Domains", "icon": "devices" },
     { "path": "60-production/README.html", "title": "60 · Production & Roadmap", "order": 70, "group": "Documentation Domains", "icon": "timeline" },
     { "path": "70-cultural-integrity/README.html", "title": "70 · Cultural Integrity", "order": 80, "group": "Documentation Domains", "icon": "diversity_3" }
   ]
