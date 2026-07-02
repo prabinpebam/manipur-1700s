@@ -409,8 +409,12 @@
     const article = $('#document');
     article.innerHTML = renderBreadcrumbs(path) + '<div class="page-body"></div>';
     const body = article.querySelector('.page-body');
-    body.innerHTML = renderToHtml(path, entry.content);
-    postProcess(body, path);
+    // Parse in an inert document (DOMParser docs do not load subresources) so
+    // images are not fetched with their raw, pre-rewrite src; postProcess fixes
+    // the paths before the nodes are attached, so each asset is fetched once.
+    const parsed = new DOMParser().parseFromString(renderToHtml(path, entry.content), 'text/html');
+    postProcess(parsed.body, path);
+    while (parsed.body.firstChild) body.appendChild(parsed.body.firstChild);
     // Pager appended after body
     article.insertAdjacentHTML('beforeend', renderPager(path));
     article.querySelectorAll('.pager a').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); navigateTo(a.dataset.path); }));
@@ -473,15 +477,15 @@
      ========================================================== */
   function buildSearchIndex() {
     state.searchIndex = [];
-    const scratch = document.createElement('div'); scratch.style.display = 'none'; document.body.appendChild(scratch);
     for (const [path, doc] of state.docs) {
       if (doc.type && doc.type !== 'page') continue;
-      scratch.innerHTML = renderToHtml(path, doc.content || '');
-      const text = (scratch.textContent || '').replace(/\s+/g, ' ').trim();
+      // Parse inert (DOMParser docs never fetch images/subresources) so building
+      // the index does not trigger asset requests for every page at startup.
+      const parsed = new DOMParser().parseFromString(renderToHtml(path, doc.content || ''), 'text/html');
+      const text = (parsed.body.textContent || '').replace(/\s+/g, ' ').trim();
       doc.text = text;
       state.searchIndex.push({ path, title: doc.title, text });
     }
-    scratch.remove();
   }
   function runSearch(query) {
     if (!query || query.length < 2) return [];
