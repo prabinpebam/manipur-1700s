@@ -2,7 +2,7 @@
   "version": 2,
   "entries": [
     { "path": "landing.html", "title": "Overview", "order": 0, "icon": "home" },
-    { "path": "why.html", "title": "Why This Game", "order": 1, "icon": "campaign", "badge": "the pitch" },
+    { "path": "why.html", "title": "What's the Proposal", "order": 1, "icon": "campaign", "badge": "the pitch" },
     { "path": "methodology.html", "title": "How We Work", "order": 2, "icon": "school", "badge": "start here" },
     { "path": "backlog.html", "title": "Documentation Backlog", "order": 3, "icon": "checklist" },
 
