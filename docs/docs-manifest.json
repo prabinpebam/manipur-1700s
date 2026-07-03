@@ -3,7 +3,7 @@
   "entries": [
     { "path": "landing.html", "title": "Overview", "order": 0, "icon": "home" },
     { "path": "why.html", "title": "What's the Proposal", "order": 1, "icon": "campaign", "badge": "the pitch" },
-    { "path": "methodology.html", "title": "How We Work", "order": 2, "icon": "school", "badge": "start here" },
+    { "path": "methodology.html", "title": "How We Work", "order": 2, "icon": "school" },
     { "path": "backlog.html", "title": "Documentation Backlog", "order": 4, "icon": "checklist" },
 
     { "path": "00-foundation/README.html", "title": "00 · Project Foundation", "order": 10, "group": "Documentation Domains", "icon": "flag" },
