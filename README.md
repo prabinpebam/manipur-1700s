@@ -1,12 +1,15 @@
 # Manipuri Life
 
-Documentation hub for a **historically-accurate life-simulation game** set in the Meitei kingdom of
-Manipur — a *playable ethnography* in the spirit of *Stardew Valley*, where historical
-accuracy is a design constraint rather than set dressing. The exact era is an open decision: we are
-choosing between five fifty-year windows spanning **1700–1950** (see *Choosing the Era* in the docs).
+Documentation hub for a small, cozy **historically-accurate 2D pixel-art life-simulation RPG** set in the
+Meitei kingdom of Manipur — a *playable ethnography* in the spirit of *Stardew Valley*, where historical
+accuracy is a design constraint rather than set dressing. The game is quest- and relationship-led, gentle,
+and quietly educational. The exact era is an open decision: we are choosing between five fifty-year windows
+spanning **1700–1950** (see *Era & Canonical Year* in the docs).
 
 The documentation is presented with **Slate**, a zero-build static docs viewer (the
 `docs-presentation` skill), reproduced here unchanged.
+
+> **Live at:** https://prabinpebam.github.io/manipuri-life/ (redirects to `…/docs/`)
 
 ## Repository layout
 
@@ -21,7 +24,7 @@ manipuri-life/
    ├─ slate.config.json       # branding
    ├─ docs-manifest.json      # the page list / navigation
    ├─ landing.html            # Overview
-   ├─ why.html                # Why This Game — the pitch (for players & contributors)
+   ├─ why.html                # What's the Proposal — the pitch (for players & contributors)
    ├─ methodology.html        # How We Work (the 9-phase method)
    ├─ backlog.html            # Documentation backlog / "doc debt" tracker
    ├─ assets/                 # organized asset library (referenced by docs pages)
@@ -39,6 +42,30 @@ manipuri-life/
 The nine numbered folders are the **documentation domains**. Each has an overview (`README.html`) that
 lists and tracks the detail documents still to be written — this is how we "slowly detail out every
 aspect." Add new pages into the relevant folder and register them in `docs/docs-manifest.json`.
+
+## Documentation status at a glance
+
+The pitch and method are settled; the domain docs are being detailed out from the top down. Current state:
+
+| Area | Page(s) | Status |
+|------|---------|--------|
+| Overview | `landing.html` | stable |
+| What's the Proposal (pitch) | `why.html` | stable |
+| How We Work (method) | `methodology.html` | stable |
+| 00 · Foundation | `README`, `canonical-year` | draft · era **deciding** |
+| 10 · Historical Research | `README` | draft |
+| 15 · Benchmarking | `framework`, `stardew-valley`, `japanese-rural-life`, `cross-platform`, `lessons-for-us` | draft |
+| 20 · Game Design | `README` | stub |
+| 30 · Narrative | `README`, `plot` | draft |
+| 40 · Art & Audio | `README`, `art-style`, `initial-explorations`, `font-design` | draft (font: stub) |
+| 50 · Technical | `README`, `cross-platform-strategy` | stub |
+| 60 · Production | `README` | stub |
+| 70 · Cultural Integrity | `README` | stub |
+
+The first concept art is in: an exploratory **cover-art** piece and a set of **cozy isometric pixel-art**
+look-development renders (the Kangla gatehouse across a morning/noon/night lighting cycle, a village
+*yumjao*, and hand-woven bamboo craft props) live on **Art Style — Explorations**
+(`docs/40-art-audio/initial-explorations.html`). See `backlog.html` for the full "doc debt" tracker.
 
 ## Managing assets
 
@@ -60,8 +87,6 @@ The site is published with GitHub Pages from the **`master`** branch at the **re
 because `docs/index.html` loads the viewer engine from `../docs-presentation-skill/`, a path that sits
 *above* the `docs/` folder. A root `index.html` redirect and a `.nojekyll` marker make the site work from
 the bare URL and serve as raw static files.
-
-> **Live at:** https://prabinpebam.github.io/manipuri-life/ (redirects to `…/docs/`)
 
 ## Viewing the docs locally
 
