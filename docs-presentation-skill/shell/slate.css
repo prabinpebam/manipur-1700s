@@ -191,7 +191,8 @@ button { font-family: inherit; font-size: inherit; border: none; background: non
     grid-template-rows: var(--header-h) 1fr;
     grid-template-areas: "header header header" "sidebar content toc";
     height: 100vh;
-    width: 100vw;
+    height: 100dvh;
+    width: 100%;
 }
 
 /* ============================================================
@@ -341,7 +342,7 @@ button { font-family: inherit; font-size: inherit; border: none; background: non
    6. MAIN CONTENT AREA
    ============================================================ */
 .content { grid-area: content; overflow-y: auto; overflow-x: hidden; background: var(--color-neutral-bg-1); scroll-behavior: smooth; }
-.document { max-width: var(--content-max-w); margin: 0 auto; padding: var(--space-xxxl) var(--space-xxxxl); }
+.document { max-width: var(--content-max-w); margin: 0 auto; padding: var(--space-xxxl) var(--space-xxxxl); overflow-wrap: break-word; }
 
 /* - Breadcrumbs (REQ-UX-20) - */
 .breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs); font-size: var(--font-size-200); color: var(--color-neutral-fg-3); margin-bottom: var(--space-l); }
@@ -577,13 +578,22 @@ button { font-family: inherit; font-size: inherit; border: none; background: non
     .slate-compare { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
+    /* Abandon the fixed 100vh app-shell on phones: let the document scroll
+       naturally so pinch-zoom, pan, and fit-to-width work like a normal page. */
+    html { height: auto; overflow: visible; overflow-x: hidden; }
+    body { height: auto; overflow: visible; }
+    .app { height: auto; min-height: 100vh; min-height: 100dvh; width: 100%; }
     .app { grid-template-columns: 1fr; grid-template-areas: "header" "content"; }
-    .sidebar { position: fixed; top: var(--header-h); left: 0; bottom: 0; width: var(--sidebar-w); z-index: 150; transform: translateX(-100%); box-shadow: none; }
+    .header { position: sticky; top: 0; }
+    .content { overflow: visible; }
+    .sidebar { position: fixed; top: var(--header-h); left: 0; bottom: 0; width: var(--sidebar-w); max-width: 85vw; z-index: 150; transform: translateX(-100%); box-shadow: none; }
     .sidebar.open { transform: translateX(0); box-shadow: var(--shadow-16); }
     .menu-toggle { display: flex; }
     .logo-text { font-size: var(--font-size-200); }
     .search-kbd { display: none; }
     .document { padding: var(--space-xl) var(--space-l); }
+    /* Wide tables scroll inside the column instead of stretching the page. */
+    .document table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .slate-card-grid { grid-template-columns: 1fr; }
     .slate-hero__title { font-size: var(--font-size-700); }
     .pager { flex-direction: column; }

@@ -422,7 +422,7 @@
     $$('.nav-item').forEach(it => it.classList.toggle('active', it.dataset.path === path));
     document.title = `${entry.title} - ${state.projectName}`;
     buildToc(body);
-    $('#content').scrollTop = 0;
+    $('#content').scrollTop = 0; window.scrollTo(0, 0);
     if (state.sidebarOpen) toggleSidebar();
 
     const ai = window.location.hash.indexOf('#', 1);
@@ -466,7 +466,7 @@
       for (let i = 0; i < headings.length; i++) { if (visible.has(headings[i])) { idx = i; break; } }
       if (idx === -1) for (let i = 0; i < headings.length; i++) { if (headings[i].getBoundingClientRect().top < 120) idx = i; }
       items.forEach((it, i) => it.classList.toggle('active', i === idx));
-    }, { root: contentEl, rootMargin: '-64px 0px -70% 0px', threshold: 0 });
+    }, { root: null, rootMargin: '-64px 0px -70% 0px', threshold: 0 });
     headings.forEach(h => io.observe(h));
     state.scrollSpyCleanup = () => io.disconnect();
   }
@@ -560,9 +560,12 @@
     btn.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>';
     document.body.appendChild(btn);
     const contentEl = $('#content');
-    btn.addEventListener('click', () => contentEl.scrollTo({ top: 0, behavior: 'smooth' }));
+    const getTop = () => Math.max(contentEl.scrollTop || 0, window.scrollY || document.documentElement.scrollTop || 0);
+    btn.addEventListener('click', () => { contentEl.scrollTo({ top: 0, behavior: 'smooth' }); window.scrollTo({ top: 0, behavior: 'smooth' }); });
     let ticking = false;
-    contentEl.addEventListener('scroll', () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { btn.classList.toggle('visible', contentEl.scrollTop > 400); ticking = false; }); });
+    const onScroll = () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { btn.classList.toggle('visible', getTop() > 400); ticking = false; }); };
+    contentEl.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 
   function bindEvents() {
