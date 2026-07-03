@@ -342,7 +342,8 @@ button { font-family: inherit; font-size: inherit; border: none; background: non
    6. MAIN CONTENT AREA
    ============================================================ */
 .content { grid-area: content; overflow-y: auto; overflow-x: hidden; background: var(--color-neutral-bg-1); scroll-behavior: smooth; }
-.document { max-width: var(--content-max-w); margin: 0 auto; padding: var(--space-xxxl) var(--space-xxxxl); overflow-wrap: break-word; }
+.document { max-width: var(--content-max-w); margin: 0 auto; padding: var(--space-xxxl) var(--space-xxxxl); overflow-wrap: break-word; transition: opacity 0.18s var(--curve-ease); }
+.document.is-fading { opacity: 0; }
 
 /* - Breadcrumbs (REQ-UX-20) - */
 .breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs); font-size: var(--font-size-200); color: var(--color-neutral-fg-3); margin-bottom: var(--space-l); }

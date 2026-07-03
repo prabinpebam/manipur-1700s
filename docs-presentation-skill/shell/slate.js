@@ -400,12 +400,33 @@
   /* ==========================================================
      NAVIGATE / RENDER A PAGE
      ========================================================== */
+  const FADE_MS = 180;
   function navigateTo(path) {
     const entry = state.docs.get(path); if (!entry) return;
+    const prevPath = state.currentPath;
+    // Update route state synchronously so the hashchange router stays a no-op
+    // and the URL stays correct even while the visual swap is deferred.
     state.currentPath = path;
     const hash = window.location.hash.slice(1);
     if (hash.split('#')[0] !== path) window.location.hash = path;
 
+    const article = $('#document');
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // First paint, re-selecting the same page, or reduced-motion: swap at once.
+    if (!prevPath || prevPath === path || reduced) { article.classList.remove('is-fading'); renderPage(path, entry); return; }
+    // Cross-page: fade the current content out, swap it while invisible, then
+    // fade the new content in. The scroll reset happens during the invisible
+    // window, so there is no visible scroll animation and no jump.
+    clearTimeout(state.fadeTimer);
+    article.classList.add('is-fading');
+    state.fadeTimer = setTimeout(() => {
+      renderPage(path, entry);
+      // Paint the hidden state with the new content, then release for fade-in.
+      requestAnimationFrame(() => requestAnimationFrame(() => article.classList.remove('is-fading')));
+    }, FADE_MS);
+  }
+
+  function renderPage(path, entry) {
     const article = $('#document');
     article.innerHTML = renderBreadcrumbs(path) + '<div class="page-body"></div>';
     const body = article.querySelector('.page-body');
@@ -422,11 +443,13 @@
     $$('.nav-item').forEach(it => it.classList.toggle('active', it.dataset.path === path));
     document.title = `${entry.title} - ${state.projectName}`;
     buildToc(body);
-    $('#content').scrollTop = 0; window.scrollTo(0, 0);
+    // Reset scroll instantly (not smoothly) — the fade covers the change, so an
+    // animated scroll here would read as "same page, just scrolled".
+    $('#content').scrollTo({ top: 0, behavior: 'instant' }); window.scrollTo({ top: 0, behavior: 'instant' });
     if (state.sidebarOpen) toggleSidebar();
 
     const ai = window.location.hash.indexOf('#', 1);
-    if (ai > 0) { const anchor = decodeURIComponent(window.location.hash.slice(ai + 1)); requestAnimationFrame(() => { const el = document.getElementById(anchor); if (el) { expandToTarget(el); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); }
+    if (ai > 0) { const anchor = decodeURIComponent(window.location.hash.slice(ai + 1)); requestAnimationFrame(() => { const el = document.getElementById(anchor); if (el) { expandToTarget(el); el.scrollIntoView({ behavior: 'instant', block: 'start' }); } }); }
   }
 
   /* ==========================================================
