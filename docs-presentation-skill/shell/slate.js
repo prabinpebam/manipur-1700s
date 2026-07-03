@@ -268,7 +268,7 @@
       pre.appendChild(btn);
     });
     makeSectionsCollapsible(container);
-    enhanceFigures(container);
+    enhanceGallery(container);
     if (window.hljs) container.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
   }
 
@@ -318,16 +318,151 @@
     if (!el) return; let s = el.closest('.doc-section');
     while (s) { if (s.classList.contains('collapsed')) { const tg = s.querySelector(':scope > h2 > .collapse-toggle, :scope > h3 > .collapse-toggle'); if (tg) tg.click(); else s.classList.remove('collapsed'); } s = s.parentElement ? s.parentElement.closest('.doc-section') : null; }
   }
-  function enhanceFigures(container) {
-    container.querySelectorAll('.slate-figure img').forEach(img => {
-      img.addEventListener('click', () => {
-        const box = document.createElement('div'); box.className = 'slate-lightbox';
-        const big = document.createElement('img'); big.src = img.src; big.alt = img.alt || '';
-        box.appendChild(big); box.addEventListener('click', () => box.remove());
-        document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { box.remove(); document.removeEventListener('keydown', esc); } });
-        document.body.appendChild(box);
-      });
+  /* ==========================================================
+     IMAGE VIEWER  (gallery lightbox with filmstrip + caption)
+     ========================================================== */
+  // Every content image becomes zoomable. Clicking one opens a fullscreen
+  // viewer whose gallery is all images on the page (in DOM order), so the
+  // filmstrip can jump to any of them. Caption sits at the bottom over a scrim
+  // for contrast and starts collapsed so it never occludes the image.
+  function enhanceGallery(container) {
+    const imgs = Array.from(container.querySelectorAll('img')).filter(img => !img.closest('.slate-viewer'));
+    if (!imgs.length) return;
+    imgs.forEach((img, i) => {
+      img.classList.add('slate-zoomable');
+      img.addEventListener('click', () => openViewer(imgs, i));
     });
+  }
+
+  function figcaptionFor(img) {
+    const fig = img.closest('figure, .slate-figure');
+    return fig ? fig.querySelector('figcaption') : null;
+  }
+
+  let viewer = null;
+  function ensureViewer() {
+    if (viewer) return viewer;
+    const el = document.createElement('div');
+    el.className = 'slate-viewer'; el.hidden = true;
+    el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', 'Image viewer');
+    el.innerHTML =
+      '<div class="slate-viewer__stage">' +
+        '<button class="slate-viewer__close" type="button" aria-label="Close image viewer"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>' +
+        '<button class="slate-viewer__nav slate-viewer__nav--prev" type="button" aria-label="Previous image"><span class="material-symbols-outlined" aria-hidden="true">chevron_left</span></button>' +
+        '<button class="slate-viewer__nav slate-viewer__nav--next" type="button" aria-label="Next image"><span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></button>' +
+        '<img class="slate-viewer__img" alt="">' +
+        '<figure class="slate-viewer__caption" data-collapsed="true">' +
+          '<button class="slate-viewer__caption-toggle" type="button" aria-expanded="false" aria-label="Expand caption">' +
+            '<figcaption class="slate-viewer__caption-text"></figcaption>' +
+            '<span class="slate-viewer__caption-chevron material-symbols-outlined" aria-hidden="true">keyboard_arrow_up</span>' +
+          '</button>' +
+        '</figure>' +
+      '</div>' +
+      '<div class="slate-viewer__filmstrip" aria-label="Image thumbnails"></div>';
+    document.body.appendChild(el);
+
+    const v = {
+      el,
+      stage: el.querySelector('.slate-viewer__stage'),
+      img: el.querySelector('.slate-viewer__img'),
+      caption: el.querySelector('.slate-viewer__caption'),
+      captionToggle: el.querySelector('.slate-viewer__caption-toggle'),
+      captionText: el.querySelector('.slate-viewer__caption-text'),
+      prev: el.querySelector('.slate-viewer__nav--prev'),
+      next: el.querySelector('.slate-viewer__nav--next'),
+      filmstrip: el.querySelector('.slate-viewer__filmstrip'),
+      items: [], index: 0, lastFocus: null, touchX: null, keyHandler: null,
+    };
+
+    el.querySelector('.slate-viewer__close').addEventListener('click', closeViewer);
+    v.prev.addEventListener('click', () => showImage(v.index - 1));
+    v.next.addEventListener('click', () => showImage(v.index + 1));
+    v.captionToggle.addEventListener('click', () => {
+      const collapsed = v.caption.getAttribute('data-collapsed') !== 'false';
+      v.caption.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
+      v.captionToggle.setAttribute('aria-expanded', String(collapsed));
+      v.captionToggle.setAttribute('aria-label', collapsed ? 'Collapse caption' : 'Expand caption');
+    });
+    // Click the dark backdrop (stage padding) to close; clicks on the image or
+    // controls do not close.
+    v.stage.addEventListener('click', (e) => { if (e.target === v.stage) closeViewer(); });
+    // Touch swipe to move between images.
+    v.stage.addEventListener('touchstart', (e) => { v.touchX = e.changedTouches[0].clientX; }, { passive: true });
+    v.stage.addEventListener('touchend', (e) => {
+      if (v.touchX == null) return;
+      const dx = e.changedTouches[0].clientX - v.touchX; v.touchX = null;
+      if (Math.abs(dx) > 45) showImage(v.index + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    viewer = v; return v;
+  }
+
+  function openViewer(imgs, index) {
+    const v = ensureViewer();
+    v.items = imgs; v.lastFocus = document.activeElement;
+    v.el.classList.toggle('is-single', imgs.length < 2);
+    // Build the filmstrip for this page.
+    v.filmstrip.innerHTML = '';
+    imgs.forEach((img, i) => {
+      const b = document.createElement('button');
+      b.className = 'slate-viewer__thumb'; b.type = 'button'; b.setAttribute('aria-label', 'View image ' + (i + 1));
+      const t = document.createElement('img'); t.src = img.currentSrc || img.src; t.alt = ''; t.loading = 'lazy';
+      b.appendChild(t); b.addEventListener('click', () => showImage(i));
+      v.filmstrip.appendChild(b);
+    });
+    v.el.hidden = false;
+    document.documentElement.classList.add('slate-viewer-open');
+    // Start collapsed each time the viewer opens.
+    v.caption.setAttribute('data-collapsed', 'true');
+    v.captionToggle.setAttribute('aria-expanded', 'false');
+    v.captionToggle.setAttribute('aria-label', 'Expand caption');
+    v.keyHandler = (e) => {
+      if (e.key === 'Escape') closeViewer();
+      else if (e.key === 'ArrowLeft') showImage(v.index - 1);
+      else if (e.key === 'ArrowRight') showImage(v.index + 1);
+    };
+    document.addEventListener('keydown', v.keyHandler);
+    showImage(index);
+    v.el.querySelector('.slate-viewer__close').focus();
+  }
+
+  function showImage(index) {
+    const v = viewer; if (!v) return;
+    const n = v.items.length; if (!n) return;
+    v.index = Math.max(0, Math.min(index, n - 1));
+    const img = v.items[v.index];
+    v.img.src = img.currentSrc || img.src; v.img.alt = img.alt || '';
+    // Caption: prefer a figcaption, fall back to alt text; hide if neither.
+    const cap = figcaptionFor(img);
+    v.captionText.textContent = '';
+    let hasCaption = false;
+    if (cap && cap.textContent.trim()) {
+      Array.from(cap.cloneNode(true).childNodes).forEach(node => v.captionText.appendChild(node));
+      hasCaption = true;
+    } else if (img.alt && img.alt.trim()) {
+      v.captionText.textContent = img.alt.trim(); hasCaption = true;
+    }
+    v.caption.hidden = !hasCaption;
+    // Nav availability.
+    v.prev.disabled = v.index === 0;
+    v.next.disabled = v.index === n - 1;
+    // Filmstrip active state + keep the active thumb in view.
+    const thumbs = v.filmstrip.children;
+    for (let i = 0; i < thumbs.length; i++) thumbs[i].classList.toggle('is-active', i === v.index);
+    const active = thumbs[v.index];
+    if (active) {
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      active.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }
+
+  function closeViewer() {
+    const v = viewer; if (!v || v.el.hidden) return;
+    v.el.hidden = true;
+    document.documentElement.classList.remove('slate-viewer-open');
+    if (v.keyHandler) { document.removeEventListener('keydown', v.keyHandler); v.keyHandler = null; }
+    v.img.src = '';
+    if (v.lastFocus && v.lastFocus.focus) v.lastFocus.focus();
   }
 
   /* ==========================================================
