@@ -563,7 +563,7 @@ button { font-family: inherit; font-size: inherit; border: none; background: non
 .slate-history-pill:hover { background: var(--color-neutral-bg-4); border-color: var(--color-brand-stroke); }
 .slate-history-pill .material-symbols-outlined { font-size: 15px; opacity: 0.75; }
 .slate-history-pill__count { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--color-brand-bg); color: #fff; font-size: var(--font-size-100); font-weight: var(--font-weight-semibold); }
-.slate-history-overlay { position: fixed; inset: 0; z-index: 320; display: flex; align-items: center; justify-content: center; padding: var(--space-l); background: rgba(0,0,0,0.5); }
+.slate-history-overlay { position: fixed; inset: 0; z-index: 320; display: flex; align-items: center; justify-content: center; padding: var(--space-l); background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(4px) saturate(0.9); backdrop-filter: blur(4px) saturate(0.9); }
 .slate-history-dialog { display: flex; flex-direction: column; width: min(640px, 100%); max-height: 90vh; max-height: calc(100dvh - 2 * var(--space-l)); background: var(--color-neutral-bg-1); border: 1px solid var(--color-neutral-stroke-2); border-radius: var(--radius-lg); box-shadow: var(--shadow-16); overflow: hidden; }
 .slate-history-dialog__head { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-m); padding: var(--space-m) var(--space-l); border-bottom: 1px solid var(--color-neutral-stroke-3); }
 .slate-history-dialog__title { font-size: var(--font-size-400); font-weight: var(--font-weight-semibold); margin: 0; }
