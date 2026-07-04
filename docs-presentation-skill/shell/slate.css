@@ -24,25 +24,25 @@
 :root {
     color-scheme: light;
     /* - Color: Neutral - */
-    --color-neutral-bg-1: #FFFFFF;
-    --color-neutral-bg-2: #FAFAFA;
-    --color-neutral-bg-3: #F5F5F5;
-    --color-neutral-bg-4: #F0F0F0;
+    --color-neutral-bg-1: #F7F4ED;
+    --color-neutral-bg-2: #F1ECE1;
+    --color-neutral-bg-3: #EAE3D5;
+    --color-neutral-bg-4: #E1D8C8;
     --color-neutral-bg-subtle: transparent;
-    --color-neutral-fg-1: #242424;
-    --color-neutral-fg-2: #616161;
-    --color-neutral-fg-3: #9E9E9E;
-    --color-neutral-fg-disabled: #BDBDBD;
-    --color-neutral-stroke-1: #D1D1D1;
-    --color-neutral-stroke-2: #E0E0E0;
-    --color-neutral-stroke-3: #F0F0F0;
+    --color-neutral-fg-1: #2B2620;
+    --color-neutral-fg-2: #5A5142;
+    --color-neutral-fg-3: #8A8271;
+    --color-neutral-fg-disabled: #B3AB9A;
+    --color-neutral-stroke-1: #CFC6B4;
+    --color-neutral-stroke-2: #E1D9CA;
+    --color-neutral-stroke-3: #EDE7DB;
 
-    /* - Color: Brand -  (brandColor from slate.config.json overrides these) */
-    --color-brand-bg: #0F6CBD;
-    --color-brand-bg-hover: #115EA3;
-    --color-brand-fg-1: #0F6CBD;
-    --color-brand-fg-2: #115EA3;
-    --color-brand-stroke: #0F6CBD;
+    /* - Color: Brand -  earthen green (light) - */
+    --color-brand-bg: #5B7049;
+    --color-brand-bg-hover: #4C5E3D;
+    --color-brand-fg-1: #4A6138;
+    --color-brand-fg-2: #3B4F2C;
+    --color-brand-stroke: #6B7E58;
 
     /* - Color: Subtle (interaction) - */
     --color-subtle-bg-hover: rgba(0,0,0,0.04);
@@ -94,27 +94,27 @@
     --sidebar-w: 280px; --toc-w: 220px; --header-h: 48px; --content-max-w: 860px;
 
     /* - Code - */
-    --code-bg: #F6F8FA; --code-border: rgba(0,0,0,0.06);
+    --code-bg: #EFE9DD; --code-border: rgba(0,0,0,0.06);
 }
 
 [data-theme="dark"] {
     color-scheme: dark;
-    --color-neutral-bg-1: #292929;
-    --color-neutral-bg-2: #1F1F1F;
-    --color-neutral-bg-3: #141414;
-    --color-neutral-bg-4: #0A0A0A;
-    --color-neutral-fg-1: #FFFFFF;
-    --color-neutral-fg-2: #D6D6D6;
-    --color-neutral-fg-3: #ADADAD;
-    --color-neutral-fg-disabled: #707070;
-    --color-neutral-stroke-1: #525252;
-    --color-neutral-stroke-2: #3D3D3D;
-    --color-neutral-stroke-3: #333333;
-    --color-brand-bg: #2886DE;
-    --color-brand-bg-hover: #3C96E6;
-    --color-brand-fg-1: #479EF5;
-    --color-brand-fg-2: #62ABF5;
-    --color-brand-stroke: #479EF5;
+    --color-neutral-bg-1: #2A241C;
+    --color-neutral-bg-2: #201B15;
+    --color-neutral-bg-3: #17130E;
+    --color-neutral-bg-4: #0E0B08;
+    --color-neutral-fg-1: #F2EDE3;
+    --color-neutral-fg-2: #D4CBBB;
+    --color-neutral-fg-3: #A79C88;
+    --color-neutral-fg-disabled: #6E6455;
+    --color-neutral-stroke-1: #574D3D;
+    --color-neutral-stroke-2: #3E3529;
+    --color-neutral-stroke-3: #332B21;
+    --color-brand-bg: #6E8A57;
+    --color-brand-bg-hover: #7E9A66;
+    --color-brand-fg-1: #9DBA82;
+    --color-brand-fg-2: #B3CC9A;
+    --color-brand-stroke: #9DBA82;
     --color-subtle-bg-hover: rgba(255,255,255,0.06);
     --color-subtle-bg-pressed: rgba(255,255,255,0.04);
     --color-subtle-bg-selected: rgba(255,255,255,0.06);
@@ -134,7 +134,7 @@
     --shadow-4: 0 2px 4px rgba(0,0,0,0.28), 0 0 2px rgba(0,0,0,0.24);
     --shadow-8: 0 4px 8px rgba(0,0,0,0.28), 0 0 2px rgba(0,0,0,0.24);
     --shadow-16: 0 8px 16px rgba(0,0,0,0.28), 0 0 2px rgba(0,0,0,0.24);
-    --code-bg: #1E1E1E; --code-border: rgba(255,255,255,0.08);
+    --code-bg: #201B15; --code-border: rgba(255,255,255,0.08);
 }
 
 /* - Density: compact scales the spacing tokens down one notch (REQ-DS-09) - */
