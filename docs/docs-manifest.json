@@ -3,7 +3,7 @@
   "entries": [
     { "path": "landing.html", "title": "Overview", "order": 0, "icon": "home", "status": "stable", "updated": "2026-07-03" },
     { "path": "why.html", "title": "What's the Proposal", "order": 1, "icon": "campaign", "status": "stable", "updated": "2026-07-03" },
-    { "path": "methodology.html", "title": "How We Work", "order": 2, "icon": "school", "status": "stable", "updated": "2026-07-03" },
+    { "path": "methodology.html", "title": "How We Work", "order": 2, "icon": "school", "status": "stable", "updated": "2026-07-04" },
     { "path": "ideas.html", "title": "Idea Inbox", "order": 3, "icon": "lightbulb", "status": "draft", "updated": "2026-07-04" },
     { "path": "backlog.html", "title": "Documentation Backlog", "order": 4, "icon": "checklist", "status": "stable", "updated": "2026-07-02" },
 

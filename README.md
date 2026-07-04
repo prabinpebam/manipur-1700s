@@ -112,5 +112,5 @@ python -m http.server 8080
 ## Provenance
 
 The concept and methodology were developed in a planning conversation and distilled into the
-nine-phase method documented under **How We Work**. No historical claim here is authoritative yet -
+parallel-track disciplines documented under **How We Work**. No historical claim here is authoritative yet -
 every "seed fact" must be promoted to a rated entry in the fact database (see *Historical Research*).
