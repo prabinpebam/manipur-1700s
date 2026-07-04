@@ -2,7 +2,7 @@
 
 ## Overview
 
-S2 has built-in frontend pagination rendering. It handles data slicing internally but does **not** provide a pagination UI component — you need to implement or integrate one yourself (e.g., Ant Design's `Pagination` component).
+S2 has built-in frontend pagination rendering. It handles data slicing internally but does **not** provide a pagination UI component - you need to implement or integrate one yourself (e.g., Ant Design's `Pagination` component).
 
 ## Configuration
 
@@ -102,6 +102,6 @@ function goToPage(page) {
 
 ## Notes
 
-- Pagination is **frontend-only** — all data is loaded upfront; S2 just renders the current page slice.
+- Pagination is **frontend-only** - all data is loaded upfront; S2 just renders the current page slice.
 - For server-side pagination, manage `data` externally and update `s2DataConfig.data` when the page changes.
 - The `total` field in pagination is typically read from the rendered result rather than set manually.

@@ -13,7 +13,7 @@ S2 supports multiple sorting methods for table data: ascending/descending by fie
 | `sortBy` | Custom ordered list of dimension values | `string[]` | - | |
 | `sortByMeasure` | Sort by a measure value (pivot table) | `string` | - | |
 | `query` | Filter condition to narrow sort scope, e.g. `{ city: 'Beijing' }` | `Record<string, string>` | - | |
-| `type` | Group sort — used to display sort icon (pivot table) | `string` | - | |
+| `type` | Group sort - used to display sort icon (pivot table) | `string` | - | |
 | `sortFunc` | Custom sort function | `(params: SortFuncParam) => string[]` | - | |
 | `nullsPlacement` | Position of null values in sort | `'first' \| 'last' \| 'auto'` | `'last'` | |
 
@@ -29,7 +29,7 @@ Controls where empty values (`null`, `undefined`, `'-'`, empty string) appear:
 
 Use `sortFieldId: '*'` as a wildcard for global default null placement. Specific field configs take priority over the wildcard.
 
-> When `sortFunc` is defined, it takes full control — `nullsPlacement` is ignored.
+> When `sortFunc` is defined, it takes full control - `nullsPlacement` is ignored.
 
 ## Sort Methods
 
@@ -171,7 +171,7 @@ const s2DataConfig = {
 
 ## Group Sort
 
-Group sort only affects ordering within a group — parent dimension order is preserved. For example, sorting cities within each province by a measure value won't change the province order.
+Group sort only affects ordering within a group - parent dimension order is preserved. For example, sorting cities within each province by a measure value won't change the province order.
 
 > Only one sort state can exist per row/column header at a time. A new sort replaces the previous one on that axis.
 

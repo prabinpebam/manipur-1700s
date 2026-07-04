@@ -14,7 +14,7 @@ Markdown blockquotes that start with an alert marker become styled callouts:
 > Prefer Markdown for prose-heavy pages and HTML for layout-heavy ones.
 
 > [!WARNING]
-> Content must be a body fragment — no `<head>` or `<script>`.
+> Content must be a body fragment - no `<head>` or `<script>`.
 
 > [!DANGER]
 > Never hand-write CSS in content; compose from the component vocabulary.

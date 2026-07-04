@@ -8,7 +8,7 @@ The frozen (freeze) feature pins specific rows and columns so they remain visibl
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| rowHeader | `boolean \| number` | `true` | Freeze row header. When `number`, sets the max frozen area ratio (0, 1) — 0 means no freeze. When `boolean`, `true` = 0.5, `false` = 0. **Pivot table only.** |
+| rowHeader | `boolean \| number` | `true` | Freeze row header. When `number`, sets the max frozen area ratio (0, 1) - 0 means no freeze. When `boolean`, `true` = 0.5, `false` = 0. **Pivot table only.** |
 | rowCount | `number` | `0` | Number of frozen rows from the **top**, counted by leaf nodes. (Not effective in pivot tables with row serial number enabled and custom serial number cells.) |
 | colCount | `number` | `0` | Number of frozen columns from the **left**, counted by leaf nodes. |
 | trailingRowCount | `number` | `0` | Number of frozen rows from the **bottom**, counted by leaf nodes. (Not effective in pivot tables with row serial number enabled and custom serial number cells.) |

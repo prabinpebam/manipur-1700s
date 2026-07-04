@@ -1,4 +1,4 @@
-# S2DataConfig — Data Configuration
+# S2DataConfig - Data Configuration
 
 ## Overview
 

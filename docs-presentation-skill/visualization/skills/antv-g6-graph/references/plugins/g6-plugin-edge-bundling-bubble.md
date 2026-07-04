@@ -65,7 +65,7 @@ fetch('https://assets.antv.antgroup.com/g6/circular.json')
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `type` | `string` | `'edge-bundling'` | Plugin type |
-| `key` | `string` | — | Unique identifier for dynamic updates |
+| `key` | `string` | - | Unique identifier for dynamic updates |
 | `bundleThreshold` | `number` | `0.6` | Edge compatibility threshold: higher values bundle fewer edges; 0.4 gives a pronounced bundling effect, while 0.8 bundles fewer edges |
 | `cycles` | `number` | `6` | Number of simulation cycles; affects computation quality |
 | `divisions` | `number` | `1` | Initial number of subdivision points; affects edge subdivision granularity |
@@ -152,15 +152,15 @@ graph.render();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `type` | `string` | `'bubble-sets'` | Plugin type |
-| `key` | `string` | — | Unique identifier; required for multiple instances |
-| `members` | `string[]` | — | **Required**: list of node/edge IDs to wrap |
-| `avoidMembers` | `string[]` | — | Node IDs the contour should avoid |
-| `fill` | `string` | — | Bubble fill color |
-| `fillOpacity` | `number` | — | Fill opacity (recommended: 0.05-0.2) |
-| `stroke` | `string` | — | Border color |
-| `strokeOpacity` | `number` | — | Border opacity |
+| `key` | `string` | - | Unique identifier; required for multiple instances |
+| `members` | `string[]` | - | **Required**: list of node/edge IDs to wrap |
+| `avoidMembers` | `string[]` | - | Node IDs the contour should avoid |
+| `fill` | `string` | - | Bubble fill color |
+| `fillOpacity` | `number` | - | Fill opacity (recommended: 0.05-0.2) |
+| `stroke` | `string` | - | Border color |
+| `strokeOpacity` | `number` | - | Border opacity |
 | `label` | `boolean` | `true` | Whether to display a label |
-| `labelText` | `string` | — | Label text content |
+| `labelText` | `string` | - | Label text content |
 | `labelPlacement` | `string` | `'bottom'` | Label position: `left/right/top/bottom/center` |
 | `labelBackground` | `boolean` | `false` | Whether to display a label background |
 | `labelPadding` | `number \| number[]` | `0` | Label padding |

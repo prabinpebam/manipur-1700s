@@ -2,10 +2,10 @@
 
 Field marking (conditions) allows users to visually emphasize key information in data cells through four types of markers:
 
-- **Text** (`text`) — Change text color, font size, opacity, alignment
-- **Background** (`background`) — Change cell background color
-- **Interval** (`interval`) — Display bar charts within cells
-- **Icon** (`icon`) — Display icons next to cell text
+- **Text** (`text`) - Change text color, font size, opacity, alignment
+- **Background** (`background`) - Change cell background color
+- **Interval** (`interval`) - Display bar charts within cells
+- **Icon** (`icon`) - Display icons next to cell text
 
 Data cells support all 4 condition types. Header cells (corner, row, column headers) only support text, background, and icon conditions (interval is not applicable to headers).
 
@@ -46,8 +46,8 @@ All condition types inherit from `Condition`:
 
 ### field
 
-- **Pivot table**: `field` matches against `rows`, `columns`, and `values` — applies to row headers, column headers, corner headers, and data cells.
-- **Table (detail) sheet**: `field` matches against `columns` — applies to data cells.
+- **Pivot table**: `field` matches against `rows`, `columns`, and `values` - applies to row headers, column headers, corner headers, and data cells.
+- **Table (detail) sheet**: `field` matches against `columns` - applies to data cells.
 
 A field ID matching multiple rules of the same condition type uses the **last matched rule**.
 
@@ -72,7 +72,7 @@ If `mapping` returns `null`/`undefined`, no condition marking is rendered for th
 
 ### TextCondition
 
-The mapping result follows `TextTheme` — controls text color, opacity, alignment, font, etc.
+The mapping result follows `TextTheme` - controls text color, opacity, alignment, font, etc.
 
 ```ts
 type TextConditionMappingResult = TextTheme;
@@ -163,7 +163,7 @@ const s2Options = {
 };
 ```
 
-**Bidirectional bar chart** — use different colors for positive/negative values:
+**Bidirectional bar chart** - use different colors for positive/negative values:
 
 ```ts
 mapping(value) {
@@ -173,7 +173,7 @@ mapping(value) {
 }
 ```
 
-**Gradient bar chart** — use AntV/G gradient syntax in `fill`:
+**Gradient bar chart** - use AntV/G gradient syntax in `fill`:
 
 ```ts
 mapping(fieldValue) {

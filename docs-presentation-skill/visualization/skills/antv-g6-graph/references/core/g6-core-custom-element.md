@@ -449,7 +449,7 @@ register(ExtensionCategory.NODE, 'my-node', MyNode);
 ### Error: Using a custom type without calling register first
 
 ```javascript
-// ❌ Not registered — G6 does not know 'my-node'
+// ❌ Not registered - G6 does not know 'my-node'
 const graph = new Graph({
   node: { type: 'my-node' },
 });
@@ -504,7 +504,7 @@ render(attributes, container) {
 ### Error: upsert key conflicts with the default shape, causing double rendering
 
 ```javascript
-// ❌ Key is not 'key' — super.render() already creates the default 'key' shape,
+// ❌ Key is not 'key' - super.render() already creates the default 'key' shape,
 //    so upsert('circle', ...) adds an extra circle on top of it
 render(attributes, container) {
   super.render(attributes, container);
@@ -523,7 +523,7 @@ render(attributes, container) {
 ```javascript
 // ❌ scale is a CSS transform; @antv/g shape animate() uses shape-native property names
 circle.animate(
-  [{ scale: 1 }, { scale: 1.1 }, { scale: 1 }],  // Silently ignored — no effect
+  [{ scale: 1 }, { scale: 1.1 }, { scale: 1 }],  // Silently ignored - no effect
   { duration: 2000, iterations: Infinity }
 );
 

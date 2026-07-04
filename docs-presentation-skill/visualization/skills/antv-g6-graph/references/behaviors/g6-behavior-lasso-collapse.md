@@ -111,7 +111,7 @@ graph.on('canvas:pointerup', () => {
 | `immediately` | `boolean` | `false` | Update selected state in real time during dragging |
 | `state` | `string` | `'selected'` | Selected state name |
 | `itemTypes` | `('node' \| 'edge' \| 'combo')[]` | `['node', 'edge', 'combo']` | Element types participating in selection |
-| `style` | `PathStyleProps` | — | Lasso path style |
+| `style` | `PathStyleProps` | - | Lasso path style |
 
 ---
 
@@ -198,8 +198,8 @@ graph.render();
 | `animation` | `boolean` | `true` | Collapse/expand animation |
 | `enable` | `boolean \| ((event) => boolean)` | `true` | Whether to enable |
 | `align` | `boolean` | `true` | Whether to automatically center after collapsing |
-| `onCollapse` | `(id: string) => void` | — | Callback after collapse completes |
-| `onExpand` | `(id: string) => void` | — | Callback after expand completes |
+| `onCollapse` | `(id: string) => void` | - | Callback after collapse completes |
+| `onExpand` | `(id: string) => void` | - | Callback after expand completes |
 
 ### Control collapse/expand through the API
 

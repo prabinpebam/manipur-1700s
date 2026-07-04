@@ -1,5 +1,5 @@
 /* ============================================================
-   Slate — Runtime (slate.js)
+   Slate - Runtime (slate.js)
    ------------------------------------------------------------
    Portable documentation viewer. Renders Markdown and HTML content
    through one pipeline (sanitize -> transform -> enhance), with
@@ -629,7 +629,7 @@
     $$('.nav-item').forEach(it => it.classList.toggle('active', it.dataset.path === path));
     document.title = `${entry.title} - ${state.projectName}`;
     buildToc(body);
-    // Reset scroll instantly (not smoothly) — the fade covers the change, so an
+    // Reset scroll instantly (not smoothly) - the fade covers the change, so an
     // animated scroll here would read as "same page, just scrolled".
     $('#content').scrollTo({ top: 0, behavior: 'instant' }); window.scrollTo({ top: 0, behavior: 'instant' });
     if (state.sidebarOpen) toggleSidebar();

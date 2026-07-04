@@ -6,9 +6,9 @@ pages from these components only; never invent CSS. Full contracts:
 
 ## Naming convention
 
-- Block: `slate-<name>` — e.g., `slate-card`
-- Element: `slate-<name>__<part>` — e.g., `slate-card__title`
-- Variant: `slate-<name>--<variant>` — e.g., `slate-callout--warning`
+- Block: `slate-<name>` - e.g., `slate-card`
+- Element: `slate-<name>__<part>` - e.g., `slate-card__title`
+- Variant: `slate-<name>--<variant>` - e.g., `slate-callout--warning`
 
 ## Content shape → component
 
@@ -25,11 +25,11 @@ pages from these components only; never invent CSS. Full contracts:
 | Key/value specs | Definition list | [defs.html](defs.html) | HTML |
 | An image with a caption | Figure | [figure.html](figure.html) | via syntax |
 | Tabular data | Table | [table.html](table.html) | yes |
-| Code | Fenced code block (Markdown) | — | yes |
+| Code | Fenced code block (Markdown) | - | yes |
 
 ## v1.1 (deferred)
 
-Tabs, accordion, and Mermaid diagrams — see
+Tabs, accordion, and Mermaid diagrams - see
 [specs/12-decisions.md](../../specs/12-decisions.md) (D-SCOPE-1).
 
 ## Rules

@@ -47,7 +47,7 @@ const cell = graph.getCellById('node-1');
 
 ## Connected Edge Queries
 
-### getConnectedEdges — Get All Edges Connected to a Node
+### getConnectedEdges - Get All Edges Connected to a Node
 
 ```javascript
 // Get all connected edges (incoming + outgoing)
@@ -78,14 +78,14 @@ const deepEdges = graph.getConnectedEdges(node, { deep: true });
 
 > Note: when neither `incoming` nor `outgoing` is passed, both default to `true`.
 
-### getOutgoingEdges — Get Outgoing Edges
+### getOutgoingEdges - Get Outgoing Edges
 
 ```javascript
 const outEdges = graph.getOutgoingEdges(node);
 // Returns Edge[] | null
 ```
 
-### getIncomingEdges — Get Incoming Edges
+### getIncomingEdges - Get Incoming Edges
 
 ```javascript
 const inEdges = graph.getIncomingEdges(node);
@@ -94,7 +94,7 @@ const inEdges = graph.getIncomingEdges(node);
 
 ## Neighbor Node Queries
 
-### getNeighbors — Get Neighbor Nodes
+### getNeighbors - Get Neighbor Nodes
 
 ```javascript
 // Get all neighbors (incoming direction + outgoing direction)
@@ -107,7 +107,7 @@ const downstream = graph.getNeighbors(node, { outgoing: true });
 const upstream = graph.getNeighbors(node, { incoming: true });
 ```
 
-### isNeighbor — Check Whether Two Nodes Are Neighbors
+### isNeighbor - Check Whether Two Nodes Are Neighbors
 
 ```javascript
 const isNear = graph.isNeighbor(node1, node2);
@@ -116,7 +116,7 @@ const isDownstream = graph.isNeighbor(node1, node2, { outgoing: true });
 
 ## Predecessors and Successors
 
-### getSuccessors — Get All Successor Nodes
+### getSuccessors - Get All Successor Nodes
 
 All nodes reachable from the current node along outgoing edges (recursive traversal):
 
@@ -128,13 +128,13 @@ const near = graph.getSuccessors(node, { distance: 1 });  // Get direct successo
 const farther = graph.getSuccessors(node, { distance: [2, 3] });  // Successors at distance 2 to 3
 ```
 
-### isSuccessor — Check Whether a Node Is a Successor
+### isSuccessor - Check Whether a Node Is a Successor
 
 ```javascript
 const isAfter = graph.isSuccessor(node1, node2);  // Whether node2 is a successor of node1
 ```
 
-### getPredecessors — Get All Predecessor Nodes
+### getPredecessors - Get All Predecessor Nodes
 
 All nodes reachable from the current node along incoming edges (recursive traversal):
 
@@ -142,7 +142,7 @@ All nodes reachable from the current node along incoming edges (recursive traver
 const predecessors = graph.getPredecessors(node);
 ```
 
-### isPredecessor — Check Whether a Node Is a Predecessor
+### isPredecessor - Check Whether a Node Is a Predecessor
 
 ```javascript
 const isBefore = graph.isPredecessor(node1, node2);  // Whether node2 is a predecessor of node1
@@ -150,19 +150,19 @@ const isBefore = graph.isPredecessor(node1, node2);  // Whether node2 is a prede
 
 ## Root Nodes and Leaf Nodes
 
-### getRoots — Get Root Nodes (Nodes with No Incoming Edges)
+### getRoots - Get Root Nodes (Nodes with No Incoming Edges)
 
 ```javascript
 const roots = graph.getRootNodes();
 ```
 
-### getLeafs — Get Leaf Nodes (Nodes with No Outgoing Edges)
+### getLeafs - Get Leaf Nodes (Nodes with No Outgoing Edges)
 
 ```javascript
 const leafs = graph.getLeafNodes();
 ```
 
-### isRoot / isLeaf — Check Whether a Node Is Root/Leaf
+### isRoot / isLeaf - Check Whether a Node Is Root/Leaf
 
 ```javascript
 graph.isRootNode(node);  // true if no incoming edges
@@ -171,7 +171,7 @@ graph.isLeafNode(node);  // true if no outgoing edges
 
 ## Graph Traversal Search
 
-### searchCell — Graph Search (BFS/DFS)
+### searchCell - Graph Search (BFS/DFS)
 
 ```javascript
 // Breadth-first search starting from node
@@ -187,7 +187,7 @@ graph.searchCell(node, (cell, distance) => {
 });
 ```
 
-### getShortestPath — Shortest Path
+### getShortestPath - Shortest Path
 
 ```javascript
 const path = graph.getShortestPath(sourceNode, targetNode);

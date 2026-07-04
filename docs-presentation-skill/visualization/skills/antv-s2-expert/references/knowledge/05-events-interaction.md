@@ -7,9 +7,9 @@ S2 provides a rich interaction system built on mouse and keyboard events. Common
 ## Listening to Events
 
 Events are namespaced by category:
-- `global:xx` — Global chart events
-- `layout:xx` — Layout change events
-- `cell:xx` — Cell-level events (data cell, row cell, col cell, corner cell, etc.)
+- `global:xx` - Global chart events
+- `layout:xx` - Layout change events
+- `cell:xx` - Cell-level events (data cell, row cell, col cell, corner cell, etc.)
 
 ```ts
 import { PivotSheet, S2Event, DataCell, RowCell, ColCell } from '@antv/s2';
@@ -42,7 +42,7 @@ s2.on(S2Event.GLOBAL_RESET, () => { /* ... */ });
 ### React / Vue Usage
 
 ```tsx
-// React — using SheetComponent ref
+// React - using SheetComponent ref
 import { S2Event, SpreadSheet } from '@antv/s2';
 import { SheetComponent } from '@antv/s2-react';
 
@@ -56,7 +56,7 @@ function App() {
   return <SheetComponent ref={s2Ref} onMounted={onSheetMounted} />;
 }
 
-// React — using event props (recommended)
+// React - using event props (recommended)
 <SheetComponent onDataCellClick={handler} />
 
 // Vue

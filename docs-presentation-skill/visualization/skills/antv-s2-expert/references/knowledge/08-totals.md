@@ -31,8 +31,8 @@ const s2Options = {
 | `showGrandTotals` | Whether to show grand totals | `boolean` | `false` |
 | `showSubTotals` | Whether to show subtotals. Object form: `{ always: boolean }` controls display when sub-dimensions < 2. | `boolean \| { always: boolean }` | `false` |
 | `subTotalsDimensions` | Dimensions to aggregate for subtotals | `string[]` | `[]` |
-| `reverseGrandTotalsLayout` | Grand total position — `true` places it at top/left instead of default bottom/right | `boolean` | `false` |
-| `reverseSubTotalsLayout` | Subtotal position — `true` places it at top/left instead of default bottom/right | `boolean` | `false` |
+| `reverseGrandTotalsLayout` | Grand total position - `true` places it at top/left instead of default bottom/right | `boolean` | `false` |
+| `reverseSubTotalsLayout` | Subtotal position - `true` places it at top/left instead of default bottom/right | `boolean` | `false` |
 | `grandTotalsLabel` | Display label for grand totals | `string` | `'Grand Total'` |
 | `subTotalsLabel` | Display label for subtotals | `string` | `'Subtotal'` |
 | `calcGrandTotals` | Custom grand total calculation | `CalcTotals` | - |

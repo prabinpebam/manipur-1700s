@@ -334,7 +334,7 @@ Tooltip operation item.
 
 ## Pagination
 
-Pagination configuration. S2 provides built-in frontend pagination rendering but does not include a pagination component — you need to implement that yourself.
+Pagination configuration. S2 provides built-in frontend pagination rendering but does not include a pagination component - you need to implement that yourself.
 
 | Property | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |

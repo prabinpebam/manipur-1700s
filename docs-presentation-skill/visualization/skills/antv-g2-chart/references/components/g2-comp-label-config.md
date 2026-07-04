@@ -191,9 +191,9 @@ labels: [
 ],
 ```
 Supported values for `selector`:
-- `'first'` — Keep the first label
-- `'last'` — Keep the last label
-- `(labels) => filteredLabels` — Custom selector function that receives the full label information array and can filter based on coordinates and other information
+- `'first'` - Keep the first label
+- `'last'` - Keep the last label
+- `(labels) => filteredLabels` - Custom selector function that receives the full label information array and can filter based on coordinates and other information
 
 ## Label Transforms (transform)
 
@@ -236,7 +236,7 @@ chart.options({
 | overlapHide     | Hide colliding labels; by default, keep the previous one and hide the next one      |
 | exceedAdjust    | Automatically detect and correct label overflow, shifting labels in the opposite direction when they exceed the specified area    |
 
-### overlapDodgeY — Prevent Overlap (y-direction adjustment)
+### overlapDodgeY - Prevent Overlap (y-direction adjustment)
 
 Adjust colliding labels in the y direction; suitable for label-dense scenarios such as line charts.
 
@@ -255,7 +255,7 @@ labels: [
 | padding       | Expected spacing between labels after adjustment                 | _number_ | `1`    |
 | maxError      | Maximum error (the difference between actual spacing and the expected padding)| _number_ | `0.1`  |
 
-### contrastReverse — Contrast Reversal
+### contrastReverse - Contrast Reversal
 
 When the label color has low contrast against the mark background, automatically choose the color with the best contrast from a specified palette. This is suitable when colors and labels are similar in multicolor bar charts.
 
@@ -287,7 +287,7 @@ labels: [
 ],
 ```
 
-### overflowStroke — Overflow Stroke
+### overflowStroke - Overflow Stroke
 
 Similar to white subtitles on a black background, this selects the color with the best contrast against the label color from a specified palette for stroking, improving readability when labels overflow their marks.
 
@@ -305,7 +305,7 @@ labels: [
 | threshold | Overflow threshold; larger values make the stroke less likely to be triggered | _number_   | `2`                |
 | palette   | Candidate color palette for the stroke            | _string[]_ | `['#000', '#fff']` |
 
-### overflowHide — Hide Overflow
+### overflowHide - Hide Overflow
 
 Hide labels when they cannot fit on the mark. This is suitable for scenarios where every small mark maps to a `label`, causing unclear overlap (such as sunburst charts and treemaps).
 
@@ -320,7 +320,7 @@ labels: [
 ],
 ```
 
-### overlapHide — Hide Collisions
+### overlapHide - Hide Collisions
 
 Hide colliding labels; by default, keep the previous one and hide the next one. Unlike `overlapDodgeY`, `overlapHide` hides labels directly instead of moving them.
 
@@ -333,7 +333,7 @@ labels: [
 ],
 ```
 
-### exceedAdjust — Overflow Adjustment
+### exceedAdjust - Overflow Adjustment
 
 Automatically detect and correct label overflow, shifting labels in the opposite direction when they exceed the specified area.
 

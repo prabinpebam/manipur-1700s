@@ -69,9 +69,9 @@ graph.render();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `type` | `string` | `'title'` | Plugin type |
-| `key` | `string` | — | Unique identifier |
-| `title` | `string` | — | **Required**: main title text |
-| `subtitle` | `string` | — | Subtitle text |
+| `key` | `string` | - | Unique identifier |
+| `title` | `string` | - | **Required**: main title text |
+| `subtitle` | `string` | - | Subtitle text |
 | `align` | `'left' \| 'center' \| 'right'` | `'left'` | Title alignment |
 | `size` | `number` | `44` | Title area height (px) |
 | `padding` | `number \| number[]` | `[16,24,0,24]` | Padding |
@@ -164,11 +164,11 @@ graph.render();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `type` | `string` | `'fullscreen'` | Plugin type |
-| `key` | `string` | — | Unique identifier (required for programmatic control) |
+| `key` | `string` | - | Unique identifier (required for programmatic control) |
 | `autoFit` | `boolean` | `true` | Whether to automatically fit the canvas size after entering full screen |
-| `trigger` | `{ request?: string; exit?: string }` | — | Keyboard shortcut triggers |
-| `onEnter` | `() => void` | — | Callback when entering full screen |
-| `onExit` | `() => void` | — | Callback when exiting full screen |
+| `trigger` | `{ request?: string; exit?: string }` | - | Keyboard shortcut triggers |
+| `onEnter` | `() => void` | - | Callback when entering full screen |
+| `onExit` | `() => void` | - | Callback when exiting full screen |
 
 ### Programmatic Fullscreen Control
 

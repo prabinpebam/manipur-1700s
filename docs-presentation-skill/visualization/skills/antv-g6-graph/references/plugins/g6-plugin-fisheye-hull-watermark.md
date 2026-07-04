@@ -94,10 +94,10 @@ graph.render();
 | `trigger` | `string` | `'pointermove'` | Event that triggers fisheye movement |
 | `r` | `number` | `120` | Lens radius (px) |
 | `d` | `number` | `1.5` | Distortion coefficient; higher values increase magnification |
-| `scaleRBy` | `'wheel' \| 'drag'` | — | Adjust radius with the mouse wheel or by dragging |
-| `scaleDBy` | `'wheel' \| 'drag'` | — | Adjust distortion with the mouse wheel or by dragging |
-| `style` | `Partial<CircleStyleProps>` | — | Lens appearance style |
-| `nodeStyle` | `NodeStyle \| ((d) => NodeStyle)` | — | Node style inside the magnified area |
+| `scaleRBy` | `'wheel' \| 'drag'` | - | Adjust radius with the mouse wheel or by dragging |
+| `scaleDBy` | `'wheel' \| 'drag'` | - | Adjust distortion with the mouse wheel or by dragging |
+| `style` | `Partial<CircleStyleProps>` | - | Lens appearance style |
+| `nodeStyle` | `NodeStyle \| ((d) => NodeStyle)` | - | Node style inside the magnified area |
 
 ---
 
@@ -182,8 +182,8 @@ plugins: [
 
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
-| `text` | `string` | — | Text watermark content; mutually exclusive with `imageURL` |
-| `imageURL` | `string` | — | Image watermark URL |
+| `text` | `string` | - | Text watermark content; mutually exclusive with `imageURL` |
+| `imageURL` | `string` | - | Image watermark URL |
 | `textFill` | `string` | `'#000'` | Text color |
 | `textFontSize` | `number` | `14` | Font size |
 | `opacity` | `number` | `0.2` | Watermark opacity |

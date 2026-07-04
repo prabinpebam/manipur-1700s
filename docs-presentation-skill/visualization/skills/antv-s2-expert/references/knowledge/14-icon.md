@@ -51,9 +51,9 @@ Register custom action icons for row, column, and corner header cells via `s2Opt
 
 ### belongsCell Values
 
-- `'cornerCell'` — Corner header
-- `'colCell'` — Column header
-- `'rowCell'` — Row header
+- `'cornerCell'` - Corner header
+- `'colCell'` - Column header
+- `'rowCell'` - Row header
 
 ### HeaderIconClickParams
 

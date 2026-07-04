@@ -4,10 +4,10 @@
 
 `@antv/s2-ssr` enables rendering S2 tables in Node.js environments and exporting them as PNG, JPEG, SVG, or PDF. Common use cases:
 
-- 📧 **Email reports** — Embed table images in emails
-- 🤖 **Chat bots** — Push table screenshots to DingTalk, WeCom, Lark, etc.
-- 📊 **Scheduled reports** — Auto-generate data reports as images
-- 🖨️ **Print services** — Generate high-resolution table images for printing
+- 📧 **Email reports** - Embed table images in emails
+- 🤖 **Chat bots** - Push table screenshots to DingTalk, WeCom, Lark, etc.
+- 📊 **Scheduled reports** - Auto-generate data reports as images
+- 🖨️ **Print services** - Generate high-resolution table images for printing
 
 ## Installation
 

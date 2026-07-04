@@ -36,7 +36,7 @@ A pivot table is composed of five regions:
 | **Row Header** (`rowHeader`) | Displays row dimension hierarchy. Structure determined by `s2DataConfig.fields.rows`. Supports grid (flat) and tree display modes. |
 | **Column Header** (`colHeader`) | Displays column dimension hierarchy. Structure determined by `s2DataConfig.fields.columns`. |
 | **Corner Header** (`cornerHeader`) | Top-left area. Used as the layout anchor for calculating row/column sizes and coordinates. Displays row/column field names. |
-| **Data Cell** (`dataCell`) | The cross-intersection area of row and column dimensions. Displays measure values — the core data presentation area. |
+| **Data Cell** (`dataCell`) | The cross-intersection area of row and column dimensions. Displays measure values - the core data presentation area. |
 | **Frame** (`frame`) | Overlay layer above all other regions. Handles separators, scrollbars, and shadow effects between regions. |
 
 ### Key Terminology

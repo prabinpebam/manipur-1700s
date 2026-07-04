@@ -1,4 +1,4 @@
-# Snipping Tool — Click to Do Bet (raw notes)
+# Snipping Tool - Click to Do Bet (raw notes)
 
 These are raw, unstructured notes handed to the agent. The agent converts them into a structured,
 navigable page (see `after.html`). Nothing here is invented; the generated page must trace to it.
@@ -18,7 +18,7 @@ surface, not just an image. Goal: turn "screenshot" into "get something done."
 
 1. Recognize text and entities in any capture.
 2. Offer contextual actions (copy text, search, translate, open link).
-3. Keep it fast and private — on-device where possible.
+3. Keep it fast and private - on-device where possible.
 
 ## Metrics we care about
 

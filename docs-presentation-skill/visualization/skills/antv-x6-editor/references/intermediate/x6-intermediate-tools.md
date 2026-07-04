@@ -121,7 +121,7 @@ graph.on('edge:mouseleave', ({ edge }) => {
 
 ## Built-in Node Tools
 
-### button — Custom Button
+### button - Custom Button
 
 Render a button at a specified position on a node, with support for custom click interactions.
 
@@ -151,7 +151,7 @@ node.addTools({
 | `markup` | Markup | SVG structure of the button |
 | `onClick` | Function | Click callback `({ e, cell, view }) => void` |
 
-### button-remove — Delete Button
+### button-remove - Delete Button
 
 A special case of button that deletes the corresponding node when clicked. Supports all button configurations.
 
@@ -173,7 +173,7 @@ graph.addNode({
 });
 ```
 
-### boundary — Bounding Box
+### boundary - Bounding Box
 
 Render a rectangle based on the node bounding box. It is only for visualization and has no interaction.
 
@@ -192,7 +192,7 @@ node.addTools({
 });
 ```
 
-### node-editor — Text Editing
+### node-editor - Text Editing
 
 Provides text editing on nodes; double-click a node to edit its text.
 
@@ -221,7 +221,7 @@ node.addTools({
 
 ## Built-in Edge Tools
 
-### vertices — Vertex Editing
+### vertices - Vertex Editing
 
 Render small circles at vertex positions. Supports dragging to change positions, double-clicking to delete, and clicking an edge to add vertices.
 
@@ -245,7 +245,7 @@ graph.addEdge({
 | `addable` | boolean | true | Whether vertices can be added |
 | `removable` | boolean | true | Whether double-clicking can delete |
 
-### segments — Segment Tool
+### segments - Segment Tool
 
 Render a toolbar at the center of each segment. Dragging adjusts the vertex positions at both ends of the segment.
 
@@ -281,7 +281,7 @@ edge.addTools([
 ]);
 ```
 
-### edge-editor — Edge Text Editing
+### edge-editor - Edge Text Editing
 
 Double-click an edge to edit its text label.
 

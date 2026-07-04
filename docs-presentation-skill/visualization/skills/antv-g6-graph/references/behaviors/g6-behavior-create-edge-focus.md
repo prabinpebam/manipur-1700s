@@ -114,9 +114,9 @@ graph.render();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `trigger` | `'drag' \| 'click'` | `'drag'` | Trigger mode |
-| `style` | `EdgeStyleProps` | — | Temporary edge style during creation |
-| `onFinish` | `(edge: EdgeData) => void` | — | Callback when edge creation finishes |
-| `onCreate` | `(edge: EdgeData) => EdgeData \| undefined` | — | Creation interceptor; return undefined to cancel |
+| `style` | `EdgeStyleProps` | - | Temporary edge style during creation |
+| `onFinish` | `(edge: EdgeData) => void` | - | Callback when edge creation finishes |
+| `onCreate` | `(edge: EdgeData) => EdgeData \| undefined` | - | Creation interceptor; return undefined to cancel |
 | `enable` | `boolean \| ((event) => boolean)` | `true` | Whether to enable |
 
 ---

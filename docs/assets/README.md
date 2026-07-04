@@ -1,4 +1,4 @@
-# docs/assets — the organized asset library
+# docs/assets - the organized asset library
 
 Everything in here is **curated and safe to reference** from documentation pages. Files
 arrive from `../../_intake/` after being renamed and web-optimized.
@@ -34,7 +34,7 @@ Always inside a `slate-figure` with real `alt` text and a caption:
 <figure class="slate-figure">
   <img src="../assets/art-style/moodboards/art-moodboard-village-01.jpg"
        alt="Moodboard of a timber-and-brick Meitei village at dawn.">
-  <figcaption>Target mood for the opening village — warm timber, wet paddy, low mist.</figcaption>
+  <figcaption>Target mood for the opening village - warm timber, wet paddy, low mist.</figcaption>
 </figure>
 ```
 
@@ -43,4 +43,4 @@ Always inside a `slate-figure` with real `alt` text and a caption:
 - Web-optimize before committing: JPG/WebP for photos, PNG for flat/UI, SVG for diagrams.
   Aim for ≤ ~300 KB per image where possible.
 - Keep the naming convention from `_intake/README.md`.
-- One subject per file; don't overwrite — increment the `-nn` suffix.
+- One subject per file; don't overwrite - increment the `-nn` suffix.

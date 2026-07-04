@@ -45,10 +45,10 @@ source_url: "https://g2.antv.antgroup.com/examples/general/pie"
 ## Core concepts
 
 The Spec structure of a G2 v5 pie chart:
-- `coordinate: { type: 'theta' }` — converts Cartesian coordinates to circular angle coordinates
-- `transform: [{ type: 'stackY' }]` — accumulates category values into angle intervals (**required**)
-- `encode.y` — maps the numeric field (angle size)
-- `encode.color` — maps the categorical field (sector color)
+- `coordinate: { type: 'theta' }` - converts Cartesian coordinates to circular angle coordinates
+- `transform: [{ type: 'stackY' }]` - accumulates category values into angle intervals (**required**)
+- `encode.y` - maps the numeric field (angle size)
+- `encode.color` - maps the categorical field (sector color)
 
 ## Minimal runnable example
 

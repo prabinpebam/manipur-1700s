@@ -106,9 +106,9 @@ graph.render();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `trigger` | `'click' \| 'contextmenu'` | `'contextmenu'` | Trigger mode |
-| `getItems` | `(event) => Item[] \| Promise<Item[]>` | — | Menu item generation function; mutually exclusive with `getContent` |
-| `getContent` | `(event) => HTMLElement \| string` | — | Fully custom menu HTML |
-| `onClick` | `(value, target, current) => void` | — | Menu item click callback |
+| `getItems` | `(event) => Item[] \| Promise<Item[]>` | - | Menu item generation function; mutually exclusive with `getContent` |
+| `getContent` | `(event) => HTMLElement \| string` | - | Fully custom menu HTML |
+| `onClick` | `(value, target, current) => void` | - | Menu item click callback |
 | `offset` | `[number, number]` | `[4, 4]` | Menu offset |
 | `enable` | `boolean \| ((event) => boolean)` | `true` | Whether to enable the menu |
 | `className` | `string` | `'g6-contextmenu'` | CSS class name for the menu container |
@@ -153,10 +153,10 @@ plugins: [
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `position` | `'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'` | `'top-left'` | Toolbar position |
-| `getItems` | `() => ToolbarItem[] \| Promise<ToolbarItem[]>` | — | **Required**. Toolbar item list |
-| `onClick` | `(value: string, target: Element) => void` | — | Click callback |
-| `className` | `string` | — | Toolbar CSS class name |
-| `style` | `Partial<CSSStyleDeclaration>` | — | Toolbar container style |
+| `getItems` | `() => ToolbarItem[] \| Promise<ToolbarItem[]>` | - | **Required**. Toolbar item list |
+| `onClick` | `(value: string, target: Element) => void` | - | Click callback |
+| `className` | `string` | - | Toolbar CSS class name |
+| `style` | `Partial<CSSStyleDeclaration>` | - | Toolbar container style |
 
 **ToolbarItem:**
 ```typescript

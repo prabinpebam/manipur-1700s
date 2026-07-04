@@ -1,7 +1,7 @@
 ---
 name: docs-presentation
 title: Documentation-Presentation (Slate)
-description: Turn raw content into a beautiful, navigable, visual-first static documentation site. Use when asked to format, organize, or present provided content (notes, transcripts, Markdown, extracted docs) as structured, viewable pages, or to build a documentation site/viewer from content. Strongly biases toward visual representation — charts, diagrams, infographics, and data visuals — using the bundled AntV visualization skills.
+description: Turn raw content into a beautiful, navigable, visual-first static documentation site. Use when asked to format, organize, or present provided content (notes, transcripts, Markdown, extracted docs) as structured, viewable pages, or to build a documentation site/viewer from content. Strongly biases toward visual representation - charts, diagrams, infographics, and data visuals - using the bundled AntV visualization skills.
 version: 0.2.0
 ---
 
@@ -12,7 +12,7 @@ this file, take the user's raw content, and generate:
 
 - one **page** per topic (`.html` for rich layout, `.md` for prose, or a mix),
 - **visualizations** (charts, diagrams, infographics) for anything that carries data, structure,
-  or relationships — embedded as figures,
+  or relationships - embedded as figures,
 - a **`docs-manifest.json`** listing every page,
 - an optional **`slate.config.json`** for branding,
 
@@ -25,7 +25,7 @@ JavaScript.** You compose pages from the documented component vocabulary in
 
 > **A big part of good documentation is how well information is *represented*. Default to showing,
 > not telling.** Whenever content contains numbers, trends, comparisons, proportions, processes,
-> hierarchies, relationships, flows, distributions, or structured entities — **represent it as a
+> hierarchies, relationships, flows, distributions, or structured entities - **represent it as a
 > visualization**, not a paragraph. Prose is the fallback, used only when a visual would not add
 > clarity.
 
@@ -58,14 +58,14 @@ Use this skill when the user asks to:
 
 ## Outputs
 
-- `*.html` (rich) and/or `*.md` (prose) pages — one per topic — as **body fragments** (no `<head>`).
+- `*.html` (rich) and/or `*.md` (prose) pages - one per topic - as **body fragments** (no `<head>`).
 - **Visualization assets** saved under an `assets/` folder next to the pages (e.g.
   `assets/charts/*.svg` / `*.png`), embedded via the figure component.
-- `docs-manifest.json` — validated against [`schema/manifest.schema.json`](schema/manifest.schema.json).
-- Optional `slate.config.json` — validated against [`schema/config.schema.json`](schema/config.schema.json).
+- `docs-manifest.json` - validated against [`schema/manifest.schema.json`](schema/manifest.schema.json).
+- Optional `slate.config.json` - validated against [`schema/config.schema.json`](schema/config.schema.json).
 - The copied `shell/` and `assets/` folders (unchanged).
 
-## Procedure (deterministic — follow in order)
+## Procedure (deterministic - follow in order)
 
 1. **Ingest** the content; identify topics → one page per topic.
 2. **Outline** each page: title, TL;DR, section hierarchy (H2/H3).
@@ -82,7 +82,7 @@ Use this skill when the user asks to:
 8. **Self-validate** against the checklist below; fix issues.
 9. **Stop.** The user reviews in the viewer. Invent no content or data beyond the inputs.
 
-## Visualization decision matrix — content shape → visual → skill
+## Visualization decision matrix - content shape → visual → skill
 
 Choose the visual whose shape matches the data, then author it with the linked skill. All visuals
 are embedded as **figures** (see "Embedding a visualization").
@@ -108,14 +108,14 @@ are embedded as **figures** (see "Embedding a visualization").
 | Need an icon for a card/tile/infographic | Icon lookup | [icon-retrieval](visualization/skills/icon-retrieval/SKILL.md) |
 
 **Default, lowest-friction path:** for standard charts, use
-[chart-visualization](visualization/skills/chart-visualization/SKILL.md) — it calls the AntV
+[chart-visualization](visualization/skills/chart-visualization/SKILL.md) - it calls the AntV
 GPT-Vis API and returns a chart **image**, which you save into `assets/charts/` and embed as a
 figure.
 
 ## Embedding a visualization in a page
 
 The viewer is static and sanitized: **no `<script>`, no `<iframe>`, no `<style>` in content.** So
-visualizations are embedded as **static assets** — an image or inline SVG — inside the **figure**
+visualizations are embedded as **static assets** - an image or inline SVG - inside the **figure**
 component. (Interactive/library charts are authored, then **exported** to SVG/PNG.)
 
 Rules:
@@ -123,13 +123,13 @@ Rules:
 - **Save the asset locally.** If a skill returns a remote image URL, download it into
   `assets/charts/` and reference the local path so the site stays offline-capable and versioned.
 - **Prefer `<img>` for exported charts** (self-contained). Use **inline `<svg>`** only for simple
-  graphics that use presentation attributes (`fill=`, `stroke=`) — the sanitizer strips `<style>`
+  graphics that use presentation attributes (`fill=`, `stroke=`) - the sanitizer strips `<style>`
   inside SVG, so `<style>`-based SVG must be rasterized/exported to PNG or converted to attributes.
 - **Meaningful `alt`** stating the *takeaway*, not just the chart type.
 - **Caption** with `<figcaption>` for context/source.
 - **Text alternative + searchability:** include the underlying numbers as a collapsible data table
   right after the figure. This satisfies accessibility and makes the data findable by search.
-- Figures get **zoom (lightbox) for free** — the shell enlarges `.slate-figure img` on click.
+- Figures get **zoom (lightbox) for free** - the shell enlarges `.slate-figure img` on click.
 
 Canonical embed:
 
@@ -151,7 +151,7 @@ Canonical embed:
 </details>
 ```
 
-## Component catalog — content shape → component
+## Component catalog - content shape → component
 
 Reach for a **visualization first** (matrix above). Use these components for structure and for
 content that is genuinely non-visual.
@@ -170,14 +170,14 @@ content that is genuinely non-visual.
 | A status/label word | Badge | [badge.html](components/badge.html) |
 | Key/value specs | Definition list | [defs.html](components/defs.html) |
 | Tabular data (that is not better as a chart) | Table | [table.html](components/table.html) |
-| Code | Fenced code block (Markdown) | — |
+| Code | Fenced code block (Markdown) | - |
 
 If the content needs something not covered, choose the closest visual/component or fall back to
-prose — and flag the gap to the user.
+prose - and flag the gap to the user.
 
 ## Visualization skills (bundled)
 
-Vendored under [`visualization/`](visualization/README.md) — an English port of AntV
+Vendored under [`visualization/`](visualization/README.md) - an English port of AntV
 `chart-visualization-skills` (MIT). Read the linked `SKILL.md` for each before authoring that
 visual type.
 
@@ -206,7 +206,7 @@ these files MUST be kept when the skill is copied.
    *only* carrier of a fact.
 3. Compose **only** from catalog components and embedded visual assets. Never invent CSS, never
    write `<style>`/`<script>` in content, never use inline `style=`. Visuals are embedded as
-   **static images or inline SVG** inside a figure — never as live scripts or iframes.
+   **static images or inline SVG** inside a figure - never as live scripts or iframes.
 4. Author **body fragments**, not full HTML documents. The shell owns `<head>`, theme, and layout.
 5. Exactly **one H1** per page. H2/H3 drive the TOC and collapsible sections.
 6. Pick format per page: prose-heavy → Markdown; layout/visual → HTML; mixed when needed.
@@ -214,12 +214,12 @@ these files MUST be kept when the skill is copied.
 8. **Save visualization assets locally** under `assets/`; reference relative paths.
 9. Links are **relative** to real content paths; the runtime rewrites them to hash routes.
 10. **Update `docs-manifest.json`** for every page (path, title, order, group).
-11. **Preserve source material** — generate alongside inputs, never overwrite them. Keep the
+11. **Preserve source material** - generate alongside inputs, never overwrite them. Keep the
     bundled `visualization/LICENSE` and `visualization/NOTICE`.
 12. **Accessibility**: alt text on every image/chart, semantic markup, keyboard-reachable components.
-13. **No emoji** — use the icon set in [`assets/icons/`](assets/icons/) or
+13. **No emoji** - use the icon set in [`assets/icons/`](assets/icons/) or
     [icon-retrieval](visualization/skills/icon-retrieval/SKILL.md).
-14. **No fabrication** — every fact, number, and data point must trace to the provided inputs. Do
+14. **No fabrication** - every fact, number, and data point must trace to the provided inputs. Do
     not invent data to make a nicer chart.
 
 ## Self-validation checklist (run before finishing)
@@ -238,7 +238,7 @@ these files MUST be kept when the skill is copied.
 - [ ] Renders in light and dark (tokens guarantee contrast; check chart images read in both).
 - [ ] Manifest validates against `schema/manifest.schema.json`; config (if any) against
       `schema/config.schema.json`.
-- [ ] No fabricated facts or data — everything traces to the inputs.
+- [ ] No fabricated facts or data - everything traces to the inputs.
 
 ## Worked example
 
@@ -251,4 +251,4 @@ visualization for any data the example carries.
 
 This skill implements the [Slate specification suite](../specs/README.md) plus the bundled
 [visualization skills](visualization/README.md). You do **not** need to read `shell/` source to use
-the skill — the catalog, templates, schemas, and visualization skills are sufficient.
+the skill - the catalog, templates, schemas, and visualization skills are sufficient.

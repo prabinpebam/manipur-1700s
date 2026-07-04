@@ -1,4 +1,4 @@
-# _intake — the messy drop zone
+# _intake - the messy drop zone
 
 This is the **staging area** for raw assets. Drop anything here without worrying about
 naming, folders, or format. It is deliberately allowed to be disorganized.
@@ -7,13 +7,13 @@ Think of it as an inbox: things land here, get processed, and then leave.
 
 ## How to use it
 
-1. **Drop** — save screenshots, reference images, sketches, font specimens, audio clips,
+1. **Drop** - save screenshots, reference images, sketches, font specimens, audio clips,
    PDFs, whatever, straight into this folder (subfolders are fine but not required).
-2. **Process** — when you have a moment, move each file to the right home under
+2. **Process** - when you have a moment, move each file to the right home under
    `docs/assets/…`, rename it to the convention below, and (usually) shrink it for the web.
-3. **Reference** — add the processed file to the relevant documentation page with an
+3. **Reference** - add the processed file to the relevant documentation page with an
    `<img>` tag and a real caption.
-4. **Clear** — once a file has moved out, it should no longer live here. `_intake` should
+4. **Clear** - once a file has moved out, it should no longer live here. `_intake` should
    trend back toward empty.
 
 ## Where things go next
@@ -49,7 +49,7 @@ font-meeteimayek-consonants-chart-01.png
 
 - **Never reference a file in `_intake/` from a documentation page.** Docs only point at
   files under `docs/assets/…`. Intake files can be deleted at any time.
-- Keep large source files (PSD, RAW, uncompressed audio) out of git if they get heavy —
+- Keep large source files (PSD, RAW, uncompressed audio) out of git if they get heavy -
   see `.gitignore`. Export a web-friendly version into `docs/assets/…` instead.
 - When in doubt about where something goes, read
   `docs/00-foundation/asset-management.html` (the Asset Management page in the docs site).

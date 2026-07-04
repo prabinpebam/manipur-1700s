@@ -98,16 +98,16 @@ graph.render();
 
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
-| `data` | `number[] \| { time, value }[]` | — | **Required**, time tick data |
-| `getTime` | `(datum) => number` | — | **Required**, extracts the time value from element data |
-| `values` | `number \| [number, number]` | — | Initial time range |
+| `data` | `number[] \| { time, value }[]` | - | **Required**, time tick data |
+| `getTime` | `(datum) => number` | - | **Required**, extracts the time value from element data |
+| `values` | `number \| [number, number]` | - | Initial time range |
 | `elementTypes` | `ElementType[]` | `['node']` | Element types to filter |
 | `mode` | `'modify' \| 'visibility'` | `'modify'` | Filtering mode |
 | `timebarType` | `'time' \| 'chart'` | `'time'` | Timebar display type |
 | `position` | `'bottom' \| 'top'` | `'bottom'` | Position |
 | `width` | `number` | `450` | Width |
 | `height` | `number` | `60` | Height |
-| `labelFormatter` | `(time) => string` | — | Time label formatter |
+| `labelFormatter` | `(time) => string` | - | Time label formatter |
 | `loop` | `boolean` | `false` | Loop during playback |
 
 ### timebar Playback Control API

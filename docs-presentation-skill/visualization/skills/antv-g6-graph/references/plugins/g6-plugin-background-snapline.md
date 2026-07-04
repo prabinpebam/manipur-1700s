@@ -60,13 +60,13 @@ graph.render();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `type` | `string` | `'background'` | Plugin type |
-| `key` | `string` | — | Unique identifier for `graph.updatePlugin()` |
-| `backgroundColor` | `string` | — | Background color (CSS color) |
-| `backgroundImage` | `string` | — | Background image (`'url(...)'`) |
+| `key` | `string` | - | Unique identifier for `graph.updatePlugin()` |
+| `backgroundColor` | `string` | - | Background color (CSS color) |
+| `backgroundImage` | `string` | - | Background image (`'url(...)'`) |
 | `backgroundSize` | `string` | `'cover'` | Background size (CSS background-size) |
-| `backgroundRepeat` | `string` | — | Background repeat behavior (CSS background-repeat) |
-| `backgroundPosition` | `string` | — | Background position |
-| `opacity` | `string` | — | Background opacity (0-1) |
+| `backgroundRepeat` | `string` | - | Background repeat behavior (CSS background-repeat) |
+| `backgroundPosition` | `string` | - | Background position |
+| `opacity` | `string` | - | Background opacity (0-1) |
 | `transition` | `string` | `'background 0.5s'` | Transition animation |
 | `zIndex` | `string` | `-1` | Stacking order; the default value -1 places it below other elements |
 | `width` | `string` | `'100%'` | Background width |
@@ -149,7 +149,7 @@ graph.render();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `type` | `string` | `'snapline'` | Plugin type |
-| `key` | `string` | — | Unique identifier |
+| `key` | `string` | - | Unique identifier |
 | `tolerance` | `number` | `5` | Distance threshold for triggering alignment (px) |
 | `offset` | `number` | `20` | Extension distance at both ends of the alignment guide (px) |
 | `autoSnap` | `boolean` | `true` | Whether to automatically snap to the aligned position |

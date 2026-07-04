@@ -44,7 +44,7 @@ const graph = new Graph({
   },
 });
 
-// ❌ Error —— pass a node array directly
+// ❌ Error -- pass a node array directly
 const graph = new Graph({
   data: [ { id: '0', data: { cluster: 'a' } }, ... ],
 });
@@ -262,7 +262,7 @@ graph.render();
 **ErrorCause**:The reference data in the query description is a node array (for example, `[{"id":"0","data":{"cluster":"a"}},...]`). The LLM might assign it directly to `data`, causing G6 to fail to recognize the data format.
 
 ```js
-// ❌ Incorrect approach —— data is directly a node array
+// ❌ Incorrect approach -- data is directly a node array
 const graph = new Graph({
   data: [
     { id: '0', data: { cluster: 'a' } },
@@ -273,7 +273,7 @@ const graph = new Graph({
 ```
 
 ```js
-// ✅ Correct approach —— data must be an object containing nodes/edges
+// ✅ Correct approach -- data must be an object containing nodes/edges
 const graph = new Graph({
   data: {
     nodes: [
@@ -294,7 +294,7 @@ const graph = new Graph({
 **ErrorCause**:Manually checking cluster values with `if/switch` in `style.fill` makes the code redundant and harder to maintain.
 
 ```js
-// ❌ Not recommended —— manually enumerate colors
+// ❌ Not recommended -- manually enumerate colors
 node: {
   style: {
     fill: (d) => {
@@ -308,7 +308,7 @@ node: {
 ```
 
 ```js
-// ✅ Recommended —— use palette for automatic mapping
+// ✅ Recommended -- use palette for automatic mapping
 node: {
   palette: {
     field: 'cluster',   // Specify the grouping field
@@ -322,7 +322,7 @@ node: {
 **ErrorCause**:The MDS layout relies on edge connections to build the distance matrix. If `edges` is missing from `data`, the layout can degrade into a random distribution.
 
 ```js
-// ❌ Error —— Missing edges
+// ❌ Error -- Missing edges
 const graph = new Graph({
   data: {
     nodes: [ ... ],
@@ -333,7 +333,7 @@ const graph = new Graph({
 ```
 
 ```js
-// ✅ Correct —— provide complete nodes and edges
+// ✅ Correct -- provide complete nodes and edges
 const graph = new Graph({
   data: {
     nodes: [ ... ],

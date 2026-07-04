@@ -5,7 +5,7 @@ An **English translation** of the `skills/` from
 (originally authored primarily in Chinese).
 
 This repository exists so the skill documentation can be inspected, modified, and extended
-in English. All content is a faithful translation — code, API names, identifiers, file
+in English. All content is a faithful translation - code, API names, identifiers, file
 paths, links, and markdown structure are preserved unchanged; only human-language prose,
 headings, table text, code comments, and example data values were translated.
 
@@ -13,7 +13,7 @@ headings, table text, code comments, and example data values were translated.
 
 - **Original work:** [antvis/chart-visualization-skills](https://github.com/antvis/chart-visualization-skills)
 - **Original copyright:** © 2025 AntV Visualization Team
-- **License:** MIT (unchanged) — see [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE)
+- **License:** MIT (unchanged) - see [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE)
 
 This is a derivative work distributed under the same MIT License. The original copyright
 notice and permission notice are retained in `LICENSE`, as the license requires.

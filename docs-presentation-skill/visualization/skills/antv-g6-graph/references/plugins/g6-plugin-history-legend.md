@@ -94,8 +94,8 @@ graph.draw();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `stackSize` | `number` | `0` | History stack size; 0 means unlimited |
-| `beforeAddCommand` | `(cmd, revert) => boolean \| void` | — | Intercepts before adding a command; return false to cancel |
-| `afterAddCommand` | `(cmd, revert) => void` | — | Callback after adding a command |
+| `beforeAddCommand` | `(cmd, revert) => boolean \| void` | - | Intercepts before adding a command; return false to cancel |
+| `afterAddCommand` | `(cmd, revert) => void` | - | Callback after adding a command |
 
 ### history API
 
@@ -176,8 +176,8 @@ graph.render();
 |------|------|--------|------|
 | `position` | `CardinalPlacement` | `'bottom'` | Legend position |
 | `trigger` | `'hover' \| 'click'` | `'hover'` | Interaction trigger mode |
-| `nodeField` | `string \| ((d) => string)` | — | Node classification field |
-| `edgeField` | `string \| ((d) => string)` | — | Edge classification field |
-| `comboField` | `string \| ((d) => string)` | — | Combo classification field |
+| `nodeField` | `string \| ((d) => string)` | - | Node classification field |
+| `edgeField` | `string \| ((d) => string)` | - | Edge classification field |
+| `comboField` | `string \| ((d) => string)` | - | Combo classification field |
 | `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Legend layout direction |
-| `container` | `HTMLElement \| string` | — | Custom container |
+| `container` | `HTMLElement \| string` | - | Custom container |

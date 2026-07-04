@@ -169,12 +169,12 @@ graph.render();
 |------|------|--------|------|
 | `type` | `string` | `'fishbone'` | Layout type |
 | `direction` | `'LR' \| 'RL'` | `'RL'` | Direction: LR means fish head on the left, RL means fish head on the right |
-| `hGap` | `number` | — | Horizontal spacing |
-| `vGap` | `number` | — | Vertical spacing |
+| `hGap` | `number` | - | Horizontal spacing |
+| `vGap` | `number` | - | Vertical spacing |
 | `getRibSep` | `(node) => number` | `() => 60` | Fishbone spacing callback |
-| `nodeSize` | `number \| [number, number] \| Function` | — | Node size |
-| `nodeFilter` | `(node) => boolean` | — | Node filter participating in layout |
-| `preLayout` | `boolean` | — | Whether to precompute layout before initialization |
+| `nodeSize` | `number \| [number, number] \| Function` | - | Node size |
+| `nodeFilter` | `(node) => boolean` | - | Node filter participating in layout |
+| `preLayout` | `boolean` | - | Whether to precompute layout before initialization |
 
 ### 6M fishbone diagram (Ishikawa diagram) example
 

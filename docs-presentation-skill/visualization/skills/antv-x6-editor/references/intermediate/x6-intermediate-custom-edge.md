@@ -41,7 +41,7 @@ anti_patterns:
 
 # X6 Custom Edges
 
-## Graph.registerEdge — Registering Custom Edges
+## Graph.registerEdge - Registering Custom Edges
 
 Similar to registering custom nodes, use `Graph.registerEdge` to register reusable edge types.
 

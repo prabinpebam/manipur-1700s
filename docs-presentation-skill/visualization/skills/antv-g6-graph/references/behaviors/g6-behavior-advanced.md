@@ -90,9 +90,9 @@ graph.render();
 | Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `enable` | `boolean \| ((event) => boolean)` | `(e) => e.data.scale < 1` | Enable condition |
-| `node` | `FixShapeConfig[]` | — | List of shapes in nodes to fix |
-| `edge` | `FixShapeConfig[]` | — | List of shapes in edges to fix |
-| `combo` | `FixShapeConfig[]` | — | List of shapes in combos to fix |
+| `node` | `FixShapeConfig[]` | - | List of shapes in nodes to fix |
+| `edge` | `FixShapeConfig[]` | - | List of shapes in edges to fix |
+| `combo` | `FixShapeConfig[]` | - | List of shapes in combos to fix |
 | `reset` | `boolean` | `false` | Whether to restore the original style on redraw |
 
 **FixShapeConfig:**
@@ -163,8 +163,8 @@ graph.render();
 |------|------|--------|------|
 | `padding` | `number` | `0` | Extra spacing for label collision detection |
 | `sortNode` | `NodeCentralityOptions \| SortFn` | `{ type: 'degree' }` | Node sorting (determines which labels are displayed first) |
-| `sortEdge` | `SortFn` | — | Edge sorting function |
-| `sortCombo` | `SortFn` | — | Combo sorting function |
+| `sortEdge` | `SortFn` | - | Edge sorting function |
+| `sortCombo` | `SortFn` | - | Combo sorting function |
 | `throttle` | `number` | `100` | Debounce delay (ms) |
 
 ---

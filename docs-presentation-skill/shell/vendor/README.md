@@ -10,7 +10,7 @@ Runtime libraries are vendored here so the viewer works fully **offline / air-ga
 | `github.min.css` | highlight.js theme (light) | Code theme (light) |
 | `github-dark.min.css` | highlight.js theme (dark) | Code theme (dark) |
 | `purify.min.js` | DOMPurify | HTML sanitization (§09 / P3) |
-| `mermaid.min.js` | Mermaid (v1.1) | Diagrams — deferred |
+| `mermaid.min.js` | Mermaid (v1.1) | Diagrams - deferred |
 
 The single-file build may inline these; the split build references them locally. Neither requires a
 network (REQ-AP-12). Until Phase 2, the repo-root `index.html` loads these from a CDN.

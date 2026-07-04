@@ -4,7 +4,7 @@
 
 Tooltips display table information and analysis features through interactive overlays on cells.
 
-**Important**: The base `@antv/s2` package only provides tooltip show/hide logic and data — it does **not** render content. The `@antv/s2-react` and `@antv/s2-vue` packages render tooltip content (sort menus, cell selection summaries, column hide buttons, etc.) via custom tooltip classes.
+**Important**: The base `@antv/s2` package only provides tooltip show/hide logic and data - it does **not** render content. The `@antv/s2-react` and `@antv/s2-vue` packages render tooltip content (sort menus, cell selection summaries, column hide buttons, etc.) via custom tooltip classes.
 
 Remember to import styles:
 
@@ -221,8 +221,8 @@ const s2Options = {
 const s2Options = {
   tooltip: {
     autoAdjustBoundary: 'container', // Stay within table container
-    // 'body' (default) — stay within browser viewport
-    // null — disable auto-adjustment
+    // 'body' (default) - stay within browser viewport
+    // null - disable auto-adjustment
   },
 };
 ```

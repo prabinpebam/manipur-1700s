@@ -1,4 +1,4 @@
-# Slate — Documentation-Presentation Skill Package
+# Slate - Documentation-Presentation Skill Package
 
 > **Status:** Working (v0.1). The shell (`shell/index.html` + `slate.css` + `slate.js`) is a
 > functioning viewer: it renders Markdown **and** HTML content through one sanitized pipeline, with
@@ -7,7 +7,7 @@
 > offline use, the generator, and automated tests (see [implementation plan](../implementation-plan/README.md)).
 
 This folder is the **drop-in skill package**. Copy it (unchanged) into any project, hand an AI agent
-some raw content, and the agent — reading [`SKILL.md`](SKILL.md) — produces navigable HTML/Markdown
+some raw content, and the agent - reading [`SKILL.md`](SKILL.md) - produces navigable HTML/Markdown
 pages plus a manifest that the viewer renders consistently.
 
 ## Try the demo
@@ -32,7 +32,7 @@ docs-presentation-skill/
   demo/             # a runnable content root that exercises the framework
   components/       # component catalog: one example per component (few-shot patterns)
   templates/        # page + landing scaffolds the agent fills in
-  visualization/    # bundled AntV chart/graph/infographic skills (MIT) — visual-first authoring
+  visualization/    # bundled AntV chart/graph/infographic skills (MIT) - visual-first authoring
   assets/icons/     # system icon set (no emoji)
   schema/           # JSON Schemas for manifest + config
   examples/         # a worked before/after conversion + example manifest

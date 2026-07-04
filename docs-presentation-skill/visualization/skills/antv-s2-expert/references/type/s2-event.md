@@ -10,7 +10,7 @@ s2.on(S2Event.ROW_CELL_CLICK, (event) => {
 });
 ```
 
-> If using `@antv/s2-react` or `@antv/s2-vue` components, events are already wrapped — use the callback props directly instead of manually listening.
+> If using `@antv/s2-react` or `@antv/s2-vue` components, events are already wrapped - use the callback props directly instead of manually listening.
 >
 > ```tsx
 > <SheetComponent onRowCellClick={...} />

@@ -92,7 +92,7 @@ chart.options({
   transform: [
     {
       type: 'stackY',
-      orderBy: null,     // null | 'value' | 'sum' | 'series' — controls the stacking order
+      orderBy: null,     // null | 'value' | 'sum' | 'series' - controls the stacking order
       reverse: false,    // Whether to reverse the stacking order
       y: 'y',            // Input y-channel name (default 'y')
       y1: 'y1',          // Output bottom-channel name (default 'y1')

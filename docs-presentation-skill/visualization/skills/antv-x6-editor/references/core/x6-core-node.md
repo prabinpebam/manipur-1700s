@@ -74,7 +74,7 @@ const node = graph.addNode({
 
 ## Built-in Node Shapes
 
-### rect (Rectangle) — Most Common
+### rect (Rectangle) - Most Common
 
 ```javascript
 graph.addNode({

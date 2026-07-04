@@ -52,7 +52,7 @@ completeness: "full"
 
 **Markup** is the **low-level DOM structure description** for nodes, edges, ports, and labels in X6. The `attrs` configuration of the same cell must refer to specific DOM elements through the `selector` or `groupSelector` declared in markup to take effect correctly.
 
-> Source location: `src/view/markup.ts` — `parseJSONMarkup` recursively builds SVG / XHTML nodes from the JSON description.
+> Source location: `src/view/markup.ts` - `parseJSONMarkup` recursively builds SVG / XHTML nodes from the JSON description.
 
 ## MarkupJSONMarkup Fields Quick Reference
 

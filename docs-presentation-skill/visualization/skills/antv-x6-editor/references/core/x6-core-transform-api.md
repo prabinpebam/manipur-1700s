@@ -24,14 +24,14 @@ X6's TransformManager provides canvas-level zooming, panning, rotation, resizing
 
 ## Canvas Size
 
-### resize — Resize the Canvas
+### resize - Resize the Canvas
 
 ```javascript
 // Set the canvas width and height (pixels)
 graph.resize(1000, 600);
 ```
 
-### autoResize — Automatically Follow the Container Size
+### autoResize - Automatically Follow the Container Size
 
 Configure `autoResize: true` in the Graph constructor, and the canvas will use ResizeObserver to automatically follow size changes of the parent container:
 
@@ -51,7 +51,7 @@ const graph = new Graph({
 });
 ```
 
-### getComputedSize — Get the Current Canvas Size
+### getComputedSize - Get the Current Canvas Size
 
 ```javascript
 const { width, height } = graph.getComputedSize();
@@ -59,7 +59,7 @@ const { width, height } = graph.getComputedSize();
 
 ## Zooming (Zoom / Scale)
 
-### zoom — Zoom the Canvas
+### zoom - Zoom the Canvas
 
 ```javascript
 // Relative zoom: increase by 0.2 from the current scale
@@ -88,13 +88,13 @@ graph.zoom(1.5, { absolute: true, scaleGrid: 0.25 });  // Align the scale value 
 | `scaleGrid` | number | Grid for aligning scale values |
 | `center` | `{ x, y }` | Zoom center point (canvas coordinates) |
 
-### getZoom — Get the Current Zoom Ratio
+### getZoom - Get the Current Zoom Ratio
 
 ```javascript
 const currentZoom = graph.getZoom();  // Returns a number, such as 1.0
 ```
 
-### scale — Low-level Scaling (Set sx/sy Separately)
+### scale - Low-level Scaling (Set sx/sy Separately)
 
 ```javascript
 // Uniform scaling
@@ -107,13 +107,13 @@ graph.scale(2, 1.5);
 graph.scale(1.5, 1.5, 400, 300);
 ```
 
-### getScale — Get the Current Scale Ratio (Per Axis)
+### getScale - Get the Current Scale Ratio (Per Axis)
 
 ```javascript
 const { sx, sy } = graph.getScale();
 ```
 
-### scaling Configuration — Limit the Zoom Range
+### scaling Configuration - Limit the Zoom Range
 
 Set global zoom bounds through `scaling` when constructing the Graph:
 
@@ -126,14 +126,14 @@ const graph = new Graph({
 
 ## Panning (Translate)
 
-### translate — Set Canvas Translation
+### translate - Set Canvas Translation
 
 ```javascript
 // Set an absolute translation amount
 graph.translate(100, 50);
 ```
 
-### getTranslation — Get the Current Translation
+### getTranslation - Get the Current Translation
 
 ```javascript
 const { tx, ty } = graph.getTranslation();
@@ -141,7 +141,7 @@ const { tx, ty } = graph.getTranslation();
 
 ## Rotation (Rotate)
 
-### rotate — Rotate the Canvas
+### rotate - Rotate the Canvas
 
 ```javascript
 // Rotate 45 degrees (by default, around the center of canvas content)
@@ -151,7 +151,7 @@ graph.rotate(45);
 graph.rotate(90, 400, 300);
 ```
 
-### getRotation — Get the Current Rotation Angle
+### getRotation - Get the Current Rotation Angle
 
 ```javascript
 const angle = graph.getRotation();
@@ -159,7 +159,7 @@ const angle = graph.getRotation();
 
 ## Content Fitting
 
-### zoomToFit — Zoom and Pan So All Content Is Visible
+### zoomToFit - Zoom and Pan So All Content Is Visible
 
 ```javascript
 // Basic usage: automatically fit all content
@@ -175,7 +175,7 @@ graph.zoomToFit({ padding: 20, maxScale: 2, minScale: 0.5 });
 graph.zoomToFit({ padding: { top: 20, right: 30, bottom: 20, left: 30 } });
 ```
 
-### zoomToRect — Zoom to a Specified Rectangular Area
+### zoomToRect - Zoom to a Specified Rectangular Area
 
 ```javascript
 graph.zoomToRect({ x: 100, y: 100, width: 500, height: 400 });
@@ -186,7 +186,7 @@ graph.zoomToRect(
 );
 ```
 
-### fitToContent — Resize the Canvas to Fit Content
+### fitToContent - Resize the Canvas to Fit Content
 
 Adjusts the canvas size so it just contains all content (does not scale the content; it changes the canvas size instead):
 
@@ -227,7 +227,7 @@ graph.fitToContent({
 | `contentArea` | RectangleLike | Custom content area |
 | `useCellGeometry` | boolean | Use geometric calculation (default true) |
 
-### scaleContentToFit — Scale Content to Fit the Canvas
+### scaleContentToFit - Scale Content to Fit the Canvas
 
 Scales canvas content to fit the current visible canvas area (uniform scaling):
 
@@ -257,14 +257,14 @@ graph.scaleContentToFit({
 
 ## Centering
 
-### centerContent — Center the Content
+### centerContent - Center the Content
 
 ```javascript
 graph.centerContent();
 graph.centerContent({ useCellGeometry: true });
 ```
 
-### centerCell — Center a Specified Node (Scroll to the Node)
+### centerCell - Center a Specified Node (Scroll to the Node)
 
 ```javascript
 const node = graph.addNode({ ... });
@@ -273,7 +273,7 @@ graph.centerCell(node);  // Scroll the canvas so this node is centered
 
 > **⚠️ Note**: X6 does not have a `graph.scrollToCell()` method. To scroll to a specified node, use `graph.centerCell(cell)`.
 
-### centerPoint — Center a Specified Coordinate
+### centerPoint - Center a Specified Coordinate
 
 ```javascript
 graph.centerPoint(500, 300);
@@ -281,7 +281,7 @@ graph.centerPoint(500, 300);
 
 ## Positioning
 
-### positionContent — Position Content in a Specified Direction
+### positionContent - Position Content in a Specified Direction
 
 ```javascript
 // Position content at the center of the canvas
@@ -291,13 +291,13 @@ graph.positionContent('center');
 graph.positionContent('top-left');
 ```
 
-### positionCell — Position a Node in a Specified Direction
+### positionCell - Position a Node in a Specified Direction
 
 ```javascript
 graph.positionCell(node, 'center');
 ```
 
-### positionPoint — Position a Specified Point at a Specific Location on the Canvas
+### positionPoint - Position a Specified Point at a Specific Location on the Canvas
 
 ```javascript
 // Position local coordinate (200, 150) at 50% 50% of the canvas (that is, centered)
@@ -309,20 +309,20 @@ graph.positionPoint({ x: 0, y: 0 }, 100, 100);
 
 ## Content Area Queries
 
-### getContentArea — Get Content Bounds (Local Coordinates)
+### getContentArea - Get Content Bounds (Local Coordinates)
 
 ```javascript
 const rect = graph.getContentArea();
 // rect: { x, y, width, height }
 ```
 
-### getContentBBox — Get Content Bounds (Canvas Coordinates)
+### getContentBBox - Get Content Bounds (Canvas Coordinates)
 
 ```javascript
 const bbox = graph.getContentBBox();
 ```
 
-### getGraphArea — Get the Visible Canvas Area (Local Coordinates)
+### getGraphArea - Get the Visible Canvas Area (Local Coordinates)
 
 ```javascript
 const area = graph.getGraphArea();
@@ -330,13 +330,13 @@ const area = graph.getGraphArea();
 
 ## Coordinate Conversion
 
-### localToGraph — Convert Local Coordinates to Canvas Coordinates
+### localToGraph - Convert Local Coordinates to Canvas Coordinates
 
 ```javascript
 const graphPoint = graph.localToGraph({ x: 100, y: 100 });
 ```
 
-### graphToLocal — Convert Canvas Coordinates to Local Coordinates
+### graphToLocal - Convert Canvas Coordinates to Local Coordinates
 
 ```javascript
 const localPoint = graph.graphToLocal({ x: 200, y: 150 });

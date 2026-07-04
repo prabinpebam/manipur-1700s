@@ -1,12 +1,12 @@
 /* ============================================================
-   Slate — Design System (slate.css)
+   Slate - Design System (slate.css)
    ------------------------------------------------------------
    Source of truth for the split build. The single-file index.html
    is built by concatenating this file + slate.js (D-DIST-1).
 
    Structure:
      1. Design tokens (THE public override contract)   [ready]
-     2. Reset & base                                    [P1 — extract from index.html]
+     2. Reset & base                                    [P1 - extract from index.html]
      3. Layout / app shell                              [P1]
      4. Chrome: header, sidebar, TOC, search            [P1]
      5. Content typography (prose, code, tables)        [P1]
@@ -17,9 +17,9 @@
    ============================================================ */
 
 /* ============================================================
-   1. DESIGN TOKENS — Fluent 2  (REQ-DS-01..10)
+   1. DESIGN TOKENS - Fluent 2  (REQ-DS-01..10)
    Single override point. Projects re-skin by overriding these
-   only — never by editing component CSS.
+   only - never by editing component CSS.
    ============================================================ */
 :root {
     color-scheme: light;
@@ -464,7 +464,7 @@ button { font-family: inherit; font-size: inherit; border: none; background: non
 .overlay.visible { display: block; opacity: 1; }
 
 /* ============================================================
-   11. COMPONENTS (slate-*)  — REQ-CL-*, tokens only
+   11. COMPONENTS (slate-*)  - REQ-CL-*, tokens only
    ============================================================ */
 
 /* - TL;DR / Summary band - */
@@ -573,7 +573,7 @@ button { font-family: inherit; font-size: inherit; border: none; background: non
 .slate-viewer__nav .material-symbols-outlined { font-size: 30px; }
 .slate-viewer__nav[disabled] { opacity: 0; pointer-events: none; }
 .slate-viewer.is-single .slate-viewer__nav, .slate-viewer.is-single .slate-viewer__filmstrip { display: none; }
-/* Caption — bottom overlay with a scrim for contrast, collapsed by default */
+/* Caption - bottom overlay with a scrim for contrast, collapsed by default */
 .slate-viewer__caption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; margin: 0; color: #fff; padding: 48px var(--space-xxl) var(--space-l); background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%); pointer-events: none; }
 .slate-viewer__caption[hidden] { display: none; }
 .slate-viewer__caption-toggle { pointer-events: auto; display: flex; align-items: flex-start; gap: var(--space-s); width: 100%; padding: var(--space-xs) 0; background: none; border: none; color: #fff; font: inherit; text-align: left; cursor: pointer; }

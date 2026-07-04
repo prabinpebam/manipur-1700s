@@ -1,7 +1,7 @@
 # Manipuri Life
 
 Documentation hub for a small, cozy **historically-accurate 2D pixel-art life-simulation RPG** set in the
-Meitei kingdom of Manipur — a *playable ethnography* in the spirit of *Stardew Valley*, where historical
+Meitei kingdom of Manipur - a *playable ethnography* in the spirit of *Stardew Valley*, where historical
 accuracy is a design constraint rather than set dressing. The game is quest- and relationship-led, gentle,
 and quietly educational. The exact era is an open decision: we are choosing between five fifty-year windows
 spanning **1700–1950** (see *Era & Canonical Year* in the docs).
@@ -18,13 +18,13 @@ manipuri-life/
 ├─ index.html                 # root redirect → docs/ (for the bare GitHub Pages URL)
 ├─ .nojekyll                  # serve the site as raw static files (bypass Jekyll)
 ├─ _intake/                    # messy inbox: drop raw assets here (temporary)
-├─ docs-presentation-skill/    # the Slate docs-presentation skill (the viewer engine) — do not edit
+├─ docs-presentation-skill/    # the Slate docs-presentation skill (the viewer engine) - do not edit
 └─ docs/                       # the live documentation site (content root)
    ├─ index.html              # viewer entry → ../docs-presentation-skill/shell
    ├─ slate.config.json       # branding
    ├─ docs-manifest.json      # the page list / navigation
    ├─ landing.html            # Overview
-   ├─ why.html                # What's the Proposal — the pitch (for players & contributors)
+   ├─ why.html                # What's the Proposal - the pitch (for players & contributors)
    ├─ methodology.html        # How We Work (the 9-phase method)
    ├─ backlog.html            # Documentation backlog / "doc debt" tracker
    ├─ assets/                 # organized asset library (referenced by docs pages)
@@ -40,7 +40,7 @@ manipuri-life/
 ```
 
 The nine numbered folders are the **documentation domains**. Each has an overview (`README.html`) that
-lists and tracks the detail documents still to be written — this is how we "slowly detail out every
+lists and tracks the detail documents still to be written - this is how we "slowly detail out every
 aspect." Add new pages into the relevant folder and register them in `docs/docs-manifest.json`.
 
 ## Documentation status at a glance
@@ -64,26 +64,26 @@ The pitch and method are settled; the domain docs are being detailed out from th
 
 The first concept art is in: an exploratory **cover-art** piece and a set of **cozy isometric pixel-art**
 look-development renders (the Kangla gatehouse across a morning/noon/night lighting cycle, a village
-*yumjao*, and hand-woven bamboo craft props) live on **Art Style — Explorations**
+*yumjao*, and hand-woven bamboo craft props) live on **Art Style - Explorations**
 (`docs/40-art-audio/initial-explorations.html`). See `backlog.html` for the full "doc debt" tracker.
 
 ## Managing assets
 
 Images, references, fonts, and audio follow a simple two-stage flow:
 
-1. **`_intake/`** — a repo-root inbox. Drop anything here, any name, no rules. It's meant to be messy and
+1. **`_intake/`** - a repo-root inbox. Drop anything here, any name, no rules. It's meant to be messy and
    temporary.
-2. **`docs/assets/…`** — the organized library. Rename, web-optimize, and move files here, then reference
+2. **`docs/assets/…`** - the organized library. Rename, web-optimize, and move files here, then reference
    them from docs pages with `<img>` (only ever point at the library, never at `_intake/`).
 
 The full workflow, folder map, and naming convention live on the **Asset Management** page
 (`docs/00-foundation/asset-management.html`). Heavy source files (PSD, RAW, uncompressed audio/video) are
-git-ignored — commit a web-friendly export instead.
+git-ignored - commit a web-friendly export instead.
 
 ## Live site (GitHub Pages)
 
 The site is published with GitHub Pages from the **`master`** branch at the **repository root**
-(`Settings → Pages → Source: Deploy from a branch → master / root`). Root — not `/docs` — is required
+(`Settings → Pages → Source: Deploy from a branch → master / root`). Root - not `/docs` - is required
 because `docs/index.html` loads the viewer engine from `../docs-presentation-skill/`, a path that sits
 *above* the `docs/` folder. A root `index.html` redirect and a `.nojekyll` marker make the site work from
 the bare URL and serve as raw static files.
@@ -100,7 +100,7 @@ python -m http.server 8080
 
 ## Authoring new documentation
 
-1. Read `docs-presentation-skill/SKILL.md` — it is the agent-facing guide.
+1. Read `docs-presentation-skill/SKILL.md` - it is the agent-facing guide.
 2. Copy `docs-presentation-skill/templates/page.html`, fill the slots, and save it into the right
    domain folder.
 3. Lead every page with a **TL;DR**, and **visualise any data** (charts, diagrams, inline SVG) before
@@ -111,5 +111,5 @@ python -m http.server 8080
 ## Provenance
 
 The concept and methodology were developed in a planning conversation and distilled into the
-nine-phase method documented under **How We Work**. No historical claim here is authoritative yet —
+nine-phase method documented under **How We Work**. No historical claim here is authoritative yet -
 every "seed fact" must be promoted to a rated entry in the fact database (see *Historical Research*).

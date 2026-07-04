@@ -16,7 +16,7 @@ __pycache__/
 *.pyc
 .venv/
 
-# Heavy source assets — export a web version into docs/assets/ instead of committing these
+# Heavy source assets - export a web version into docs/assets/ instead of committing these
 *.psd
 *.ai
 *.xcf

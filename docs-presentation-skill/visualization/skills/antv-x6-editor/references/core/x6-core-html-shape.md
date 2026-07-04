@@ -55,8 +55,8 @@ use_cases:
   - "Nodes with mutable status (online/offline/idle switching)"
 
 anti_patterns:
-  - "Using Graph.registerHTMLComponent — deprecated in X6 3.x and absent from the source code"
-  - "Passing html directly with addNode({ shape: 'html', html: '...' }) — you must register a named shape first"
+  - "Using Graph.registerHTMLComponent - deprecated in X6 3.x and absent from the source code"
+  - "Passing html directly with addNode({ shape: 'html', html: '...' }) - you must register a named shape first"
   - "Returning undefined / null from the html callback"
   - "Overusing effect: ['data'] for static display-only nodes"
 
@@ -90,7 +90,7 @@ public static register(config: HTMLShapeConfig) {
 | `effect` | `(keyof NodeProperties)[]` | ❌ | Which prop changes should re-call `html(cell)` for rendering. If omitted, only the initial render is expected. Note: internal `change:*` listeners still trigger, but re-rendering only happens when the prop is in the effect list. |
 | `inherit` | `string` | ❌ | Built-in shape to inherit from; defaults to `'html'` |
 | `width` / `height` | `number` | ❌ | Default size; can be overridden by `addNode` |
-| Other NodeProperties | — | ❌ | Same as the options of `Graph.registerNode` |
+| Other NodeProperties | - | ❌ | Same as the options of `Graph.registerNode` |
 
 ## 2. Minimal Runnable Templates (Increasing Complexity)
 
@@ -388,7 +388,7 @@ graph.addNode({ shape: 'card', width: 300, height: 200 });
 
 ## 7. Related Documentation
 
-- `core/x6-core-shapes.md` — Overview of all 10 built-in shapes
-- `core/x6-core-node.md` — Node APIs (addNode / setData / events)
-- `core/x6-core-cell-data.md` — Reading, writing, and listening to cell.data
-- `intermediate/x6-intermediate-custom-node.md` — Registering custom SVG nodes with Graph.registerNode
+- `core/x6-core-shapes.md` - Overview of all 10 built-in shapes
+- `core/x6-core-node.md` - Node APIs (addNode / setData / events)
+- `core/x6-core-cell-data.md` - Reading, writing, and listening to cell.data
+- `intermediate/x6-intermediate-custom-node.md` - Registering custom SVG nodes with Graph.registerNode

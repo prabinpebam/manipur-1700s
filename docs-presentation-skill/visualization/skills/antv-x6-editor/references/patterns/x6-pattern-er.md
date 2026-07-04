@@ -37,8 +37,8 @@ completeness: "full"
 1. **Call `Shape.HTML.register()` to register the `er-entity` node before creating the Graph instance and adding nodes**
 2. **The `html(cell)` function in `Shape.HTML.register()` must return a valid DOM element** (not an HTML string)
 3. **Use the string `'container'` for the container**; do not use `document.getElementById('container')`
-4. **Do not call `graph.render()`** — X6 renders automatically
-5. **Do not call `graph.dispose()`** — it will cause a blank screen
+4. **Do not call `graph.render()`** - X6 renders automatically
+5. **Do not call `graph.dispose()`** - it will cause a blank screen
 
 ## Core ER Diagram Features
 

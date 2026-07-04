@@ -1,7 +1,7 @@
 <header class="slate-hero">
   <p class="slate-hero__eyebrow">Benchmark · Cross-Cutting</p>
   <h1 class="slate-hero__title">Cross-Platform Lessons</h1>
-  <p class="slate-hero__summary">Both reference games ship across PC, smartphone, and console — and their platform
+  <p class="slate-hero__summary">Both reference games ship across PC, smartphone, and console - and their platform
      stories are instructive opposites. What Stardew Valley and Japanese Rural Life Adventure got right and wrong
      across platforms, distilled into decisions we must make now rather than patch later.</p>
 </header>
@@ -9,9 +9,9 @@
 <aside class="slate-tldr">
   <p class="slate-tldr__label">TL;DR</p>
   <p>Multi-platform is a <strong>design-time decision, not a late port</strong>. Stardew grew PC-first and reached
-     outward — great on PC, but mobile lags on updates, has no multiplayer, and touch fights its precision
+     outward - great on PC, but mobile lags on updates, has no multiplayer, and touch fights its precision
      minigames; there is no cross-play anywhere. Japanese Rural Life Adventure went the other way: mobile-first on
-     Apple Arcade, then PC and Switch — its streamlined touch UI travels well, yet the PC port drew scaling and
+     Apple Arcade, then PC and Switch - its streamlined touch UI travels well, yet the PC port drew scaling and
      control complaints for being a thin conversion. The lesson for us: fix the platform matrix and an
      <strong>input-agnostic, mobile-first UI</strong> before we build, or pay for it in rework.</p>
 </aside>
@@ -26,15 +26,15 @@
 <h2>Two opposite platform stories</h2>
 <div class="slate-compare">
   <div class="slate-compare__col">
-    <p class="slate-compare__head">Stardew Valley — PC-first, ported outward</p>
+    <p class="slate-compare__head">Stardew Valley - PC-first, ported outward</p>
     <p>Built for keyboard and mouse, then brought to consoles (Switch, PlayStation, Xbox) and mobile (iOS, Android).
        PC is the lead platform: fastest updates, full mod support, best precision. The further a platform sits from
-       that origin, the more it lags — mobile most of all.</p>
+       that origin, the more it lags - mobile most of all.</p>
   </div>
   <div class="slate-compare__col">
-    <p class="slate-compare__head">Japanese Rural Life Adventure — mobile-first, ported up</p>
+    <p class="slate-compare__head">Japanese Rural Life Adventure - mobile-first, ported up</p>
     <p>Born on Apple Arcade for touch, then brought to PC (Steam) and Switch. Its menu-driven, low-precision design
-       suits every input, so the core travels well — but the desktop port shipped with fullscreen and control rough
+       suits every input, so the core travels well - but the desktop port shipped with fullscreen and control rough
        edges that read as an unoptimized conversion.</p>
   </div>
 </div>
@@ -74,20 +74,20 @@
   <div class="slate-compare__col">
     <p class="slate-compare__head"><span class="slate-badge slate-badge--success">Do</span></p>
     <ul>
-      <li><strong>Fix the platform matrix up front</strong> — which platforms, which is the lead, and each one's
-         input model — before building UI or systems.</li>
+      <li><strong>Fix the platform matrix up front</strong> - which platforms, which is the lead, and each one's
+         input model - before building UI or systems.</li>
       <li><strong>Design input-agnostic from day one.</strong> Every action must work with touch, gamepad, and
          keyboard/mouse: large tap targets, cursor-free navigation, no hover-only or right-click-only actions.</li>
       <li><strong>Build mobile-first, scale up.</strong> A UI built for the smallest screen and least precise input
          ports upward far better than a desktop UI ports down. JRLA's core proves it travels.</li>
-      <li><strong>Resolution independence and true fullscreen</strong> with safe areas and dynamic UI scaling —
+      <li><strong>Resolution independence and true fullscreen</strong> with safe areas and dynamic UI scaling -
          designed in, not retrofitted.</li>
       <li><strong>Commit to feature and update parity.</strong> Ship features close together across platforms, or
          set expectations openly.</li>
-      <li><strong>Portable, cloud-backed, versioned saves</strong> — and decide whether cross-save is a promise
+      <li><strong>Portable, cloud-backed, versioned saves</strong> - and decide whether cross-save is a promise
          now, when it is cheap.</li>
       <li><strong>Keep core interactions phone-simple.</strong> One-handed, low-precision play also serves our
-         cozy goal — the two aims reinforce each other.</li>
+         cozy goal - the two aims reinforce each other.</li>
     </ul>
   </div>
   <div class="slate-compare__col">
@@ -97,10 +97,10 @@
          or gamepad without a rebuild.</li>
       <li><strong>Precision-dependent minigames</strong> (Stardew's fishing and combat) that become miserable on a
          touchscreen.</li>
-      <li><strong>Letting a platform fall far behind</strong> on updates — Stardew's mobile lag is a lasting source
+      <li><strong>Letting a platform fall far behind</strong> on updates - Stardew's mobile lag is a lasting source
          of community resentment.</li>
       <li><strong>One-platform-only features</strong> (mods) plus no cross-play, which splits the community.</li>
-      <li><strong>Cursor-range clicking and fixed resolutions</strong> — the exact JRLA PC complaints.</li>
+      <li><strong>Cursor-range clicking and fixed resolutions</strong> - the exact JRLA PC complaints.</li>
       <li><strong>Treating a port as an afterthought.</strong> A "barebones conversion" is visible to players and
          costs reviews.</li>
       <li><strong>Deferring the multiplayer and cross-play decision.</strong> Both are expensive to bolt on later;
