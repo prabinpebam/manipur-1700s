@@ -376,9 +376,18 @@
     });
     dialog.appendChild(head); dialog.appendChild(body); overlay.appendChild(dialog);
     function dismiss() {
-      overlay.remove();
-      document.documentElement.classList.remove('slate-history-open');
+      if (overlay.dataset.closing) return;
+      overlay.dataset.closing = '1';
+      overlay.classList.remove('is-open');
       document.removeEventListener('keydown', onKey);
+      let done = false;
+      const finish = () => {
+        if (done) return; done = true;
+        overlay.remove();
+        document.documentElement.classList.remove('slate-history-open');
+      };
+      overlay.addEventListener('transitionend', ev => { if (ev.target === overlay && ev.propertyName === 'opacity') finish(); });
+      setTimeout(finish, 260);
     }
     function onKey(ev) { if (ev.key === 'Escape') dismiss(); }
     close.addEventListener('click', dismiss);
@@ -386,6 +395,7 @@
     document.addEventListener('keydown', onKey);
     document.documentElement.classList.add('slate-history-open');
     document.body.appendChild(overlay);
+    requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('is-open')));
     close.focus();
   }
   function processVersionHistory(container) {
