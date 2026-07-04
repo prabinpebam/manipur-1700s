@@ -3,8 +3,9 @@
 Documentation hub for a small, cozy **historically-accurate 2D pixel-art life-simulation RPG** set in the
 Meitei kingdom of Manipur - a *playable ethnography* in the spirit of *Stardew Valley*, where historical
 accuracy is a design constraint rather than set dressing. The game is quest- and relationship-led, gentle,
-and quietly educational. The exact era is an open decision: we are choosing between five fifty-year windows
-spanning **1700–1950** (see *Era & Canonical Year* in the docs).
+and quietly educational. The era is decided: the **1850–1900** window - the stable reign of Chandrakirti
+Singh, before the 1891 British annexation (see *Era & Canonical Year* in the docs); the single canonical
+year inside it is still being fixed.
 
 The documentation is presented with **Slate**, a zero-build static docs viewer (the
 `docs-presentation` skill), reproduced here unchanged.
@@ -52,7 +53,7 @@ The pitch and method are settled; the domain docs are being detailed out from th
 | Overview | `landing.html` | stable |
 | What's the Proposal (pitch) | `why.html` | stable |
 | How We Work (method) | `methodology.html` | stable |
-| 00 · Foundation | `README`, `canonical-year` | draft · era **deciding** |
+| 00 · Foundation | `README`, `canonical-year` | draft · era **decided: 1850-1900** |
 | 10 · Historical Research | `README` | draft |
 | 15 · Benchmarking | `framework`, `stardew-valley`, `japanese-rural-life`, `cross-platform`, `lessons-for-us` | draft |
 | 20 · Game Design | `README` | stub |

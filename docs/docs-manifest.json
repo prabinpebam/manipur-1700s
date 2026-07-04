@@ -7,7 +7,7 @@
     { "path": "backlog.html", "title": "Documentation Backlog", "order": 4, "icon": "checklist", "status": "stable", "updated": "2026-07-02" },
 
     { "path": "00-foundation/README.html", "title": "00 · Project Foundation", "order": 10, "group": "Documentation Domains", "icon": "flag", "status": "draft", "updated": "2026-07-03" },
-    { "path": "00-foundation/canonical-year.html", "title": "Era & Canonical Year", "order": 11, "group": "Documentation Domains", "icon": "hourglass_empty", "status": "deciding", "updated": "2026-07-03" },
+    { "path": "00-foundation/canonical-year.html", "title": "Era & Canonical Year", "order": 11, "group": "Documentation Domains", "icon": "hourglass_empty", "status": "stable", "updated": "2026-07-04" },
     { "path": "10-historical-research/README.html", "title": "10 · Historical Research", "order": 20, "group": "Documentation Domains", "icon": "history_edu", "status": "draft", "updated": "2026-07-03" },
     { "path": "15-benchmarking/README.html", "title": "15 · Benchmarking & References", "order": 25, "group": "Documentation Domains", "icon": "insights", "status": "draft", "updated": "2026-07-03" },
     { "path": "15-benchmarking/framework.html", "title": "The Benchmark Lens", "order": 26, "group": "Documentation Domains", "icon": "center_focus_strong", "status": "draft", "updated": "2026-07-03" },
