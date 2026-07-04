@@ -1,0 +1,391 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Domain 50 · Technical Design</p>
+  <h1 class="slate-hero__title">Tech Stack Research &amp; Decision</h1>
+  <p class="slate-hero__summary">A deep survey of the engines, libraries, and tools we could build this game
+     with - what's free vs paid, the pros and cons of each, what we must build ourselves versus reuse, the
+     best-fit stack combinations, and a scored recommendation.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>For a cozy, data-driven 2D pixel-art life-sim that must ship on <strong>PC, mobile, and console</strong>,
+     the field narrows to five serious engines: <strong>Godot 4, Unity, GameMaker, MonoGame, and Defold</strong>.
+     On a weighted matrix, <strong>Godot 4 leads</strong> (best 2D fit, zero cost/royalties, strong tooling),
+     with <strong>MonoGame</strong> and <strong>Unity</strong> tied as fallbacks. Around the engine, almost
+     everything we need is <strong>free and open-source</strong> - Aseprite, Tiled/LDtk, Yarn Spinner/Ink,
+     SQLite, Git LFS, GitHub Actions. The main real costs are <strong>console porting</strong> (the big one),
+     optionally <strong>FMOD</strong> for adaptive audio above budget thresholds, and small one-offs. The
+     things we genuinely build from scratch are the <strong>historical fact-to-content pipeline</strong>, the
+     game-specific simulation (calendar, relationships, economy, quests), and the Manipuri content itself.</p>
+</aside>
+
+<div class="slate-callout slate-callout--warning" role="note">
+  <p class="slate-callout__title">Status: research &amp; proposal, not a locked decision</p>
+  <p>Per <a href="../methodology.html">How We Work</a>, the engine choice is deliberately <strong>open</strong>
+     and best settled by building small <strong>tech POCs</strong> in the top candidates. This page is the
+     research that frames those POCs and a recommendation to test against - not a final commitment. The
+     pricing below was <strong>web-researched and is current as of mid-2026</strong> (see
+     <a href="#sources">Sources</a>); vendor terms change often, so re-verify before any purchase.</p>
+</div>
+
+<h2>What we're building (the research context)</h2>
+<p>The tech has to serve a very specific product. These are the requirements that actually drive the choices
+   below - a stack is "good" only insofar as it serves them.</p>
+<dl class="slate-defs">
+  <dt>Genre &amp; feel</dt>
+  <dd>A cozy, low-stakes 2D <strong>pixel-art, isometric</strong> life-sim RPG - quest- and relationship-led,
+     calm, no twitch precision. See <a href="../why.html">the proposal</a> and
+     <a href="../40-art-audio/initial-explorations.html">art explorations</a>.</dd>
+  <dt>Platforms</dt>
+  <dd><strong>PC + mobile + console</strong> as one product, with an input-agnostic, mobile-first design and
+     the lowest-end target phone setting the performance ceiling (see
+     <a href="cross-platform-strategy.html">Cross-Platform Strategy</a>).</dd>
+  <dt>Content model</dt>
+  <dd><strong>Data-driven</strong>: crops, NPCs, items, festivals, and events are generated or validated
+     against the structured <a href="../10-historical-research/README.html">Historical Database</a>. The
+     pipeline is the technical spine, not the renderer.</dd>
+  <dt>Systems</dt>
+  <dd>Time/season calendar, day/night cycle, relationships, dialogue-heavy quests, light farming/economy,
+     collections, and save/progression across long arcs.</dd>
+  <dt>Team &amp; economics</dt>
+  <dd>A small <strong>passion-project</strong> team, budget-conscious, favouring <strong>free/open-source</strong>
+     and <strong>no-royalty</strong> tools, with longevity and low licensing risk valued highly.</dd>
+  <dt>Scope guards</dt>
+  <dd>Single-player, offline-first; <em>no</em> heavy multiplayer, 3D, or live-service back-end in v1 - which
+     removes whole categories of cost and complexity.</dd>
+</dl>
+
+<h2>The engine - the one decision everything hangs on</h2>
+<p>The engine sets the language, the tooling, the 2D pipeline, and - critically - how console shipping works.
+   Five candidates are genuinely viable for this game; the rest are ruled out for missing console paths,
+   weak 2D, or abandonment risk.</p>
+<table>
+  <thead>
+    <tr><th>Engine</th><th>License &amp; cost</th><th>Pros</th><th>Cons</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Godot 4</strong><br><span class="slate-badge slate-badge--success">Free / OSS</span></td>
+      <td>MIT, fully free, <strong>no royalties, no seat fee, no revenue threshold</strong>. Console via paid third-party W4 Consoles (from ~US$2,000/yr for studios under US$300k revenue, ~US$10,000/yr above).</td>
+      <td>Best-in-class 2D; tiny footprint; GDScript <em>and</em> C#; superb tilemap/scene tools; fastest-growing engine; you own the whole stack (source access); ideal for data-driven design (Resources).</td>
+      <td>No <strong>official</strong> console export - needs a paid porting partner; C#-on-console still maturing; smaller asset ecosystem than Unity.</td>
+    </tr>
+    <tr>
+      <td><strong>Unity 6</strong><br><span class="slate-badge slate-badge--warning">Free tier + paid</span></td>
+      <td>Free "Personal" under US$200k revenue/funding (raised from $100k); then Unity Pro US$2,200/seat/yr (from Jan 2025). Runtime Fee cancelled (Sep 2024).</td>
+      <td>Most mature; <strong>official console support</strong> via platform partners; huge Asset Store; C#; massive hiring pool and tutorials.</td>
+      <td>Cost at scale; <strong>trust/licensing volatility</strong> after the 2023 Runtime-Fee saga (community is actively migrating away); heavier and more 3D-centric than a 2D cozy game needs.</td>
+    </tr>
+    <tr>
+      <td><strong>GameMaker</strong><br><span class="slate-badge slate-badge--warning">Free + paid tiers</span></td>
+      <td>Free (non-commercial); Professional <strong>US$99.99 one-time</strong> (commercial, no console); console needs Enterprise <strong>US$79.99/mo (~US$960/yr)</strong> + registered platform dev.</td>
+      <td><strong>Purpose-built for 2D</strong> with 25 years of tooling and a built-in sprite editor; proven hits (Undertale, Hyper Light Drifter, Katana ZERO); official, integrated console exports; fastest path to a playable prototype.</td>
+      <td>Proprietary GML language; closed source; less general-purpose; weaker for a large data-driven content pipeline; single-vendor lock-in.</td>
+    </tr>
+    <tr>
+      <td><strong>MonoGame</strong><br><span class="slate-badge slate-badge--success">Free / OSS</span></td>
+      <td>MIT, free. Console via registered dev accounts + NDA console SDKs (community/consulting support).</td>
+      <td><strong>Proven cozy pedigree</strong> - <em>Stardew Valley</em> and <em>Celeste</em> are built on XNA/MonoGame; C#; total control; no royalties; extremely stable and long-lived.</td>
+      <td>It's a <em>framework, not an engine</em> - no editor; you build tooling, pipeline, and scene systems yourself. More upfront engineering.</td>
+    </tr>
+    <tr>
+      <td><strong>Defold</strong><br><span class="slate-badge slate-badge--success">Free</span></td>
+      <td>Free, no fees/royalties (source-available license). Console via publisher partners.</td>
+      <td>Tiny builds; genuinely cross-platform incl. mobile; strong 2D; managed by a stable steward (originally King).</td>
+      <td>Lua; smaller community; console path depends on partners; fewer ready-made systems for a deep RPG.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="slate-callout slate-callout--info" role="note">
+  <p class="slate-callout__title">Ruled out (for this game)</p>
+  <p><strong>LÖVE / Phaser / Solar2D</strong> - great for prototyping, but no first-class console path.
+     <strong>Bevy (Rust)</strong> - exciting and free, but young, editor-less, and no console story yet.
+     <strong>Unreal</strong> - overkill for 2D pixel-art and royalty-bearing. <strong>Cocos</strong> -
+     mobile-strong but weaker fit for a cozy desktop-and-console RPG.</p>
+</div>
+
+<h2>What the community says (forums &amp; shipped games)</h2>
+<p>Beyond spec sheets, it's worth listening to what developers on Reddit, Steam forums, and gamedev blogs
+   actually recommend - and what the adoption data shows. The signal is remarkably consistent.</p>
+<div class="slate-card-grid" data-cols="2">
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">trending_up</span>
+    <h3 class="slate-card__title">Momentum is with Godot</h3>
+    <p class="slate-card__body">At the <strong>GMTK Game Jam 2025</strong> (9,724 entries) Godot held <strong>39%</strong> of entries vs GameMaker's ~5% - up from 13% four years earlier (it tripled). On Steam 2024 releases, Unity leads ~51%, with Godot ~5% and GameMaker ~4%; Godot's growth is <strong>largely at Unity's expense</strong>. r/godot (~307k) now dwarfs r/gamemaker (~94k).</p>
+  </article>
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">forum</span>
+    <h3 class="slate-card__title">The common forum verdict</h3>
+    <p class="slate-card__body">A recurring ranking in 2D threads is <em>"for 2D: Godot &gt; GameMaker &gt; Defold."</em> GameMaker is praised as the <strong>fastest zero-to-prototype</strong> with the cheapest <em>integrated</em> console path (~US$80/mo); Godot is favoured for <strong>zero lifetime cost, source access, and 2D-first design</strong>. Unity's 2023 Runtime-Fee episode still drives migration and distrust.</p>
+  </article>
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">workspace_premium</span>
+    <h3 class="slate-card__title">Both have shipped hits with tiny teams</h3>
+    <p class="slate-card__body"><strong>MonoGame</strong>: <em>Stardew Valley</em> (one developer) and <em>Celeste</em>. <strong>GameMaker</strong>: <em>Undertale</em>, <em>Hyper Light Drifter</em>, <em>Katana ZERO</em> (~$32M). <strong>Godot</strong>: <em>Brotato</em> (10M+ copies), <em>Buckshot Roulette</em> (8M), <em>Dome Keeper</em>. The engine won't cap our commercial ceiling.</p>
+  </article>
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">swap_horiz</span>
+    <h3 class="slate-card__title">Notable real-world switches</h3>
+    <p class="slate-card__body">Blobfish moved GameMaker → Godot for <em>Brotato</em>; Buckshot Roulette's dev moved Unity → Godot and cited "not a lot of friction experimenting." For our <em>Stardew-like</em> specifically, cozy-game threads most often land on <strong>Godot or GameMaker</strong>, with <strong>MonoGame</strong> recommended to those who want the literal Stardew/Celeste path.</p>
+  </article>
+</div>
+<div class="slate-callout slate-callout--warning" role="note">
+  <p class="slate-callout__title">Read the sentiment with a grain of salt</p>
+  <p>Forums skew toward solo/hobbyist PC devs, who undervalue console economics - where GameMaker's integrated
+     path or Unity's turnkey support genuinely lead. And popularity isn't suitability: our decision still turns
+     on <em>our</em> weighted criteria and the POCs, not on vote counts. Figures and quotes above are cited in
+     <a href="#sources">Sources</a>.</p>
+</div>
+
+<h2>Everything around the engine - by category</h2>
+<p>The engine is ~40% of the stack. The rest is content tooling, and here the news is good: nearly all of it
+   is free and open-source. Each table lists the realistic options with cost and trade-offs.</p>
+
+<h3>Pixel art &amp; animation</h3>
+<table>
+  <thead><tr><th>Tool</th><th>Cost</th><th>Pros</th><th>Cons</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Aseprite</strong></td><td><span class="slate-badge slate-badge--warning">~US$20 one-time</span> (or free if self-compiled)</td><td>The industry-standard pixel-art + animation tool; sprite sheets, tags, palettes; scriptable.</td><td>Small paid price (trivial); GUI-only workflow.</td></tr>
+    <tr><td><strong>Krita</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS</span></td><td>Powerful painting for concept art, backgrounds, moodboards; great brushes.</td><td>Less pixel-specific than Aseprite.</td></tr>
+    <tr><td><strong>LibreSprite</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS</span></td><td>Free fork of old Aseprite; a zero-cost pixel editor.</td><td>Lags behind Aseprite features.</td></tr>
+    <tr><td><strong>Blender</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS</span></td><td>Useful for pre-rendering isometric props to pixel sprites and for turnaround references.</td><td>Steep; only if we adopt a 3D-to-2D pipeline.</td></tr>
+  </tbody>
+</table>
+
+<h3>Tilemaps &amp; level design</h3>
+<table>
+  <thead><tr><th>Tool</th><th>Cost</th><th>Pros</th><th>Cons</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Tiled</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS</span></td><td>The de-facto tilemap editor; importers exist for every engine; battle-tested.</td><td>Generic; isometric support is good but fiddly.</td></tr>
+    <tr><td><strong>LDtk</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS</span></td><td>Modern, designer-friendly, great entity/field data - excellent for a data-driven world; clean import APIs.</td><td>Younger; isometric is newer than Tiled's.</td></tr>
+    <tr><td><strong>Engine-native (Godot TileMap)</strong></td><td><span class="slate-badge slate-badge--success">Free</span></td><td>No import step; terrain/autotiling and Y-sort built in.</td><td>Ties level data to the engine.</td></tr>
+  </tbody>
+</table>
+
+<h3>Dialogue &amp; quest scripting</h3>
+<table>
+  <thead><tr><th>Tool</th><th>Cost</th><th>Pros</th><th>Cons</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Yarn Spinner</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS (MIT)</span></td><td>Writer-friendly, branching dialogue; great Godot/Unity support; ideal for a relationship- and quest-heavy game.</td><td>Quest logic still needs game-side glue.</td></tr>
+    <tr><td><strong>Ink (inkle)</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS (MIT)</span></td><td>Powerful narrative flow, proven in shipped narrative games; engine integrations exist.</td><td>Its own scripting mindset; more prose-oriented.</td></tr>
+    <tr><td><strong>Twine</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS</span></td><td>Fast narrative <em>prototyping</em> and branching drafts.</td><td>Not a runtime; a design aid.</td></tr>
+  </tbody>
+</table>
+
+<h3>Audio &amp; music</h3>
+<table>
+  <thead><tr><th>Option</th><th>Cost</th><th>Pros</th><th>Cons</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Engine-native audio</strong> (Godot/Unity)</td><td><span class="slate-badge slate-badge--success">Free</span></td><td>Zero cost, no integration; enough for ambience and simple music states.</td><td>Manual work for adaptive/layered music.</td></tr>
+    <tr><td><strong>FMOD Studio</strong></td><td><span class="slate-badge slate-badge--warning">Free Indie under US$200k rev &amp; US$600k budget; paid above</span></td><td>Best-in-class adaptive music &amp; seasonal audio; free for small indies under the revenue/budget thresholds.</td><td>Cost above thresholds; extra integration layer.</td></tr>
+    <tr><td><strong>Wwise</strong></td><td><span class="slate-badge slate-badge--warning">Free up to 500 sound files / Indie tier; paid above</span></td><td>Industry-grade adaptive audio; free tier for small projects.</td><td>Heavier than a cozy game needs; console licensing.</td></tr>
+    <tr><td><strong>Audacity / LMMS / Reaper</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS</span> (Reaper cheap)</td><td>Editing and composition tooling at no/low cost.</td><td>Composition talent matters more than tool.</td></tr>
+  </tbody>
+</table>
+
+<h3>Data &amp; content pipeline (the spine)</h3>
+<table>
+  <thead><tr><th>Piece</th><th>Cost</th><th>Pros</th><th>Cons</th></tr></thead>
+  <tbody>
+    <tr><td><strong>SQLite</strong></td><td><span class="slate-badge slate-badge--success">Free (public domain)</span></td><td>Perfect for the Historical Database - single file, queryable, embeddable, ubiquitous; authoring source of truth.</td><td>Needs an export step to game-ready data.</td></tr>
+    <tr><td><strong>JSON / CSV</strong></td><td><span class="slate-badge slate-badge--success">Free</span></td><td>Human-readable interchange between DB, tools, and engine; diff-friendly in Git.</td><td>Verbose; needs schema validation.</td></tr>
+    <tr><td><strong>Protobuf / MessagePack / FlatBuffers</strong></td><td><span class="slate-badge slate-badge--success">Free / OSS</span></td><td>Compact, fast binary for shipping baked content and saves.</td><td>Less readable; only if profiling demands it.</td></tr>
+    <tr><td><strong>Custom authoring tool</strong></td><td><span class="slate-badge slate-badge--danger">Build ourselves</span></td><td>Tailored fact editor + validator + exporter; the one bespoke tool that earns its keep.</td><td>Real engineering time; scope it tightly.</td></tr>
+  </tbody>
+</table>
+
+<h3>Save, localization, source control &amp; build</h3>
+<table>
+  <thead><tr><th>Concern</th><th>Recommended</th><th>Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Save / serialization</td><td>Engine save + versioned JSON/binary, migration paths</td><td><span class="slate-badge slate-badge--success">Free</span></td><td>Cross-save designed early (see Cross-Platform Strategy).</td></tr>
+    <tr><td>Localization</td><td>Engine i18n (CSV/gettext) + <strong>Weblate</strong> (self-host) or Crowdin/POEditor (SaaS)</td><td><span class="slate-badge slate-badge--success">Free (self-host)</span> / SaaS paid</td><td>Meiteilon + global languages; plan from the start.</td></tr>
+    <tr><td>Version control</td><td><strong>Git + Git LFS</strong> on GitHub/GitLab</td><td><span class="slate-badge slate-badge--success">Free</span></td><td>LFS for art/audio binaries; avoid Unity/Plastic paid VCS unless needed.</td></tr>
+    <tr><td>CI / CD &amp; builds</td><td><strong>GitHub Actions</strong> (self-hosted runners for consoles)</td><td><span class="slate-badge slate-badge--success">Free tier</span></td><td>One source → all targets, for parity (mirrors our pages' own deploy).</td></tr>
+    <tr><td>Console porting</td><td>W4 Consoles (Godot) / a porting house / engine-native</td><td><span class="slate-badge slate-badge--danger">Paid - the big cost</span></td><td>Godot via W4 Consoles ~US$2,000/yr (under $300k rev) to ~US$10,000/yr; GameMaker Enterprise ~US$960/yr. Kept deliberately late.</td></tr>
+    <tr><td>Custom font (Meetei-Mayek-inspired)</td><td><strong>FontForge</strong> / Birdfont (or Glyphs on Mac)</td><td><span class="slate-badge slate-badge--success">Free / OSS</span> (Glyphs paid)</td><td>Ties to <a href="../40-art-audio/font-design.html">Font Design</a>.</td></tr>
+  </tbody>
+</table>
+
+<h2>Build from scratch vs reuse</h2>
+<p>The winning strategy is to buy/borrow the generic plumbing and spend our scarce engineering on what makes
+   <em>this</em> game unique. A clear split:</p>
+<div class="slate-compare">
+  <div class="slate-compare__col">
+    <p class="slate-compare__head"><span class="slate-badge slate-badge--success">Reuse (off-the-shelf)</span></p>
+    <ul>
+      <li>Engine, renderer, physics, input, audio playback</li>
+      <li>Pixel-art &amp; animation tools (Aseprite), tilemap editor (Tiled/LDtk)</li>
+      <li>Dialogue runtime (Yarn Spinner / Ink)</li>
+      <li>SQLite, serialization formats, localization framework</li>
+      <li>Git/LFS, CI, crash/analytics (privacy-respecting, optional)</li>
+      <li>Audio middleware (FMOD) only if adaptive music demands it</li>
+    </ul>
+  </div>
+  <div class="slate-compare__col">
+    <p class="slate-compare__head"><span class="slate-badge slate-badge--danger">Build ourselves</span></p>
+    <ul>
+      <li>The <strong>fact-to-content pipeline</strong>: schema, validation, exporter</li>
+      <li>Game simulation: <strong>calendar/seasons</strong>, day/night, weather</li>
+      <li><strong>Relationship, quest, and economy</strong> systems from history</li>
+      <li>Collections/almanac and the "learn by playing" surfacing</li>
+      <li>Palette &amp; day/night <strong>shaders</strong>; isometric Y-sort niceties</li>
+      <li>Save <strong>migration</strong>; the bespoke authoring tool glue</li>
+      <li>All the <strong>Manipuri content</strong> itself (the real work)</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Engine decision matrix</h2>
+<p>Each engine scored 1 (weak) to 5 (strong) against weighted criteria that reflect <em>our</em> priorities.
+   Weights sum to 100%. Totals are out of 5.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Criterion (weight)</th>
+      <th>Godot 4</th>
+      <th>Unity 6</th>
+      <th>GameMaker</th>
+      <th>MonoGame</th>
+      <th>Defold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>2D / pixel-art fit (20%)</td><td>5</td><td>4</td><td>5</td><td>4</td><td>4</td></tr>
+    <tr><td>Cross-platform incl. console (20%)</td><td>3</td><td>5</td><td>4</td><td>4</td><td>3</td></tr>
+    <tr><td>Cost / royalties (15%)</td><td>5</td><td>2</td><td>3</td><td>5</td><td>5</td></tr>
+    <tr><td>Language &amp; developer experience (15%)</td><td>4</td><td>4</td><td>3</td><td>3</td><td>3</td></tr>
+    <tr><td>Data-driven / pipeline fit (10%)</td><td>4</td><td>4</td><td>3</td><td>4</td><td>3</td></tr>
+    <tr><td>Ecosystem &amp; community (10%)</td><td>4</td><td>5</td><td>3</td><td>3</td><td>3</td></tr>
+    <tr><td>Longevity &amp; licensing risk (10%)</td><td>4</td><td>3</td><td>4</td><td>4</td><td>3</td></tr>
+    <tr><td><strong>Weighted total (/5)</strong></td>
+      <td><strong>4.15</strong> <span class="slate-badge slate-badge--success">1st</span></td>
+      <td><strong>3.90</strong></td>
+      <td><strong>3.70</strong></td>
+      <td><strong>3.90</strong></td>
+      <td><strong>3.50</strong></td>
+    </tr>
+  </tbody>
+</table>
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">How to read it</p>
+  <p><strong>Godot 4</strong> wins on 2D fit, cost, and control; its one weakness is console, which is a
+     <em>solvable, paid</em> problem, not a wall. <strong>MonoGame</strong> and <strong>Unity</strong> tie
+     just behind for opposite reasons - MonoGame for zero-cost control (at the price of building tooling),
+     Unity for turnkey console (at the price of money and trust). The matrix is a starting position: the POCs
+     are what actually decide it.</p>
+</div>
+
+<h2>Candidate stack combinations</h2>
+<p>Three coherent stacks, each internally consistent, aimed at different risk appetites.</p>
+<div class="slate-card-grid" data-cols="3">
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">rocket_launch</span>
+    <h3 class="slate-card__title">A · Godot-first (FOSS)</h3>
+    <p class="slate-card__body"><strong>Godot 4 (C#)</strong> + Aseprite + LDtk/Tiled + Yarn Spinner + SQLite→JSON pipeline + Godot audio (FMOD later) + Git LFS + GitHub Actions; console via W4/porting house. <em>Lowest cost, maximum control, best 2D. Console is the one paid dependency.</em> <span class="slate-badge slate-badge--success">Recommended</span></p>
+  </article>
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">code</span>
+    <h3 class="slate-card__title">B · MonoGame (code-first)</h3>
+    <p class="slate-card__body"><strong>MonoGame (C#)</strong> + Aseprite + Tiled + Ink/Yarn + SQLite + custom engine layer; console via registered dev + NDA SDKs. <em>The Stardew/Celeste path: total control and stability, but we build the editor and tooling ourselves.</em></p>
+  </article>
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">verified</span>
+    <h3 class="slate-card__title">C · Unity (turnkey console)</h3>
+    <p class="slate-card__body"><strong>Unity 6 (C#)</strong> + Aseprite + Tiled + Yarn Spinner + ScriptableObjects/SQLite + official console pipelines. <em>Fastest, most certain console route and biggest ecosystem - at the cost of licensing spend and vendor-trust risk.</em></p>
+  </article>
+</div>
+
+<h2>Proposed stack</h2>
+<p>Subject to POC validation, the recommendation is <strong>Stack A - Godot-first</strong>: it best matches a
+   cozy, 2D, data-driven, budget-conscious passion project, and keeps us free of royalties and vendor lock-in.
+   Concretely:</p>
+<table>
+  <thead><tr><th>Layer</th><th>Proposed choice</th><th>Cost</th></tr></thead>
+  <tbody>
+    <tr><td>Engine</td><td><strong>Godot 4</strong> (C# primary; GDScript for glue)</td><td><span class="slate-badge slate-badge--success">Free</span></td></tr>
+    <tr><td>Pixel art &amp; animation</td><td>Aseprite (+ Krita for concept)</td><td><span class="slate-badge slate-badge--warning">~US$20</span></td></tr>
+    <tr><td>Levels / tilemaps</td><td>LDtk or Godot TileMap (evaluate in POC)</td><td><span class="slate-badge slate-badge--success">Free</span></td></tr>
+    <tr><td>Dialogue &amp; quests</td><td>Yarn Spinner (runtime) + custom quest layer</td><td><span class="slate-badge slate-badge--success">Free</span></td></tr>
+    <tr><td>Audio</td><td>Godot audio first; FMOD if adaptive needs grow</td><td><span class="slate-badge slate-badge--success">Free</span> → maybe paid</td></tr>
+    <tr><td>Content pipeline</td><td>SQLite source of truth → validated JSON/binary; custom authoring tool</td><td><span class="slate-badge slate-badge--success">Free</span> + build</td></tr>
+    <tr><td>Localization</td><td>Godot i18n + self-hosted Weblate</td><td><span class="slate-badge slate-badge--success">Free</span></td></tr>
+    <tr><td>Source, CI, builds</td><td>Git + Git LFS, GitHub Actions</td><td><span class="slate-badge slate-badge--success">Free</span></td></tr>
+    <tr><td>Console</td><td>W4 Games / porting partner, engaged late</td><td><span class="slate-badge slate-badge--danger">Paid</span></td></tr>
+    <tr><td>Custom font</td><td>FontForge (Meetei-Mayek-inspired face)</td><td><span class="slate-badge slate-badge--success">Free</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Cost summary</h2>
+<p>The stack is <strong>overwhelmingly free</strong>. Real spend clusters in a few places:</p>
+<div class="slate-card-grid" data-cols="3">
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">payments</span>
+    <h3 class="slate-card__title">Console porting</h3>
+    <p class="slate-card__body">The dominant cost. Godot's W4 Consoles runs ~US$2,000/yr (studios under US$300k revenue) up to ~US$10,000/yr above; GameMaker's Enterprise console tier is ~US$960/yr. Engaged only when a vertical slice is proven.</p>
+  </article>
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">graphic_eq</span>
+    <h3 class="slate-card__title">Audio middleware (optional)</h3>
+    <p class="slate-card__body">FMOD is free under indie thresholds; only becomes a cost if the game's revenue/budget crosses them or we need deep adaptive audio.</p>
+  </article>
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">sell</span>
+    <h3 class="slate-card__title">Small one-offs &amp; fees</h3>
+    <p class="slate-card__body">Aseprite (~US$20), platform dev-account/store fees, optional SaaS localization. All minor next to time.</p>
+  </article>
+</div>
+<div class="slate-callout slate-callout--info" role="note">
+  <p class="slate-callout__title">The real budget is time, not licenses</p>
+  <p>With a FOSS-first stack, money is a rounding error next to the engineering and content effort. That is
+     exactly what we want for a passion project: spend people, not licenses - and keep optionality by avoiding
+     royalty and lock-in traps.</p>
+</div>
+
+<h2>Next steps - POCs that would settle this</h2>
+<ol class="slate-steps">
+  <li class="slate-step"><p class="slate-step__title">Isometric render + day/night POC</p><p>Build the same small scene in <strong>Godot</strong> (and optionally MonoGame) to test the pixel pipeline, Y-sort, and a lighting cycle.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Data pipeline slice</p><p>Take a handful of real facts from SQLite → validated JSON → in-engine content, to prove the spine end-to-end.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Dialogue + input-abstraction slice</p><p>Wire Yarn Spinner through one conversation, driven by touch, gamepad, and keyboard, to de-risk cross-platform input.</p></li>
+  <li class="slate-step"><p class="slate-step__title">Console feasibility check</p><p>Confirm current W4/porting terms and requirements before treating Godot's console path as settled.</p></li>
+</ol>
+
+<h2 id="sources">Sources</h2>
+<p>Pricing, adoption data, and community sentiment on this page were gathered from the following (mid-2026).
+   Vendor pricing pages are authoritative; re-verify before purchase.</p>
+<ul>
+  <li><strong>Godot console support</strong> - <a href="https://godotengine.org/consoles/" target="_blank" rel="noopener">godotengine.org/consoles</a> and the <a href="https://docs.godotengine.org/en/stable/tutorials/platform/consoles.html" target="_blank" rel="noopener">console docs</a> (needs approved dev + official SDKs, or licensed middleware).</li>
+  <li><strong>W4 Consoles (Godot porting) pricing</strong> - <a href="https://www.w4games.com/w4consoles" target="_blank" rel="noopener">w4games.com/w4consoles</a>; templates for Switch, Xbox Series X|S, PS5; ~US$2,000/yr under $300k revenue, ~US$10,000/yr above.</li>
+  <li><strong>GameMaker pricing</strong> - <a href="https://gamemaker.io/en/get" target="_blank" rel="noopener">gamemaker.io/get</a> and the <a href="https://gamemaker.io/en/blog" target="_blank" rel="noopener">Nov 2023 pricing FAQ</a>: Free / Professional US$99.99 one-time / Enterprise US$79.99-mo (~US$960/yr) for console.</li>
+  <li><strong>Unity pricing</strong> - <a href="https://unity.com/products/pricing-updates" target="_blank" rel="noopener">unity.com pricing updates</a> and <a href="https://www.theregister.com/2024/09/12/unity_scraps_runtime_fee_hikes_subscriptions_instead/" target="_blank" rel="noopener">The Register (Sep 2024)</a>: Personal free under $200k; Pro US$2,200/seat/yr; Runtime Fee cancelled.</li>
+  <li><strong>FMOD licensing</strong> - <a href="https://www.fmod.com/licensing" target="_blank" rel="noopener">fmod.com/licensing</a>: Free Indie under US$200k revenue and US$600k budget.</li>
+  <li><strong>Wwise pricing</strong> - <a href="https://www.audiokinetic.com/wwise/pricing" target="_blank" rel="noopener">audiokinetic.com/wwise/pricing</a> (free tier / ~500-sound limit; indie tier).</li>
+  <li><strong>Adoption &amp; community data</strong> - <a href="https://ziva.sh/blogs/godot-vs-gamemaker" target="_blank" rel="noopener">Godot vs GameMaker (data-backed, 2026)</a>, GameDiscoverCo engine-share data, and GMTK Game Jam 2025 statistics; plus r/gamedev, r/godot, and Steam engine discussions for developer sentiment.</li>
+</ul>
+
+<h2>Related</h2>
+<div class="slate-card-grid" data-cols="3">
+  <article class="slate-card slate-card--interactive">
+    <a href="cross-platform-strategy.html">
+      <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">devices</span>
+      <h3 class="slate-card__title">Cross-Platform Strategy</h3>
+      <p class="slate-card__body">The input, scaling, save, and parity commitments this stack must satisfy.</p>
+    </a>
+  </article>
+  <article class="slate-card slate-card--interactive">
+    <a href="README.html">
+      <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">memory</span>
+      <h3 class="slate-card__title">Technical Design</h3>
+      <p class="slate-card__body">The domain this research anchors - architecture, pipeline, and tooling.</p>
+    </a>
+  </article>
+  <article class="slate-card slate-card--interactive">
+    <a href="../methodology.html">
+      <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">school</span>
+      <h3 class="slate-card__title">How We Work</h3>
+      <p class="slate-card__body">Why the engine stays open until POCs decide it - the decision &amp; dependency tracker.</p>
+    </a>
+  </article>
+</div>
+
+<p><a href="README.html">← Back to Technical Design</a></p>

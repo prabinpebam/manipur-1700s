@@ -26,6 +26,7 @@
     { "path": "40-art-audio/font-design.html", "title": "Font Design", "order": 53, "group": "Documentation Domains", "icon": "font_download", "status": "stub", "updated": "2026-07-02" },
     { "path": "50-technical/README.html", "title": "50 · Technical Design", "order": 60, "group": "Documentation Domains", "icon": "memory", "status": "stub", "updated": "2026-07-02" },
     { "path": "50-technical/cross-platform-strategy.html", "title": "Cross-Platform Strategy", "order": 61, "group": "Documentation Domains", "icon": "devices", "status": "stub", "updated": "2026-07-02" },
+    { "path": "50-technical/tech-stack.html", "title": "Tech Stack Research", "order": 62, "group": "Documentation Domains", "icon": "memory", "status": "draft", "updated": "2026-07-04" },
     { "path": "60-production/README.html", "title": "60 · Production & Roadmap", "order": 70, "group": "Documentation Domains", "icon": "timeline", "status": "stub", "updated": "2026-07-02" },
     { "path": "70-cultural-integrity/README.html", "title": "70 · Cultural Integrity", "order": 80, "group": "Documentation Domains", "icon": "diversity_3", "status": "stub", "updated": "2026-07-02" }
   ]
