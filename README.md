@@ -37,10 +37,11 @@ manipuri-life/
    ├─ 40-art-audio/           # visual & audio direction, art style, font design
    ├─ 50-technical/           # engine, architecture, content pipeline
    ├─ 60-production/          # roadmap, team, risks
-   └─ 70-cultural-integrity/  # advisory board, sensitivity, community
+   ├─ 70-cultural-integrity/  # advisory board, sensitivity, community
+   └─ 80-game-development-field-guide/ # lessons, principles, quotes, and technical tips
 ```
 
-The nine numbered folders are the **documentation domains**. Each has an overview (`README.html`) that
+The ten numbered folders are the **documentation domains**. Each has an overview (`README.html`) that
 lists and tracks the detail documents still to be written - this is how we "slowly detail out every
 aspect." Add new pages into the relevant folder and register them in `docs/docs-manifest.json`.
 
@@ -62,6 +63,7 @@ The pitch and method are settled; the domain docs are being detailed out from th
 | 50 · Technical | `README`, `cross-platform-strategy` | stub |
 | 60 · Production | `README` | stub |
 | 70 · Cultural Integrity | `README` | stub |
+| 80 · Game Development Field Guide | `README`, `marketing` | draft |
 
 The first concept art is in: an exploratory **cover-art** piece and a set of **cozy isometric pixel-art**
 look-development renders (the Kangla gatehouse across a morning/noon/night lighting cycle, a village

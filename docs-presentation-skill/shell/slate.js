@@ -576,9 +576,11 @@
   }
   function renderNav() {
     const nav = $('.nav-tree'); nav.innerHTML = ''; const tree = state.fileTree;
+    const savedFolderState = loadNavFolderState();
     const rootFiles = [...tree.files].sort((a, b) => { if (a.filename.toLowerCase() === 'readme.md') return -1; if (b.filename.toLowerCase() === 'readme.md') return 1; return (a.order ?? Infinity) - (b.order ?? Infinity) || a.title.localeCompare(b.title); });
     rootFiles.forEach(f => nav.appendChild(makeNavItem(f)));
-    [...tree.children.entries()].sort((a, b) => folderMinOrder(a[1]) - folderMinOrder(b[1]) || a[0].localeCompare(b[0])).forEach(([n, f]) => nav.appendChild(makeNavFolder(n, f)));
+    [...tree.children.entries()].sort((a, b) => folderMinOrder(a[1]) - folderMinOrder(b[1]) || a[0].localeCompare(b[0])).forEach(([n, f]) => nav.appendChild(makeNavFolder(n, f, n, savedFolderState)));
+    persistNavFolderState();
   }
   function makeNavItem(file) {
     const a = document.createElement('a');
@@ -590,17 +592,41 @@
     a.addEventListener('click', (e) => { if (modClick(e)) return; e.preventDefault(); navigateTo(file.path); });
     return a;
   }
-  function makeNavFolder(name, folder) {
-    const group = document.createElement('div'); group.className = 'nav-folder expanded';
-    const header = document.createElement('button'); header.className = 'nav-folder-header';
+  const NAV_FOLDER_STATE_KEY = 'slate-nav-folder-state-v1';
+  function loadNavFolderState() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(NAV_FOLDER_STATE_KEY) || '{}');
+      return saved && typeof saved === 'object' && !Array.isArray(saved) ? saved : {};
+    } catch (_) { return {}; }
+  }
+  function persistNavFolderState() {
+    const folderState = {};
+    $$('.nav-folder').forEach(folder => { folderState[folder.dataset.folderPath] = folder.classList.contains('expanded'); });
+    try { localStorage.setItem(NAV_FOLDER_STATE_KEY, JSON.stringify(folderState)); } catch (_) {}
+  }
+  function makeNavFolder(name, folder, folderPath, savedFolderState) {
+    const expanded = savedFolderState[folderPath] === true;
+    const group = document.createElement('div'); group.className = 'nav-folder'; group.dataset.folderPath = folderPath;
+    group.classList.toggle('expanded', expanded);
+    const header = document.createElement('button'); header.className = 'nav-folder-header'; header.type = 'button'; header.setAttribute('aria-expanded', String(expanded));
     header.innerHTML = `<span class="material-symbols-outlined nav-chevron" aria-hidden="true">chevron_right</span><span class="material-symbols-outlined nav-folder-icon" aria-hidden="true">folder</span><span class="nav-folder-text">${esc(humanize(name))}</span>`;
-    header.addEventListener('click', () => group.classList.toggle('expanded'));
+    header.addEventListener('click', () => {
+      const nextExpanded = !group.classList.contains('expanded');
+      group.classList.toggle('expanded', nextExpanded); header.setAttribute('aria-expanded', String(nextExpanded));
+      persistNavFolderState();
+    });
     const content = document.createElement('div'); content.className = 'nav-folder-content';
     [...folder.files].sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity) || a.title.localeCompare(b.title)).forEach(f => content.appendChild(makeNavItem(f)));
-    [...folder.children.entries()].sort((a, b) => folderMinOrder(a[1]) - folderMinOrder(b[1]) || a[0].localeCompare(b[0])).forEach(([n, f]) => content.appendChild(makeNavFolder(n, f)));
+    [...folder.children.entries()].sort((a, b) => folderMinOrder(a[1]) - folderMinOrder(b[1]) || a[0].localeCompare(b[0])).forEach(([n, f]) => content.appendChild(makeNavFolder(n, f, folderPath + '/' + n, savedFolderState)));
     group.appendChild(header); group.appendChild(content); return group;
   }
-  function setAllFolders(expanded) { $$('.nav-folder').forEach(f => f.classList.toggle('expanded', expanded)); }
+  function setAllFolders(expanded) {
+    $$('.nav-folder').forEach(folder => {
+      folder.classList.toggle('expanded', expanded);
+      const header = folder.querySelector(':scope > .nav-folder-header'); if (header) header.setAttribute('aria-expanded', String(expanded));
+    });
+    persistNavFolderState();
+  }
 
   /* ==========================================================
      STATUS + LAST-UPDATED METADATA

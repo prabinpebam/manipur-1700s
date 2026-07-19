@@ -35,6 +35,8 @@
     { "path": "50-technical/agentic-development.html", "title": "Agentic Development", "order": 63, "group": "Documentation Domains", "icon": "smart_toy", "status": "draft", "updated": "2026-07-04" },
     { "path": "50-technical/poc-plan.html", "title": "POC Plan", "order": 64, "group": "Documentation Domains", "icon": "science", "status": "draft", "updated": "2026-07-04" },
     { "path": "60-production/README.html", "title": "60 · Production & Roadmap", "order": 70, "group": "Documentation Domains", "icon": "timeline", "status": "stub", "updated": "2026-07-02" },
-    { "path": "70-cultural-integrity/README.html", "title": "70 · Cultural Integrity", "order": 80, "group": "Documentation Domains", "icon": "diversity_3", "status": "stub", "updated": "2026-07-02" }
+    { "path": "70-cultural-integrity/README.html", "title": "70 · Cultural Integrity", "order": 80, "group": "Documentation Domains", "icon": "diversity_3", "status": "stub", "updated": "2026-07-02" },
+    { "path": "80-game-development-field-guide/README.html", "title": "80 · Game Development Field Guide", "order": 90, "group": "Documentation Domains", "icon": "school", "status": "draft", "updated": "2026-07-19" },
+    { "path": "80-game-development-field-guide/marketing.html", "title": "Do Not Ignore Marketing", "order": 91, "group": "Documentation Domains", "icon": "campaign", "status": "draft", "updated": "2026-07-19" }
   ]
 }

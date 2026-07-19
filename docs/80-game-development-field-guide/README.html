@@ -1,0 +1,253 @@
+<header class="slate-hero">
+  <p class="slate-hero__eyebrow">Domain 80 · Learning Notes</p>
+  <h1 class="slate-hero__title">Game Development Field Guide</h1>
+   <p class="slate-hero__summary">If you are new to game development, spend some time here: build the right
+       mindset, understand why the work is worth doing, and benefit from lessons the community has already learned.</p>
+</header>
+
+<aside class="slate-tldr">
+  <p class="slate-tldr__label">TL;DR</p>
+  <p>This is a working field guide for the maker of Manipuri Life, future contributors, and anyone learning
+       game development. Its purpose is to develop <strong>sound judgment</strong> across the many parts of
+       making a game, keep <strong>time, effort, and resources tied to a clear reason</strong>, and avoid
+       repeating preventable mistakes by learning from what experienced developers and the wider game
+       development community have already shared.</p>
+</aside>
+
+<h2>Why this guide exists</h2>
+<p>Game development involves thousands of decisions across design, art, audio, engineering, production,
+    testing, marketing, and collaboration. Knowing a technique is useful; knowing <em>how to think about the
+    decision</em>, <em>why it matters</em>, and <em>whether it deserves investment</em> is more durable. This
+    guide collects ideas that improve that judgment.</p>
+
+<dl class="slate-defs">
+   <dt>Develop the right mindset</dt>
+   <dd>Learn useful ways to reason about players, quality, iteration, scope, trade-offs, uncertainty, and the
+         different disciplines involved in making a game. The goal is not a list of rigid rules, but better
+         questions and clearer judgment in unfamiliar situations.</dd>
+   <dt>Be clear about the investment</dt>
+   <dd>Before spending time, effort, money, or attention, understand what outcome the work is meant to create,
+         what uncertainty it reduces, and how it contributes to the player's experience or the project's
+         ability to ship. Activity by itself is not progress.</dd>
+   <dt>Learn before repeating mistakes</dt>
+   <dd>Game developers, researchers, critics, and communities have already shared decades of successes,
+         failures, patterns, and practical advice. Use that accumulated experience as a starting advantage:
+         study what others learned, understand the context, and avoid paying again for lessons already available.</dd>
+</dl>
+
+<h2>Treat it as a multi-year commitment</h2>
+<p>Even a small commercial game commonly takes <strong>years, not months</strong>, to design, build, revise,
+    test, finish, release, and support. A useful early planning assumption is <strong>one to five years</strong>,
+    depending on scope, experience, team size, working hours, tools, funding, and the quality bar. It is not a
+    rule: a deliberately tiny game may be faster, while ambitious art, deep systems, platform support, or
+    repeated redesign can push development far beyond five years.</p>
+
+<div class="slate-callout slate-callout--warning" role="note">
+   <p class="slate-callout__title">This is not a fun little excursion</p>
+   <p>Making a serious game cannot rest on a passing fancy. The early excitement of a new idea is brief; the
+       work that follows includes years of repetition, uncertainty, discarded work, debugging, testing,
+       prioritization, and finishing details that are rarely glamorous. Get the motivation right before making
+       the commitment. Curiosity is enough reason to build a weekend prototype; it is not, by itself, a plan
+       for sustaining a production.</p>
+</div>
+
+<h3>What successful indie timelines actually look like</h3>
+<p>These are calendar timelines, not directly comparable measures of effort: a solo developer, a small
+    experienced studio, and a team that grows during production spend very different numbers of person-hours.
+    They are also successful survivors, not evidence that spending years guarantees success. Their value is
+    simpler: they make the scale of the commitment difficult to dismiss.</p>
+
+<table>
+   <thead>
+      <tr><th>Game</th><th>Time to initial full release</th><th>Context</th><th>Source</th></tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Celeste</strong></td>
+         <td>About 2.5 years</td>
+         <td>From the August 2015 game-jam prototype to the January 2018 commercial release; a small team grew
+               around the original two creators.</td>
+         <td><a href="https://www.nintendolife.com/news/2018/01/feature_conquering_the_indie_mountain_with_celeste_creator_matt_makes_games" target="_blank" rel="noopener">Developer interview</a></td>
+      </tr>
+      <tr>
+         <td><strong>Hades</strong></td>
+         <td>A little over 3 years</td>
+         <td>Built by an established small studio; development began after <em>Pyre</em> in 2017 and included
+               nearly two years of Early Access before version 1.0.</td>
+         <td><a href="https://www.supergiantgames.com/blog/hades-faq/" target="_blank" rel="noopener">Supergiant Games FAQ</a></td>
+      </tr>
+      <tr>
+         <td><strong>Stardew Valley</strong></td>
+         <td>4 years</td>
+         <td>Eric Barone worked solo across programming, design, art, music, and other disciplines while teaching
+               himself the skills needed to make the game.</td>
+         <td><a href="https://www.stardewvalley.net/press/" target="_blank" rel="noopener">Official press kit</a></td>
+      </tr>
+      <tr>
+         <td><strong>Factorio</strong></td>
+         <td>8.5 years</td>
+         <td>An outlier that grew from a three-person company into a larger team and spent years in public
+               development before version 1.0.</td>
+         <td><a href="https://factorio.com/blog/post/fff-360" target="_blank" rel="noopener">Wube Software retrospective</a></td>
+      </tr>
+   </tbody>
+</table>
+
+<h3>Ask before you commit</h3>
+<dl class="slate-defs">
+   <dt>Why must this game exist?</dt>
+   <dd>State the personal, creative, cultural, commercial, or technical reason clearly. A durable motivation
+         must survive after novelty fades and other people are not yet paying attention.</dd>
+   <dt>What does success mean?</dt>
+   <dd>Decide whether success means learning, finishing, reaching a particular audience, earning revenue,
+         advancing a craft, or creating a specific player experience. Different answers justify very different
+         investments.</dd>
+   <dt>What am I genuinely willing to invest?</dt>
+   <dd>Estimate sustainable hours per week, a realistic number of years, money at risk, skills to learn, and
+         responsibilities that cannot be sacrificed. A plan that requires permanent overwork is not a plan.</dd>
+   <dt>Will the motivation survive the ordinary work?</dt>
+   <dd>Imagine the hundredth playtest, a difficult rewrite, months without visible progress, and the final
+         accessibility, localization, platform, store, and support tasks. Be willing to do the work of making
+         the game, not only enjoy the identity of being someone who is making one.</dd>
+</dl>
+
+<div class="slate-callout slate-callout--tip" role="note">
+   <p class="slate-callout__title">Commit in stages, not in fantasy</p>
+   <p>Taking the commitment seriously does not mean promising five years on day one. First commit to research,
+       then to a focused proof of concept, then to a playable core, and only then to production. At each stage,
+       use evidence to decide whether the game deserves the next investment. A clear decision to stop, reduce
+       scope, or begin again can be a successful outcome.</p>
+</div>
+
+<div class="slate-callout slate-callout--info" role="note">
+  <p class="slate-callout__title"><span class="slate-badge slate-badge--info">Living document</span> Start useful, organize as it grows</p>
+  <p>These notes are intentionally collected on one page while the body of knowledge is small. As clear
+     themes emerge, sections can graduate into focused pages for design, production, technical practice,
+     art, audio, testing, and other disciplines.</p>
+</div>
+
+<h2>Dedicated guides</h2>
+<div class="slate-card-grid" data-cols="2">
+   <article class="slate-card slate-card--interactive"><a href="marketing.html"><span class="slate-card__icon material-symbols-outlined" aria-hidden="true">campaign</span><h3 class="slate-card__title">Do Not Ignore Marketing</h3><p class="slate-card__body">How to think about discovery without pretending marketing can replace quality: sourced indie case studies, low-budget methods, production timing, guardrails, and a strategy backlog.</p><p><span class="slate-badge slate-badge--info">Drafting</span></p></a></article>
+</div>
+
+<h2>Ideas worth carrying</h2>
+<p>Short statements can make a principle easier to remember, but brevity should not flatten the idea. Each
+   entry records both the line and the practical lesson we want to carry into development.</p>
+
+<div class="slate-card-grid" data-cols="2">
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">account_tree</span>
+    <h3 class="slate-card__title">“A game is a series of interesting decisions.”</h3>
+    <p class="slate-card__body">Commonly attributed to Sid Meier. The useful test is not merely whether the
+       player can choose, but whether the options are understandable, meaningfully different, and capable
+       of changing what happens next.</p>
+  </article>
+  <article class="slate-card">
+    <span class="slate-card__icon material-symbols-outlined" aria-hidden="true">reviews</span>
+    <h3 class="slate-card__title">Players judge the result, not the effort</h3>
+    <p class="slate-card__body">No one experiences how long a feature took to make; they experience whether
+       it is good. Effort can explain cost and guide production decisions, but it cannot substitute for
+       quality in the player's hands.</p>
+  </article>
+</div>
+
+<h2>Appeal gets the first chance; engagement earns the next</h2>
+<p>A good game needs both. They answer different questions at different points in the player's journey, so
+   success in one cannot be used as evidence that the other is working.</p>
+
+<dl class="slate-defs">
+  <dt>Appeal · Will someone give it a chance?</dt>
+  <dd>Appeal is the top of the funnel: will someone notice the game, look closer, download it, or try it?
+      It may come from the premise, visual identity, setting, a distinctive mechanic, a compelling moment
+      in a trailer, or the way other players describe it.</dd>
+  <dt>Engagement · Will someone want to continue?</dt>
+  <dd>Engagement begins once play starts: are the actions, decisions, feedback, goals, pacing, and discoveries
+      strong enough to hold attention? The promise that created appeal now has to be fulfilled through play.</dd>
+</dl>
+
+<div class="slate-callout slate-callout--warning" role="note">
+  <p class="slate-callout__title">Do not confuse the two</p>
+  <p>A marketable hook can earn a first session and still lead to a dull game. A deeply engaging system can
+     remain undiscovered if nothing makes people curious enough to try it. Diagnose the stage where interest
+     is being lost before deciding what to improve.</p>
+</div>
+
+<h2>The whole is made from moments</h2>
+<p>The overall game must be good, but every element that makes it up should also be enjoyable and convincing
+   in its own right. A strong genre loop cannot excuse interactions that feel weak every time the player
+   touches them.</p>
+
+<div class="slate-callout slate-callout--tip" role="note">
+  <p class="slate-callout__title">The sword-swing test</p>
+  <p>Imagine a survival-crafting game with a particular sword. Set the crafting tree and survival strategy
+     aside for a moment. When the player swings that sword, does the timing feel responsive? Does the motion
+     communicate weight? Does the sound make contact satisfying? The sword is part of a larger system, but
+     swinging it is also a repeated experience of its own. It has to feel good at that scale.</p>
+</div>
+
+<p>Apply the same test to walking, selecting an item, opening a menu, placing an object, harvesting a crop,
+   starting a conversation, and hearing a reward. Not every action needs spectacle, but every repeated action
+   should support the feeling the game intends to create.</p>
+
+<h2>Make proofs of concept</h2>
+<p>A proof of concept exists to answer a specific uncertain question cheaply: can the movement feel right,
+   can this art pipeline work, can the world stream reliably, or is the core activity enjoyable? Build the
+   smallest experiment that can produce useful evidence.</p>
+
+<ol class="slate-steps">
+  <li class="slate-step">
+    <p class="slate-step__title">Name the question</p>
+    <p>Write down what uncertainty the POC is meant to reduce and what result would count as useful evidence.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Build only enough to learn</p>
+    <p>Do not quietly turn the experiment into a miniature production codebase. Optimize for speed of
+       learning, not completeness or permanence.</p>
+  </li>
+  <li class="slate-step">
+    <p class="slate-step__title">Keep the right to throw it away</p>
+    <p>A POC is disposable by design. Preserve the lesson, not necessarily the implementation. Starting the
+       production version again may be the correct outcome.</p>
+  </li>
+</ol>
+
+<h2>Be careful with “just good enough”</h2>
+<p>Shipping requires compromise, and not every detail deserves unlimited time. The danger is
+   <strong>passive acceptance</strong>: feeling that something is wrong, knowing why it matters, but ceasing
+   to push because fixing it will be difficult.</p>
+
+<div class="slate-compare">
+   <div class="slate-compare__col">
+      <p class="slate-compare__head">Conscious trade-off</p>
+    <p>State the shortcoming, understand its player impact, compare it with higher priorities, record the
+       decision, and choose deliberately whether to fix, defer, redesign, or cut it.</p>
+  </div>
+   <div class="slate-compare__col">
+      <p class="slate-compare__head">Passive acceptance</p>
+    <p>Call it good enough because pushback is tiring, leave the concern vague, and let the next system build
+       on top of a weak foundation. Repeated compromises of this kind compound until the whole is no longer
+       worth what it cost to make.</p>
+  </div>
+</div>
+
+<p>“Good enough” is healthy when it is a deliberate quality bar matched to the importance of the work. It is
+   harmful when it is a euphemism for giving up on a problem that still threatens the experience.</p>
+
+<h2>How this guide will grow</h2>
+<p>New notes can be added in whatever order they are discovered, then organized around the kind of decision
+   they help make. Likely areas include:</p>
+
+<div class="slate-card-grid" data-cols="3">
+  <article class="slate-card"><span class="slate-card__icon material-symbols-outlined" aria-hidden="true">stadia_controller</span><h3 class="slate-card__title">Design craft</h3><p class="slate-card__body">Decisions, mechanics, feedback, game feel, progression, balance, and player motivation.</p></article>
+  <article class="slate-card"><span class="slate-card__icon material-symbols-outlined" aria-hidden="true">construction</span><h3 class="slate-card__title">Making the game</h3><p class="slate-card__body">Prototypes, scope, iteration, playtesting, prioritization, collaboration, and finishing.</p></article>
+  <article class="slate-card"><span class="slate-card__icon material-symbols-outlined" aria-hidden="true">terminal</span><h3 class="slate-card__title">Technical practice</h3><p class="slate-card__body">Architecture, tools, debugging, performance, source control, build pipelines, and platform-specific tips.</p></article>
+</div>
+
+<div class="slate-callout slate-callout--note" role="note">
+  <p class="slate-callout__title">A note about quotations</p>
+  <p>Record exact wording and a primary source when available. Until a source has been verified, label a line
+     as commonly attributed or present it as a project principle rather than assigning uncertain authorship.</p>
+</div>
+
+<p><a href="../backlog.html">← Back to the Documentation Backlog</a></p>
